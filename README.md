@@ -1,16 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# **fuimus** <a href="https://andrewallenbruce.github.io/fuimus/"><img src="man/figures/logo.png" alt="fuimus website" align="right" height="250"/></a>
+# **fuimus** <a href="https://andrewallenbruce.github.io/fuimus/"><img src="man/figures/logo.png" alt="fuimus website" align="right" height="200"/></a>
 
 > /ˈfu.i.mus/, \[ˈfuɪmʊs̠\]
 >
-> Literally, *“we have been”* in Latin. Often interpreted as *“We have
-> endured”* or *“We have always been”*, proclaiming the long history of
-> the user.
+> Literally, ***‘we have been’*** in Latin. Often interpreted as ***‘we
+> have endured’*** or ***‘we have always been’***, proclaiming the long
+> history of the user.
 >
-> Can often be seen as a family motto (e.g., the Lowlands Scottish [Clan
-> Bruce](https://en.wikipedia.org/wiki/Clan_Bruce)).
+> The family motto of the Lowlands Scottish Clan
+> [Bruce](https://en.wikipedia.org/wiki/Clan_Bruce)).
 
 <!-- badges: start -->
 

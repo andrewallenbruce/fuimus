@@ -1,10 +1,13 @@
 Package: fuimus
-Title: What the Package Does (One Line, Title Case)
+Title: Functions That Have Been
 Version: 0.0.0.9000
 Authors@R: 
     person("Andrew", "Bruce", , "andrew.bruce@northstarrevenueintegrity.com", role = c("aut", "cre", "cph"))
 Maintainer: Andrew Bruce <andrew.bruce@northstarrevenueintegrity.com>
-Description: What the package does (one paragraph).
+Description: A collection of functions that have been useful to the author in his work. 
+    The package is intended to be a personal package, but is made available to the public 
+    in the hope that it may be useful to others. The package is named after the motto of 
+    the Scottish Bruce clan.
 License: MIT + file LICENSE
 URL: https://andrewallenbruce.github.io/fuimus/,
     https://github.com/andrewallenbruce/fuimus
@@ -12,19 +15,20 @@ BugReports: https://github.com/andrewallenbruce/fuimus/issues
 Depends: 
     R (>= 4.1.0)
 Imports:
+    clock,
+    collapse,
     dplyr,
     fs,
     purrr,
+    rlang,
     stringr,
     styler,
     tidyr,
-    vctrs,
-    rlang,
-    collapse
+    vctrs
 Suggests: 
-    prettycode,
-    gt,
     fontawesome,
+    gt,
+    prettycode,
     roxyglobals,
     testthat (>= 3.0.0)
 Config/roxyglobals/filename: generated-globals.R

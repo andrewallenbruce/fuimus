@@ -14,6 +14,6 @@ na_blank <- function(x) {
 
   y <- c("", " ", "*", "--", "N/A")
 
-  x <- dplyr::na_if(x, y)
+  dplyr::na_if(x, y)
 
 }
