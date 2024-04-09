@@ -25,6 +25,9 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/clean_number.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/count_days.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/count_missing.html</loc>
   </url>
   <url>
@@ -68,6 +71,9 @@
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/search_in.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/search_in_if.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/single_line_string.html</loc>
