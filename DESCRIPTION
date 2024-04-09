@@ -6,16 +6,19 @@ Authors@R:
 Maintainer: Andrew Bruce <andrew.bruce@northstarrevenueintegrity.com>
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
+URL: https://andrewallenbruce.github.io/fuimus/,
+    https://github.com/andrewallenbruce/fuimus
+BugReports: https://github.com/andrewallenbruce/fuimus/issues
 Depends: 
     R (>= 4.1.0)
 Imports:
     dplyr,
+    fs,
     purrr,
     stringr,
-    vctrs,
-    fs,
+    styler,
     tidyr,
-    styler
+    vctrs
 Suggests: 
     roxyglobals,
     testthat (>= 3.0.0)
