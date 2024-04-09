@@ -1,0 +1,28 @@
+Package: fuimus
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Andrew", "Bruce", , "andrew.bruce@northstarrevenueintegrity.com", role = c("aut", "cre", "cph"))
+Maintainer: Andrew Bruce <andrew.bruce@northstarrevenueintegrity.com>
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Depends: 
+    R (>= 4.1.0)
+Imports:
+    dplyr,
+    purrr,
+    stringr,
+    vctrs,
+    fs,
+    tidyr,
+    styler
+Suggests: 
+    roxyglobals,
+    testthat (>= 3.0.0)
+Config/roxyglobals/filename: generated-globals.R
+Config/roxyglobals/unique: TRUE
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
+    "roxyglobals::global_roclet"))
+RoxygenNote: 7.3.1
