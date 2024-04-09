@@ -1,6 +1,13 @@
+#' Regular expression for matching month names
+#'
+#' @returns `<chr>` string  of a regex for matching month names
+#'
+#' @examples
+#' months_regex()
+#'
 #' @autoglobal
 #'
-#' @noRd
+#' @export
 months_regex <- function() {
   single_line_string(
     "(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|

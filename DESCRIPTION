@@ -20,6 +20,7 @@ Imports:
     tidyr,
     vctrs
 Suggests: 
+    prettycode,
     roxyglobals,
     testthat (>= 3.0.0)
 Config/roxyglobals/filename: generated-globals.R
