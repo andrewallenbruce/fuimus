@@ -18,9 +18,13 @@ Imports:
     stringr,
     styler,
     tidyr,
-    vctrs
+    vctrs,
+    rlang,
+    collapse
 Suggests: 
     prettycode,
+    gt,
+    fontawesome,
     roxyglobals,
     testthat (>= 3.0.0)
 Config/roxyglobals/filename: generated-globals.R

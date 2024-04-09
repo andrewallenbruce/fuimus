@@ -27,6 +27,7 @@
 #' style    = TRUE)
 #'
 #' @autoglobal
+#'
 #' @export
 rename_seq <- function(n,
                        new,
