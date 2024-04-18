@@ -30,6 +30,7 @@ Imports:
     vctrs
 Suggests: 
     fontawesome,
+    ggplot2,
     gt,
     prettycode,
     roxyglobals,

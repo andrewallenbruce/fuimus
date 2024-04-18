@@ -30,6 +30,7 @@ utils::globalVariables(c(
   # <dar_month>
   "month",
   # <count_prop>
+  # <count_prop_multi>
   # <count_wide>
   "n",
   # <dar_month>
