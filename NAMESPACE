@@ -2,6 +2,7 @@
 
 export("%nin%")
 export("%nn%")
+export(age_days)
 export(clean_number)
 export(count_days)
 export(count_missing)
