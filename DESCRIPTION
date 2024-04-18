@@ -20,6 +20,8 @@ Imports:
     collapse,
     dplyr,
     fs,
+    janitor,
+    lubridate,
     purrr,
     rlang,
     stringr,
@@ -29,7 +31,6 @@ Imports:
 Suggests: 
     fontawesome,
     gt,
-    lubridate,
     prettycode,
     roxyglobals,
     testthat (>= 3.0.0)

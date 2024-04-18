@@ -4,8 +4,47 @@ utils::globalVariables(c(
   # <age_days>
   # <count_days>
   ":=",
+  # <dar_month>
+  # <dar_quarter>
+  "actual",
+  # <dar_month>
+  # <dar_quarter>
+  "adc",
+  # <dar_month>
+  # <dar_quarter>
+  "dar",
+  # <dar_month>
+  # <dar_quarter>
+  "earb_dc",
+  # <dar_month>
+  # <dar_quarter>
+  "earb_pct",
+  # <dar_month>
+  # <dar_quarter>
+  "earb_trg",
+  # <dar_quarter>
+  "gct_qtr",
+  # <dar_month>
+  # <dar_quarter>
+  "ideal",
+  # <dar_month>
+  "month",
   # <count_prop>
   # <count_wide>
   "n",
+  # <dar_month>
+  # <dar_quarter>
+  "ndip",
+  # <dar_month>
+  # <dar_quarter>
+  "nmon",
+  # <dar_quarter>
+  "nqtr",
+  # <dar_month>
+  # <dar_quarter>
+  "pass",
+  # <dar_month>
+  # <dar_quarter>
+  "radiff",
   NULL
 ))
