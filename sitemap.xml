@@ -28,6 +28,9 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/clean_number.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/collapser.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/count_days.html</loc>
   </url>
   <url>
@@ -40,6 +43,9 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/count_prop_multi.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/count_wide.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/dar_example.html</loc>
   </url>
   <url>
@@ -47,6 +53,9 @@
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/dar_quarter.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/delister.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/df_2_chr.html</loc>
@@ -85,6 +94,9 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/na_if_common.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/named_group_split.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/pct_change.html</loc>
   </url>
   <url>
@@ -101,6 +113,9 @@
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/single_line_string.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/splitter.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/srchcol.html</loc>
