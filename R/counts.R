@@ -73,3 +73,64 @@ count_prop_multi <- function(df,
       ) |>
     dplyr::mutate(prop = n / sum(n, na.rm = na.rm))
 }
+
+#' Count rows and columns and pivot to wide format
+#'
+#' @param df A `<data.frame>` or `<tibble>`
+#'
+#' @param rows A `<character>` or `<symbol>` specifying the rows to count
+#'
+#' @param cols A `<character>` or `<symbol>` specifying the columns to count
+#'
+#' @examples
+#' ggplot2::diamonds |>
+#' count_wide(c(clarity, color), cut)
+#'
+#' @autoglobal
+#'
+#' @export
+count_wide <- function(df, rows, cols) {
+  df |>
+    dplyr::count(
+      dplyr::pick(
+        c({{ rows }}, {{ cols }})
+      )
+    ) |>
+    tidyr::pivot_wider(
+      names_from = {{ cols }},
+      values_from = n,
+      names_sort = TRUE,
+      values_fill = 0
+    )
+}
+
+#' Count missing values
+#'
+#' @param df A `<data.frame>` or `<tibble>`
+#'
+#' @param group_vars A `<character>` or `<symbol>` vector of the variables to
+#'   group by
+#'
+#' @param x_var A `<character>` or `<symbol>`  vector of the variable to count
+#'   missing values for
+#'
+#' @returns A `<data.frame>` or `<tibble>` with the count of missing values
+#'
+#' @examples
+#' dplyr::tibble(x = 1:10,
+#'               y = 1:10,
+#'               z = letters[1:10]) |>
+#'               count_missing(z, x)
+#' @autoglobal
+#'
+#' @export
+count_missing <- function(df,
+                          group_vars,
+                          x_var) {
+  df |>
+    dplyr::group_by(dplyr::pick({{ group_vars }})) |>
+    dplyr::summarize(
+      n_miss = sum(is.na({{ x_var }})),
+      .groups = "drop"
+    )
+}
