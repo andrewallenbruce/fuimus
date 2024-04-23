@@ -134,3 +134,44 @@ count_missing <- function(df,
       .groups = "drop"
     )
 }
+
+#' Show missing values
+#'
+#' @param df A `<data.frame>` or `<tibble>`
+#'
+#' @param group_vars A `<character>` or `<symbol>` vector of the variables to
+#'   group by
+#'
+#' @param summary_vars A `<character>` or `<symbol>` vector of the variables to
+#'   summarize; default is [dplyr::everything()]
+#'
+#' @examples
+#' dplyr::tibble(x = 1:10,
+#'               y = 1:10,
+#'               z = c(letters[1:10])) |>
+#'               show_missing(z)
+#'
+#' @autoglobal
+#'
+#' @export
+show_missing <- function(df,
+                         group_vars,
+                         summary_vars = dplyr::everything()) {
+  df |>
+    dplyr::group_by(
+      dplyr::pick(
+        {{ group_vars }}
+        )
+      ) |>
+    dplyr::summarize(
+      dplyr::across(
+        {{ summary_vars }}, \(x) sum(is.na(x)
+                                     )
+        ),
+      .groups = "drop"
+    ) |>
+    dplyr::select(
+      dplyr::where(\(x) any(x > 0)
+                   )
+      )
+}
