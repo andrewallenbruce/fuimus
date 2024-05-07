@@ -59,23 +59,89 @@ age_days <- function(df,
         {{ start }},
         "%yyyy-%mm-%dd",
         tz = "EST"
-        ),
+      ),
       end = as.Date(
         {{ end }},
         "%yyyy-%mm-%dd",
         tz = "EST"
-        )
-      ) |>
+      )
+    ) |>
     dplyr::mutate(
       "{colname}" := ((
-          as.numeric(
-            lubridate::days(end) - lubridate::days(start), "hours") / 24) + 1
-          )
-      ) |>
+        as.numeric(
+          lubridate::days(end) - lubridate::days(start), "hours") / 24) + 1
+      )
+    ) |>
     dplyr::select(
       !c(
         end,
         start
-        )
       )
+    )
+}
+
+#' Count days between two dates
+#'
+#' @param df A `<data.frame>` or `<tibble>`
+#'
+#' @param start `<sym>` bare date column name
+#'
+#' @param end `<sym>` bare date column name
+#'
+#' @param name `<sym>` bare name of days output column
+#'
+#' @returns `<data.frame>` or `<tibble>`
+#'
+#' @autoglobal
+#'
+#' @export
+#'
+#' @examples
+#' dplyr::tibble(dos    = as.Date(c("2021-04-18", "2021-11-18", "2022-02-18")),
+#'               signed = as.Date("2022-02-18")) |>
+#'               count_days(
+#'               start  = dos,
+#'               end    = signed,
+#'               lag)
+#'
+count_days <- function(df,
+                       start,
+                       end,
+                       name) {
+  df |>
+    dplyr::mutate(
+      {{ name }} := clock::date_count_between(
+        {{ start }},
+        {{ end }},
+        "day"),
+      .after = {{ end }}
+    )
+}
+
+#' Calculate the number of years between two dates rounded down
+#'
+#' @param from `<date>` Start date
+#'
+#' @param to `<date>` End date
+#'
+#' @returns `<dbl>` vector of the number of years between the two dates
+#'
+#' @examples
+#' years_floor(
+#'    from = as.Date("2020-01-01"),
+#'    to   = as.Date("2020-01-01") + 2057)
+#'
+#' @autoglobal
+#'
+#' @export
+years_floor <- function(from, to) {
+  floor(
+    as.integer(
+      difftime(
+        to,
+        from,
+        units = "weeks",
+        tz = "UTC"
+      )
+    ) / 52.17857)
 }

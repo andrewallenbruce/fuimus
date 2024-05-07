@@ -5,7 +5,7 @@ Authors@R:
     person("Andrew", "Bruce", , "andrew.bruce@northstarrevenueintegrity.com", role = c("aut", "cre", "cph"))
 Maintainer: Andrew Bruce <andrew.bruce@northstarrevenueintegrity.com>
 Description: A collection of functions that have been useful to the author
-    in his work.  The package is intended to be a personal package, but is
+    in his work. The package is intended to be a personal package, but is
     made available to the public in the hope that it may be useful to
     others. The package is named after the motto of the Scottish Bruce
     clan.

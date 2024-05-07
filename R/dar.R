@@ -1,3 +1,120 @@
+#' Calculate Average Days in AR
+#'
+#' @param df `<data.frame>` containing at least three columns: a date column, a
+#'   gross charges column and an ending AR column
+#'
+#' @param date column containing a date within the month that Days in AR is to
+#'   be calculated
+#'
+#' @param gct column containing a month's total Gross Charges
+#'
+#' @param earb column containing a month's Ending AR balance
+#'
+#' @param dart Days in AR target, default is `35` days
+#'
+#' @param period `<chr>` string specifying the period; either "month" or
+#'   "quarter"
+#'
+#' @returns a [tibble][tibble::tibble-package]
+#'
+#' @examples
+#' avg_dar(df     = dar_example(),
+#'         date   = date,
+#'         gct    = gct,
+#'         earb   = earb,
+#'         dart   = 35,
+#'         period = "month")
+#'
+#' avg_dar(df     = dar_example(),
+#'         date   = date,
+#'         gct    = gct,
+#'         earb   = earb,
+#'         dart   = 35,
+#'         period = "quarter")
+#'
+#' @autoglobal
+#'
+#' @export
+avg_dar <- function(df,
+                    date,
+                    gct,
+                    earb,
+                    dart = 35,
+                    period = c("month", "quarter")) {
+
+  period <- match.arg(period)
+
+  df <- dplyr::mutate(
+    df,
+    date  = clock::as_date({{ date }}),
+    nmon  = lubridate::month({{ date }}, label = FALSE),
+    month = lubridate::month(date, label = TRUE, abbr = FALSE),
+    nqtr  = lubridate::quarter({{ date }}),
+    ndip  = lubridate::days_in_month({{ date }})
+  )
+
+  if (period == "quarter") {
+
+    gctcol <- rlang::englue("{{ gct }}")
+
+    earb_sub <- df |>
+      dplyr::filter(nmon %in% c(3, 6, 9, 12)) |>
+      dplyr::select(date, earb, nmon, nqtr, month)
+
+    gct_sub <- df |>
+      dplyr::summarise(
+        "{gctcol}" := roundup(sum({{ gct }})),
+        ndip = sum(ndip),
+        .by = nqtr)
+
+    df <- dplyr::left_join(
+      earb_sub,
+      gct_sub,
+      by = dplyr::join_by(nqtr)
+    )
+  }
+  df |>
+    dplyr::mutate(
+      # Average Daily Charge
+      adc      = {{ gct }} / ndip,
+      # Days in Accounts Receivable
+      dar      = {{ earb }} / adc,
+      # Actual Ratio of Ending AR to Gross Charges
+      actual   = {{ earb }} / {{ gct }},
+      # Ideal Ratio of Ending AR to Gross Charges
+      ideal    = {{ dart }} / ndip,
+      # Actual - Ideal Ratio
+      radiff   = actual - ideal,
+      # Ending AR Target
+      earb_trg = ({{ gct }} * {{ dart }}) / ndip,
+      # Ending AR Decrease Needed
+      earb_dc  = {{ earb }} - earb_trg,
+      # Ending AR Percentage Decrease Needed
+      earb_pct = (earb_dc / {{ earb }}) * 100,
+      # Boolean indicating whether DAR was under/over DARt
+      pass     = dplyr::case_when(dar < {{ dart }} ~ TRUE, TRUE ~ FALSE)) |>
+    dplyr::select(
+      dplyr::any_of(
+        c("date",
+          "month",
+          "nmon",
+          "nqtr",
+          "ndip",
+          "gct",
+          "earb",
+          "earb_trg",
+          "earb_dc",
+          "earb_pct",
+          "adc",
+          "dar",
+          "pass",
+          "actual",
+          "ideal",
+          "radiff")
+      )
+    )
+}
+
 #' Calculate Monthly Days in AR
 #'
 #' @param df `<data.frame>` containing at least three columns: a date column, a
