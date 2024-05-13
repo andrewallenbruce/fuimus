@@ -2,7 +2,8 @@
 % Please edit documentation in R/date_calculations.R
 \name{years_floor}
 \alias{years_floor}
-\title{Calculate the number of years between two dates rounded down}
+\title{Calculate the number of years between two dates rounded down to the nearest
+whole number}
 \usage{
 years_floor(from, to)
 }
@@ -12,14 +13,16 @@ years_floor(from, to)
 \item{to}{\verb{<date>} End date}
 }
 \value{
-\verb{<dbl>} vector of the number of years between the two dates
+\verb{<dbl>} vector of the number of years between the two dates rounded
+down to the nearest whole number
 }
 \description{
-Calculate the number of years between two dates rounded down
+Calculate the number of years between two dates rounded down to the nearest
+whole number
 }
 \examples{
 years_floor(
    from = as.Date("2020-01-01"),
-   to   = as.Date("2020-01-01") + 2057)
+   to = as.Date("2020-01-01") + 2057)
 
 }

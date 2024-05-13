@@ -33,6 +33,8 @@ utils::globalVariables(c(
   # <dar_month>
   # <dar_quarter>
   "ideal",
+  # <make_interval>
+  "interval",
   # <avg_dar>
   # <dar_month>
   "month",

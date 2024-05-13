@@ -118,18 +118,20 @@ count_days <- function(df,
     )
 }
 
-#' Calculate the number of years between two dates rounded down
+#' Calculate the number of years between two dates rounded down to the nearest
+#' whole number
 #'
 #' @param from `<date>` Start date
 #'
 #' @param to `<date>` End date
 #'
-#' @returns `<dbl>` vector of the number of years between the two dates
+#' @returns `<dbl>` vector of the number of years between the two dates rounded
+#'   down to the nearest whole number
 #'
 #' @examples
 #' years_floor(
 #'    from = as.Date("2020-01-01"),
-#'    to   = as.Date("2020-01-01") + 2057)
+#'    to = as.Date("2020-01-01") + 2057)
 #'
 #' @autoglobal
 #'
@@ -144,4 +146,120 @@ years_floor <- function(from, to) {
         tz = "UTC"
       )
     ) / 52.17857)
+}
+
+#' Calculate the number of years between two dates
+#'
+#' @param df A `<data.frame>` or `<tibble>`
+#'
+#' @param from `<date>` Start date column
+#'
+#' @param to `<date>` End date column
+#'
+#' @returns `<data.frame>` or `<tibble>`
+#'
+#' @examples
+#' dplyr::tibble(
+#'   from = as.Date("2020-01-01"),
+#'   to = as.Date("2020-01-01") + 2057) |>
+#'   years_df(from, to)
+#'
+#' @autoglobal
+#'
+#' @export
+years_df <- function(df, from, to) {
+
+  df |>
+    dplyr::mutate(
+      years_passed = round(
+        as.double(
+          difftime(
+            {{ to }},
+            {{ from }},
+            units = "weeks",
+            tz = "UTC")) / 52.17857, 2),
+      .after = {{ to }})
+}
+
+#' Calculate the number of years between two dates
+#'
+#' @param from `<date>` Start date
+#'
+#' @param to `<date>` End date
+#'
+#' @returns `<dbl>` vector of the number of years between the two dates
+#'
+#' @examples
+#' years_vec(
+#'   from = as.Date("2020-01-01"),
+#'   to = as.Date("2020-01-01") + 2057)
+#'
+#' @autoglobal
+#'
+#' @export
+years_vec <- function(from, to) {
+
+  round(
+    as.double(
+      difftime(
+        {{ to }},
+        {{ from }},
+        units = "weeks",
+        tz = "UTC")) / 52.17857, 2)
+}
+
+#' Calculate the duration between two dates
+#'
+#' @param from `<date>` Start date
+#'
+#' @param to `<date>` End date
+#'
+#' @returns `<dbl>` vector of the duration between the two dates
+#'
+#' @examples
+#' duration_vec(
+#'   from = lubridate::today() - 366,
+#'   to = lubridate::today())
+#'
+#' @autoglobal
+#'
+#' @export
+duration_vec <- function(from, to) {
+
+  lubridate::as.duration(
+    difftime(
+      to,
+      from,
+      units = "auto",
+      tz = "UTC"
+      )
+    )
+}
+
+#' Create interval, period and time length columns from a start and end date
+#'
+#' @param df A `<data.frame>` or `<tibble>`
+#'
+#' @param start `<date>` Start date column
+#'
+#' @param end `<date>` End date column
+#'
+#' @returns `<data.frame>` or `<tibble>`
+#'
+#' @examples
+#' dplyr::tibble(date = lubridate::today() - 366) |>
+#'   make_interval(start = date)
+#'
+#' @autoglobal
+#'
+#' @export
+make_interval <- function(df, start, end = lubridate::today()) {
+
+  df |>
+    dplyr::mutate(
+      interval = lubridate::interval(
+        lubridate::ymd({{ start }}),
+        lubridate::ymd({{ end }})),
+      period = lubridate::as.period(interval),
+      timelength_days = lubridate::time_length(interval, unit = "days"))
 }
