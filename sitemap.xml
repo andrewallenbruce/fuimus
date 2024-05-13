@@ -70,6 +70,9 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/display_long.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/duration_vec.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/gh_raw.html</loc>
   </url>
   <url>
@@ -92,6 +95,9 @@
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/is_readable.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/make_interval.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/months_regex.html</loc>
@@ -142,6 +148,12 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/srchcol.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/years_df.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/years_floor.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/years_vec.html</loc>
   </url>
 </urlset>
