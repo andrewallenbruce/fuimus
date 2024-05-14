@@ -73,6 +73,9 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/duration_vec.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/forager_data.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/geomean.html</loc>
   </url>
   <url>
@@ -112,10 +115,16 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/named_group_split.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/new_value.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/null_if_empty.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/pad_number.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_calculator.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_change.html</loc>
