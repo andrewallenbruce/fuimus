@@ -16,10 +16,12 @@
 #' dplyr::tibble(
 #' zip =
 #'   c("Data_Weekly.zip",
+#'     "Data_Weekly.zip",
 #'     "Data_April.zip",
 #'     "Deactivated.zip"),
 #' file = c(
 #'   "npidata.csv",
+#'   "npidata2.csv",
 #'   "endpoint.csv",
 #'   "Deactivated.xlsx"),
 #' ) |>

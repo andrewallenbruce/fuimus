@@ -7,9 +7,12 @@
 roundup(x, digits = 2)
 }
 \arguments{
-\item{x}{A numeric vector}
+\item{x}{\verb{<dbl>} A numeric vector}
 
 \item{digits}{\verb{<int>} Number of decimal places to round to}
+}
+\value{
+a numeric vector rounded up to the nearest decimal place
 }
 \description{
 Wrapper around \code{\link[janitor:round_half_up]{janitor::round_half_up()}}
