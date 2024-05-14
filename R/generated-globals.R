@@ -8,6 +8,14 @@ utils::globalVariables(c(
   ":=",
   # <rate_of_return>
   "copy",
+  # <forager_data>
+  "date_of_acceptance",
+  # <forager_data>
+  "date_of_release",
+  # <forager_data>
+  "date_of_service",
+  # <forager_data>
+  "date_of_submission",
   # <make_interval>
   "interval",
   # <rate_of_return>

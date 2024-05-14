@@ -18,7 +18,7 @@ Lagged absolute change
 }
 \examples{
 provider_data(2020:2025) |>
-dplyr::mutate(change = chg_abs(net_payment),
-.by = group)
+  dplyr::mutate(change = chg_abs(net_payment),
+  .by = group)
 
 }

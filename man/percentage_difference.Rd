@@ -22,8 +22,8 @@ Since the absolute value is taken for the change (or difference) in values,
 the order of the numbers does not matter.
 }
 \examples{
-percentage_difference(1, 100)
+percentage_difference(949740, 942482)
 
-percentage_difference(100, 1)
+percentage_difference(942482, 1132783)
 
 }

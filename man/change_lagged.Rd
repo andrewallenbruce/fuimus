@@ -18,7 +18,7 @@ Calculate lagged values by column
 }
 \examples{
 provider_data(2020:2025) |>
-dplyr::group_by(group) |>
-change_lagged(net_payment, year)
+  dplyr::group_by(group) |>
+  change_lagged(net_payment, year)
 
 }

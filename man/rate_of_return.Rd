@@ -20,7 +20,7 @@ Lagged rate of return
 }
 \examples{
 provider_data(2020:2025) |>
-dplyr::group_by(group) |>
-rate_of_return(net_payment)
+  dplyr::group_by(group) |>
+  rate_of_return(net_payment)
 
 }

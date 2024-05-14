@@ -18,7 +18,7 @@ Lagged percentage change
 }
 \examples{
 provider_data(2020:2025) |>
-dplyr::mutate(change = chg_pct(net_payment),
-.by = group)
+  dplyr::mutate(change = chg_pct(net_payment),
+  .by = group)
 
 }

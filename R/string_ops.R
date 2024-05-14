@@ -1,3 +1,37 @@
+#' Wrapper for [paste0()] that collapses result
+#'
+#' @param x A split `<chr>` vector
+#'
+#' @returns A collapsed `<chr>` string
+#'
+#' @examples
+#' collapser(c("X", "Y", "Z"))
+#'
+#' @autoglobal
+#'
+#' @export
+collapser <- function(x) {
+  paste0(x, collapse = "")
+}
+
+#' Wrapper for [unlist()], with `use.names` set to `FALSE`
+#'
+#' @param x A named `<list>`
+#'
+#' @returns An unnamed `<chr>` vector
+#'
+#' @examples
+#' delister(list(x = "XYZ"))
+#'
+#' @autoglobal
+#'
+#' @export
+delister <- function(x) {
+  unlist(
+    x,
+    use.names = FALSE)
+}
+
 #' Wrapper for [strsplit()] that unlists and unnames results
 #'
 #' @param x `<chr>` string or named `<list>` of `<chr>` strings

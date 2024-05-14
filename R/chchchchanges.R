@@ -13,9 +13,9 @@
 #' @returns `<dbl>` vector of percentage change
 #'
 #' @examples
-#' percentage_change(new = 1, old = 100)
+#' percentage_change(new = 949740, old = 942482)
 #'
-#' percentage_change(new = 100, old = 1)
+#' percentage_change(new = 942482, old = 1132783)
 #'
 #' @autoglobal
 #'
@@ -28,7 +28,39 @@ percentage_change <- function(new, old) {
   )
 
   (new - old) / old
-  }
+}
+
+#' Calculate the new value from the old value and the percentage change between
+#' the two values
+#'
+#' @param percentage_change `<dbl>` percentage change
+#'
+#' @param old `<dbl>` older value
+#'
+#' @returns `<dbl>` vector of new value
+#'
+#' @examples
+#' new_value(old = 942482, percentage_change = 0.007700943)
+#'
+#' new_value(old = 1132783, percentage_change = -0.1679942)
+#'
+#' # If the value of an object increased by 220%, from the original value of
+#' # $500,000, what is it worth now?
+#'
+#' new_value(old = 500000, percentage_change = 2.2)
+#'
+#' @autoglobal
+#'
+#' @export
+new_value <- function(old, percentage_change) {
+
+  stopifnot(
+    is.numeric(percentage_change),
+    is.numeric(old)
+  )
+
+  old + (percentage_change * old)
+}
 
 #' Calculate the percentage difference between two values
 #'
@@ -44,9 +76,9 @@ percentage_change <- function(new, old) {
 #' @returns `<dbl>` vector of percentage difference
 #'
 #' @examples
-#' percentage_difference(1, 100)
+#' percentage_difference(949740, 942482)
 #'
-#' percentage_difference(100, 1)
+#' percentage_difference(942482, 1132783)
 #'
 #' @autoglobal
 #'
@@ -59,7 +91,43 @@ percentage_difference <- function(x, y) {
     )
 
   abs(x - y) / mean(c(x, y))
-  }
+}
+
+#' Percentage calculator
+#'
+#' If _a_ is some _p%_ of _b_, then:
+#'    + _p_ = a/b
+#'    + _a_ = p * b
+#'    + _b_ = a/p
+#'
+#' Since the absolute value is taken for the change (or difference) in values,
+#' the order of the numbers does not matter.
+#'
+#' @param a,b `<dbl>` values
+#'
+#' @returns `<dbl>` vector of percentage difference
+#'
+#' @examples
+#' percentage_calculator(2500, 133)
+#'
+#' percentage_calculator(133, 2500)
+#'
+#' @autoglobal
+#'
+#' @export
+percentage_calculator <- function(a, b) {
+
+  stopifnot(
+    is.numeric(a),
+    is.numeric(b)
+  )
+
+  list(
+    p = a / b,
+    a = b * (a / b),
+    b = a / (a / b)
+  )
+}
 
 #' Calculate lagged values by column
 #'
@@ -71,8 +139,8 @@ percentage_difference <- function(x, y) {
 #'
 #' @examples
 #' provider_data(2020:2025) |>
-#' dplyr::group_by(group) |>
-#' change_lagged(net_payment, year)
+#'   dplyr::group_by(group) |>
+#'   change_lagged(net_payment, year)
 #'
 #' @autoglobal
 #'
@@ -134,8 +202,8 @@ geomean <- function(x) {
 #'
 #' @examples
 #' provider_data(2020:2025) |>
-#' dplyr::group_by(group) |>
-#' rate_of_return(net_payment)
+#'   dplyr::group_by(group) |>
+#'   rate_of_return(net_payment)
 #'
 #' @autoglobal
 #'
@@ -175,8 +243,8 @@ rate_of_return <- function(df, col, n = 1, fill_na = 1L) {
 #'
 #' @examples
 #' provider_data(2020:2025) |>
-#' dplyr::mutate(change = chg_abs(net_payment),
-#' .by = group)
+#'   dplyr::mutate(change = chg_abs(net_payment),
+#'   .by = group)
 #'
 #' @autoglobal
 #'
@@ -206,8 +274,8 @@ chg_abs <- function(x, n = 1L, fill_na = 0L) {
 #'
 #' @examples
 #' provider_data(2020:2025) |>
-#' dplyr::mutate(change = chg_pct(net_payment),
-#' .by = group)
+#'   dplyr::mutate(change = chg_pct(net_payment),
+#'   .by = group)
 #'
 #' @autoglobal
 #'
@@ -235,8 +303,8 @@ chg_pct <- function(x, n = 1L, fill_na = 0L) {
 #'
 #' @examples
 #' provider_data(2020:2025) |>
-#' dplyr::group_by(group) |>
-#' change(net_payment, csm = c("payment", "_chg"))
+#'   dplyr::group_by(group) |>
+#'   change(net_payment, csm = c("payment", "_chg"))
 #'
 #' @autoglobal
 #'

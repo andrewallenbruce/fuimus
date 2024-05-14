@@ -23,8 +23,8 @@ If the result is positive, then it is an increase. If the result is negative,
 then it is a decrease.
 }
 \examples{
-percentage_change(new = 1, old = 100)
+percentage_change(new = 949740, old = 942482)
 
-percentage_change(new = 100, old = 1)
+percentage_change(new = 942482, old = 1132783)
 
 }
