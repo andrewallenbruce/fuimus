@@ -28,7 +28,16 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/age_days.html</loc>
   </url>
   <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/avg_dar.html</loc>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/change.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/change_lagged.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/chg_abs.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/chg_pct.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/clean_number.html</loc>
@@ -52,15 +61,6 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/count_wide.html</loc>
   </url>
   <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/dar_example.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/dar_month.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/dar_quarter.html</loc>
-  </url>
-  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/delister.html</loc>
   </url>
   <url>
@@ -71,6 +71,9 @@
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/duration_vec.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/geomean.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/gh_raw.html</loc>
@@ -115,10 +118,16 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/pad_number.html</loc>
   </url>
   <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/pct_change.html</loc>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_change.html</loc>
   </url>
   <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/pct_difference.html</loc>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_difference.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/provider_data.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/rate_of_return.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/rename_seq.html</loc>
