@@ -64,6 +64,9 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/delister.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/density.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/df_2_chr.html</loc>
   </url>
   <url>
@@ -73,10 +76,16 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/duration_vec.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/fancy_ts.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/forager_data.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/geomean.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/gg_theme.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/gh_raw.html</loc>
@@ -89,6 +98,9 @@
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/gt_marks.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/histogram.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/index.html</loc>
@@ -104,6 +116,9 @@
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/make_interval.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/mean_na.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/months_regex.html</loc>
@@ -139,6 +154,9 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/rate_of_return.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/remove_quiet.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/rename_seq.html</loc>
   </url>
   <url>
@@ -160,10 +178,16 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/single_line_string.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/sorted_bars.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/splitter.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/srchcol.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/sum_na.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/years_df.html</loc>
