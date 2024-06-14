@@ -5,6 +5,7 @@ utils::globalVariables(c(
   # <rate_of_return>
   # <age_days>
   # <count_days>
+  # <sorted_bars>
   ":=",
   # <rate_of_return>
   "copy",
