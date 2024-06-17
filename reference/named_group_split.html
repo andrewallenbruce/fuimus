@@ -57,18 +57,18 @@ from the unique combinations of the grouping variables.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">named_group_split</span><span class="op">(</span><span class="va">.tbl</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">named_group_split</span><span class="op">(</span><span class="va">df</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>.tbl</dt>
+    <dl><dt>df</dt>
 <dd><p><code>&lt;tibble&gt;</code> or <code>&lt;data.frame&gt;</code> to split</p></dd>
 
 
 <dt>...</dt>
 <dd><p>One or more unquoted variables by which to group and then split
-<code>.tbl</code>. Variables can be separated by commas.</p></dd>
+<code>df</code>. Variables can be separated by commas.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -81,19 +81,27 @@ unique combinations of grouping variables, separated by "_".</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>zip <span class="op">=</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Data_Weekly.zip"</span>,</span></span>
-<span class="r-in"><span>    <span class="st">"Data_Weekly.zip"</span>,</span></span>
-<span class="r-in"><span>    <span class="st">"Data_April.zip"</span>,</span></span>
-<span class="r-in"><span>    <span class="st">"Deactivated.zip"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"npidata.csv"</span>,</span></span>
-<span class="r-in"><span>  <span class="st">"npidata2.csv"</span>,</span></span>
-<span class="r-in"><span>  <span class="st">"endpoint.csv"</span>,</span></span>
-<span class="r-in"><span>  <span class="st">"Deactivated.xlsx"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu">named_group_split</span><span class="op">(</span><span class="va">zip</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  zip <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Data_Weekly.zip"</span>,</span></span>
+<span class="r-in"><span>        <span class="st">"Data_Weekly.zip"</span>,</span></span>
+<span class="r-in"><span>        <span class="st">"Data_April.zip"</span>,</span></span>
+<span class="r-in"><span>        <span class="st">"Deactivated.zip"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"npidata.csv"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"npidata2.csv"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"endpoint.csv"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Deactivated.xlsx"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">x</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   zip             file            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Data_Weekly.zip npidata.csv     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Data_Weekly.zip npidata2.csv    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Data_April.zip  endpoint.csv    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Deactivated.zip Deactivated.xlsx</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">named_group_split</span><span class="op">(</span><span class="va">x</span>, <span class="va">zip</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Data_April.zip</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   zip            file        </span>
