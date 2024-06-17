@@ -1,3 +1,3 @@
-# fuimus (development version)
+# fuimus 0.0.1
 
 * Initial commit.
