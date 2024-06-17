@@ -2,9 +2,13 @@
 #'
 #' @param df data frame
 #'
-#' @autoglobal
+#' @examples
+#' dplyr::tibble(
+#'   x = c(1, 2, NA),
+#'   y = c(NA, NA, NA)) |>
+#'   remove_quiet()
 #'
-#' @keywords internal
+#' @autoglobal
 #'
 #' @export
 remove_quiet <- function(df) {
@@ -13,32 +17,4 @@ remove_quiet <- function(df) {
     df,
     which = c("rows", "cols")
   )
-}
-
-#' `mean()` with `NA` removal
-#'
-#' @param x numeric vector
-#'
-#' @autoglobal
-#'
-#' @keywords internal
-#'
-#' @export
-mean_na <- function(x) {
-
-  mean(x, na.rm = TRUE)
-}
-
-#' `sum()` with `NA` removal
-#'
-#' @param x numeric vector
-#'
-#' @autoglobal
-#'
-#' @keywords internal
-#'
-#' @export
-sum_na <- function(x) {
-
-  sum(x, na.rm = TRUE)
 }

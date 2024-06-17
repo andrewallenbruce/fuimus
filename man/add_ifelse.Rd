@@ -32,3 +32,4 @@ add_ifelse(x = "Practitioner",
            by = mue_service_type)
 \dontshow{\}) # examplesIf}
 }
+\keyword{internal}

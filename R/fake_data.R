@@ -7,6 +7,7 @@
 #' @examples
 #' provider_data(2010:2020)
 #'
+#' @keywords internal
 #'
 #' @autoglobal
 #'
@@ -30,7 +31,6 @@ provider_data <- function(year_seq) {
       )
 }
 
-
 #' Generate mock coding/billing data frame
 #'
 #' @param rows number of rows to generate; default is 10
@@ -39,6 +39,8 @@ provider_data <- function(year_seq) {
 #'
 #' @examples
 #' forager_data(rows = 5)
+#'
+#' @keywords internal
 #'
 #' @autoglobal
 #'

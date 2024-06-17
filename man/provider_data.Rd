@@ -18,5 +18,5 @@ Generate Data for Testing
 \examples{
 provider_data(2010:2020)
 
-
 }
+\keyword{internal}

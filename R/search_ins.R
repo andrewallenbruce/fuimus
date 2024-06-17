@@ -151,6 +151,8 @@ search_in_if_args <- function(df,
 #'            dfcol = df$mue_service_type,
 #'            by = mue_service_type)
 #'
+#' @keywords internal
+#'
 #' @autoglobal
 #'
 #' @export

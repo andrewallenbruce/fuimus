@@ -12,4 +12,10 @@ remove_quiet(df)
 \description{
 Remove empty rows and columns
 }
-\keyword{internal}
+\examples{
+dplyr::tibble(
+  x = c(1, 2, NA),
+  y = c(NA, NA, NA)) |>
+  remove_quiet()
+
+}
