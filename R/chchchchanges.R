@@ -44,7 +44,8 @@ percentage_change <- function(new, old) {
 #'
 #' new_value(old = 1132783, percentage_change = -0.1679942)
 #'
-#' # If the value of an object increased by 220%, from the original value of
+#' # If the value of an object increased by 220%,
+#' # from the original value of
 #' # $500,000, what is it worth now?
 #'
 #' new_value(old = 500000, percentage_change = 2.2)
@@ -138,7 +139,7 @@ percentage_calculator <- function(a, b) {
 #' @param by column to calculate lag by
 #'
 #' @examples
-#' provider_data(2020:2025) |>
+#' fuimus:::provider_data(2020:2025) |>
 #'   dplyr::group_by(group) |>
 #'   change_lagged(net_payment, year)
 #'
@@ -166,7 +167,7 @@ change_lagged <- function(df, col, by = NULL) {
 #' @param x numeric vector
 #'
 #' @examples
-#' x <- provider_data(2020:2025)
+#' x <- fuimus:::provider_data(2020:2025)
 #'
 #' x |>
 #' dplyr::group_by(group) |>
@@ -201,7 +202,7 @@ geomean <- function(x) {
 #' @param fill_na `<int>` fill value for any NAs; default is 1
 #'
 #' @examples
-#' provider_data(2020:2025) |>
+#' fuimus:::provider_data(2020:2025) |>
 #'   dplyr::group_by(group) |>
 #'   rate_of_return(net_payment)
 #'
@@ -242,7 +243,7 @@ rate_of_return <- function(df, col, n = 1, fill_na = 1L) {
 #' @param fill_na fill value for any NAs; default is 0
 #'
 #' @examples
-#' provider_data(2020:2025) |>
+#' fuimus:::provider_data(2020:2025) |>
 #'   dplyr::mutate(change = chg_abs(net_payment),
 #'   .by = group)
 #'
@@ -273,7 +274,7 @@ chg_abs <- function(x, n = 1L, fill_na = 0L) {
 #' @param fill_na fill value for any NAs; default is 0
 #'
 #' @examples
-#' provider_data(2020:2025) |>
+#' fuimus:::provider_data(2020:2025) |>
 #'   dplyr::mutate(change = chg_pct(net_payment),
 #'   .by = group)
 #'
@@ -302,7 +303,7 @@ chg_pct <- function(x, n = 1L, fill_na = 0L) {
 #' @param csm numeric cols to calculate cumulative sum for
 #'
 #' @examples
-#' provider_data(2020:2025) |>
+#' fuimus:::provider_data(2020:2025) |>
 #'   dplyr::group_by(group) |>
 #'   change(net_payment, csm = c("payment", "_chg"))
 #'

@@ -17,4 +17,9 @@ A \link[ggplot2:ggplot2-package]{ggplot2} object
 \description{
 Sorted Bar Chart
 }
-\keyword{internal}
+\examples{
+ggplot2::diamonds |>
+  sorted_bars(cut) +
+  gg_theme()
+
+}

@@ -26,6 +26,7 @@ Imports:
     purrr,
     rlang,
     scales,
+    stats,
     stringr,
     styler,
     tidyr,

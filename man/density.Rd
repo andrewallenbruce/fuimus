@@ -24,11 +24,10 @@ ggplot2 density plot
 Density plot
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 ggplot2::diamonds |> density(carat)
 
 ggplot2::diamonds |> density(carat, cut)
 
 ggplot2::diamonds |> density(carat, cut, clarity)
-\dontshow{\}) # examplesIf}
+
 }

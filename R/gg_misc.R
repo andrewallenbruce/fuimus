@@ -6,34 +6,46 @@
 #'
 #' @returns A [ggplot2][ggplot2::ggplot2-package] object
 #'
-#' @autoglobal
+#' @examples
+#' ggplot2::diamonds |>
+#'   sorted_bars(cut) +
+#'   gg_theme()
 #'
-#' @keywords internal
+#' @autoglobal
 #'
 #' @export
 sorted_bars <- function(df, var) {
+
   df |>
-    dplyr::mutate({{ var }} := forcats::fct_rev(
-      forcats::fct_infreq({{ var }})))  |>
-    ggplot2::ggplot(ggplot2::aes(y = {{ var }})) +
+    dplyr::mutate(
+      {{ var }} := forcats::fct_rev(
+        forcats::fct_infreq(
+          {{ var }})
+        )
+      )  |>
+    ggplot2::ggplot(
+      ggplot2::aes(
+        y = {{ var }}
+        )
+      ) +
     ggplot2::geom_bar()
 }
 
 #' Histogram
 #'
-#' @param df df
+#' @param df data frame
 #'
 #' @param var var
 #'
-#' @param binwidth binwidth
+#' @param binwidth `numeric` binwidth
 #'
 #' @returns ggplot2 histogram
 #'
+#' @examples
+#' ggplot2::diamonds |>
+#'   histogram(carat, 0.1)
+#'
 #' @autoglobal
-#'
-#' @examplesIf interactive()
-#'
-#' ggplot2::diamonds |> histogram(carat, 0.1)
 #'
 #' @export
 histogram <- function(df,
@@ -41,7 +53,12 @@ histogram <- function(df,
                       binwidth) {
   label <- rlang::englue("A histogram of {{var}} with binwidth {binwidth}")
 
-  df |> ggplot2::ggplot(ggplot2::aes({{ var }})) +
+  df |>
+    ggplot2::ggplot(
+      ggplot2::aes(
+        {{ var }}
+        )
+      ) +
     ggplot2::geom_histogram(binwidth = binwidth) +
     ggplot2::labs(title = label)
 }
@@ -60,7 +77,7 @@ histogram <- function(df,
 #'
 #' @returns ggplot2 density plot
 #'
-#' @examplesIf interactive()
+#' @examples
 #' ggplot2::diamonds |> density(carat)
 #'
 #' ggplot2::diamonds |> density(carat, cut)
@@ -76,16 +93,26 @@ density <- function(df,
                     facets,
                     binwidth = 0.1) {
   df |>
-    ggplot2::ggplot(ggplot2::aes({{ var }},
-                                 ggplot2::after_stat(density),
-                                 color = {{ color }})) +
-    ggplot2::geom_freqpoly(binwidth = binwidth) +
-    ggplot2::facet_wrap(ggplot2::vars({{ facets }}))
+    ggplot2::ggplot(
+      ggplot2::aes(
+        {{ var }},
+        ggplot2::after_stat(density),
+        color = {{ color }}
+        )
+      ) +
+    ggplot2::geom_freqpoly(
+      binwidth = binwidth
+      ) +
+    ggplot2::facet_wrap(
+      ggplot2::vars(
+        {{ facets }}
+        )
+      )
 }
 
 #' Plots a fancy time series
 #'
-#' @param df df
+#' @param df data.frame
 #'
 #' @param val value var
 #'
@@ -93,26 +120,31 @@ density <- function(df,
 #'
 #' @returns A [tibble][tibble::tibble-package] with the summarized data
 #'
-#' @examplesIf interactive()
+#' @examples
 #' df <- dplyr::tibble(
-#'              dist1 = sort(rnorm(50, 5, 2)),
-#'              dist2 = sort(rnorm(50, 8, 3)),
-#'              dist4 = sort(rnorm(50, 15, 1)),
-#'              date = seq.Date(as.Date("2022-01-01"),
-#'                              as.Date("2022-04-10"),
-#'                              by = "2 days")) |>
-#'      tidyr::pivot_longer(
-#'      cols = -date,
-#'      names_to = "dist_name",
-#'      values_to = "value")
-#' fancy_ts(df, value, dist_name)
+#' dist1 = sort(rnorm(50, 5, 2)),
+#' dist2 = sort(rnorm(50, 8, 3)),
+#' dist4 = sort(rnorm(50, 15, 1)),
+#' date = seq.Date(
+#' as.Date("2022-01-01"),
+#' as.Date("2022-04-10"),
+#' by = "2 days")
+#' ) |>
+#' tidyr::pivot_longer(
+#' cols = -date,
+#' names_to = "dist_name",
+#' values_to = "value")
+#'
+#' df
+#'
+#' fancy_ts(df, value, dist_name) +
+#' gg_theme()
 #'
 #' @export
 #'
 #' @autoglobal
-fancy_ts <- function(df,
-                     val,
-                     group) {
+fancy_ts <- function(df, val, group) {
+
   labs <- df |>
     dplyr::group_by({{ group }}) |>
     dplyr::summarize(breaks = max({{ val }}))
@@ -135,29 +167,48 @@ fancy_ts <- function(df,
 #'
 #' @returns ggplot theme
 #'
-#' @examplesIf interactive()
-#' ggplot2::diamonds |> histogram(carat, 0.1) + gg_theme()
+#' @examples
+#' ggplot2::diamonds |>
+#' histogram(carat, 0.1) +
+#' gg_theme()
 #'
 #' @autoglobal
 #'
 #' @export
 gg_theme <- function() {
 
-  ggplot2::theme_minimal(base_family = "Roboto Condensed") +
+  ggplot2::theme_minimal(
+    # base_family = "Roboto Condensed"
+    ) +
     ggplot2::theme(
-      plot.title = ggplot2::element_text(size = ggplot2::rel(1.5), face = "bold"),
-      plot.subtitle = ggplot2::element_text(size = ggplot2::rel(1.1)),
-      plot.caption = ggplot2::element_text(color = "#777777", vjust = 0),
+      plot.title = ggplot2::element_text(
+        size = ggplot2::rel(1.5),
+        face = "bold"
+        ),
+      plot.subtitle = ggplot2::element_text(
+        size = ggplot2::rel(1.1)
+        ),
+      plot.caption = ggplot2::element_text(
+        color = "#777777",
+        vjust = 0
+        ),
       axis.title = ggplot2::element_text(
         size = ggplot2::rel(.9),
         hjust = 0.95,
         face = "italic"
       ),
-      panel.grid.major = ggplot2::element_line(size = ggplot2::rel(.1), color = "#000000"),
-      panel.grid.minor = ggplot2::element_line(size = ggplot2::rel(.05), color = "#000000"),
+      panel.grid.major = ggplot2::element_line(
+        size = ggplot2::rel(.1),
+        color = "#000000"
+        ),
+      panel.grid.minor = ggplot2::element_line(
+        size = ggplot2::rel(.05),
+        color = "#000000"
+        ),
       legend.position = "none"
     )
 }
+
 # gg_labs <- function() {
 #   labs(title = "Average miles per gallon by number of cylinders",
 #        subtitle = "Scatter plot depicting average miles per gallon aggregated by number of cylinders",

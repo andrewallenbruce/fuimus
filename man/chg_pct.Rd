@@ -17,7 +17,7 @@ chg_pct(x, n = 1L, fill_na = 0L)
 Lagged percentage change
 }
 \examples{
-provider_data(2020:2025) |>
+fuimus:::provider_data(2020:2025) |>
   dplyr::mutate(change = chg_pct(net_payment),
   .by = group)
 

@@ -21,11 +21,7 @@ the count, default is \code{FALSE}}
 Count and calculate proportion of each group
 }
 \examples{
-dplyr::tibble(
-   x = rnorm(5),
-   y = rnorm(5),
-   z = rnorm(5)
-   ) |>
-   count_prop(x)
+fuimus:::forager_data() |>
+  count_prop(payer, sort = TRUE)
 
 }

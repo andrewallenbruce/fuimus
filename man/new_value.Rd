@@ -24,7 +24,8 @@ new_value(old = 942482, percentage_change = 0.007700943)
 
 new_value(old = 1132783, percentage_change = -0.1679942)
 
-# If the value of an object increased by 220\%, from the original value of
+# If the value of an object increased by 220\%,
+# from the original value of
 # $500,000, what is it worth now?
 
 new_value(old = 500000, percentage_change = 2.2)

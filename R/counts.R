@@ -11,12 +11,8 @@
 #'   the count, default is `FALSE`
 #'
 #' @examples
-#' dplyr::tibble(
-#'    x = rnorm(5),
-#'    y = rnorm(5),
-#'    z = rnorm(5)
-#'    ) |>
-#'    count_prop(x)
+#' fuimus:::forager_data() |>
+#'   count_prop(payer, sort = TRUE)
 #'
 #' @autoglobal
 #'
@@ -26,8 +22,13 @@ count_prop <- function(df,
                        sort = FALSE,
                        na.rm = FALSE) {
   df |>
-    dplyr::count({{ var }}, sort = sort) |>
-    dplyr::mutate(prop = n / sum(n, na.rm = na.rm))
+    dplyr::count(
+      {{ var }},
+      sort = sort
+      ) |>
+    dplyr::mutate(
+      prop = n / sum(n, na.rm = na.rm)
+    )
 }
 
 #' Count and calculate proportion of each group
@@ -45,12 +46,10 @@ count_prop <- function(df,
 #'   the count, default is `FALSE`
 #'
 #' @examples
-#' ggplot2::diamonds |> head()
-#'
-#' ggplot2::diamonds |>
+#' fuimus:::forager_data(10) |>
 #'   count_prop_multi(
-#'   c(clarity, color),
-#'   cut,
+#'   c(ins_class),
+#'   payer,
 #'   sort = TRUE)
 #'
 #' @autoglobal
@@ -83,13 +82,16 @@ count_prop_multi <- function(df,
 #' @param cols A `<character>` or `<symbol>` specifying the columns to count
 #'
 #' @examples
-#' ggplot2::diamonds |>
-#' count_wide(c(clarity, color), cut)
+#' fuimus:::forager_data(10) |>
+#'   count_wide(
+#'     c(ins_class),
+#'     payer)
 #'
 #' @autoglobal
 #'
 #' @export
 count_wide <- function(df, rows, cols) {
+
   df |>
     dplyr::count(
       dplyr::pick(
@@ -97,9 +99,9 @@ count_wide <- function(df, rows, cols) {
       )
     ) |>
     tidyr::pivot_wider(
-      names_from = {{ cols }},
+      names_from  = {{ cols }},
       values_from = n,
-      names_sort = TRUE,
+      names_sort  = TRUE,
       values_fill = 0
     )
 }
@@ -128,7 +130,8 @@ count_missing <- function(df,
                           group_vars,
                           x_var) {
   df |>
-    dplyr::group_by(dplyr::pick({{ group_vars }})) |>
+    dplyr::group_by(
+      dplyr::pick({{ group_vars }})) |>
     dplyr::summarize(
       n_miss = sum(is.na({{ x_var }})),
       .groups = "drop"

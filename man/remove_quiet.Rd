@@ -4,18 +4,23 @@
 \alias{remove_quiet}
 \title{Remove empty rows and columns}
 \usage{
-remove_quiet(df)
+remove_quiet(df, ...)
 }
 \arguments{
 \item{df}{data frame}
+
+\item{...}{additional arguments to pass to \code{janitor::remove_empty()}}
 }
 \description{
 Remove empty rows and columns
 }
 \examples{
-dplyr::tibble(
+x <- dplyr::tibble(
   x = c(1, 2, NA),
-  y = c(NA, NA, NA)) |>
-  remove_quiet()
+  y = c(NA, NA, NA))
+
+x
+
+remove_quiet(x)
 
 }

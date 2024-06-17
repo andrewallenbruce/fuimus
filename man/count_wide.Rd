@@ -17,7 +17,9 @@ count_wide(df, rows, cols)
 Count rows and columns and pivot to wide format
 }
 \examples{
-ggplot2::diamonds |>
-count_wide(c(clarity, color), cut)
+fuimus:::forager_data(10) |>
+  count_wide(
+    c(ins_class),
+    payer)
 
 }

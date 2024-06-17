@@ -4,13 +4,13 @@
 \alias{named_group_split}
 \title{Split a \code{tibble} by Groups with Named List Output}
 \usage{
-named_group_split(.tbl, ...)
+named_group_split(df, ...)
 }
 \arguments{
-\item{.tbl}{\verb{<tibble>} or \verb{<data.frame>} to split}
+\item{df}{\verb{<tibble>} or \verb{<data.frame>} to split}
 
 \item{...}{One or more unquoted variables by which to group and then split
-\code{.tbl}. Variables can be separated by commas.}
+\code{df}. Variables can be separated by commas.}
 }
 \value{
 named \verb{<list>} of tibbles, the names of which are derived from the
@@ -22,18 +22,19 @@ splits the grouped data into a list. The resulting list has names derived
 from the unique combinations of the grouping variables.
 }
 \examples{
-dplyr::tibble(
-zip =
-  c("Data_Weekly.zip",
-    "Data_Weekly.zip",
-    "Data_April.zip",
-    "Deactivated.zip"),
-file = c(
-  "npidata.csv",
-  "npidata2.csv",
-  "endpoint.csv",
-  "Deactivated.xlsx"),
-) |>
-  named_group_split(zip)
+x <- dplyr::tibble(
+  zip = c("Data_Weekly.zip",
+        "Data_Weekly.zip",
+        "Data_April.zip",
+        "Deactivated.zip"),
+  file = c(
+    "npidata.csv",
+    "npidata2.csv",
+    "endpoint.csv",
+    "Deactivated.xlsx"))
+
+x
+
+named_group_split(x, zip)
 
 }

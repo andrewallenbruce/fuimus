@@ -23,12 +23,10 @@ the count, default is \code{FALSE}}
 Count and calculate proportion of each group
 }
 \examples{
-ggplot2::diamonds |> head()
-
-ggplot2::diamonds |>
+fuimus:::forager_data(10) |>
   count_prop_multi(
-  c(clarity, color),
-  cut,
+  c(ins_class),
+  payer,
   sort = TRUE)
 
 }

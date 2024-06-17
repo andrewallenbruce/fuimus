@@ -13,7 +13,8 @@ ggplot theme
 ggplot2 theme
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-ggplot2::diamonds |> histogram(carat, 0.1) + gg_theme()
-\dontshow{\}) # examplesIf}
+ggplot2::diamonds |>
+histogram(carat, 0.1) +
+gg_theme()
+
 }

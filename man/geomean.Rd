@@ -13,7 +13,7 @@ geomean(x)
 Average \code{\link[=rate_of_return]{rate_of_return()}}
 }
 \examples{
-x <- provider_data(2020:2025)
+x <- fuimus:::provider_data(2020:2025)
 
 x |>
 dplyr::group_by(group) |>

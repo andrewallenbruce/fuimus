@@ -7,7 +7,7 @@
 fancy_ts(df, val, group)
 }
 \arguments{
-\item{df}{df}
+\item{df}{data.frame}
 
 \item{val}{value var}
 
@@ -20,18 +20,23 @@ A \link[tibble:tibble-package]{tibble} with the summarized data
 Plots a fancy time series
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 df <- dplyr::tibble(
-             dist1 = sort(rnorm(50, 5, 2)),
-             dist2 = sort(rnorm(50, 8, 3)),
-             dist4 = sort(rnorm(50, 15, 1)),
-             date = seq.Date(as.Date("2022-01-01"),
-                             as.Date("2022-04-10"),
-                             by = "2 days")) |>
-     tidyr::pivot_longer(
-     cols = -date,
-     names_to = "dist_name",
-     values_to = "value")
-fancy_ts(df, value, dist_name)
-\dontshow{\}) # examplesIf}
+dist1 = sort(rnorm(50, 5, 2)),
+dist2 = sort(rnorm(50, 8, 3)),
+dist4 = sort(rnorm(50, 15, 1)),
+date = seq.Date(
+as.Date("2022-01-01"),
+as.Date("2022-04-10"),
+by = "2 days")
+) |>
+tidyr::pivot_longer(
+cols = -date,
+names_to = "dist_name",
+values_to = "value")
+
+df
+
+fancy_ts(df, value, dist_name) +
+gg_theme()
+
 }

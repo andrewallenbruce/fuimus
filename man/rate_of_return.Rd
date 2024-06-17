@@ -19,7 +19,7 @@ rate_of_return(df, col, n = 1, fill_na = 1L)
 Lagged rate of return
 }
 \examples{
-provider_data(2020:2025) |>
+fuimus:::provider_data(2020:2025) |>
   dplyr::group_by(group) |>
   rate_of_return(net_payment)
 

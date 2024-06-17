@@ -4,14 +4,12 @@
 #'
 #' @returns A [tibble][tibble::tibble-package] containing the search results.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' provider_data(2010:2020)
-#'
-#' @keywords internal
 #'
 #' @autoglobal
 #'
-#' @export
+#' @noRd
 provider_data <- function(year_seq) {
 
   lng <- length(year_seq) * 2
@@ -37,14 +35,12 @@ provider_data <- function(year_seq) {
 #'
 #' @returns A [tibble][tibble::tibble-package]
 #'
-#' @examples
+#' @examplesIf interactive()
 #' forager_data(rows = 5)
-#'
-#' @keywords internal
 #'
 #' @autoglobal
 #'
-#' @export
+#' @noRd
 forager_data <- function(rows = 10){
 
   dplyr::tibble(

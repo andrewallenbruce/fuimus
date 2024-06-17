@@ -7,11 +7,11 @@
 histogram(df, var, binwidth)
 }
 \arguments{
-\item{df}{df}
+\item{df}{data frame}
 
 \item{var}{var}
 
-\item{binwidth}{binwidth}
+\item{binwidth}{\code{numeric} binwidth}
 }
 \value{
 ggplot2 histogram
@@ -20,8 +20,7 @@ ggplot2 histogram
 Histogram
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+ggplot2::diamonds |>
+  histogram(carat, 0.1)
 
-ggplot2::diamonds |> histogram(carat, 0.1)
-\dontshow{\}) # examplesIf}
 }
