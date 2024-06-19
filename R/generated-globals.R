@@ -7,6 +7,8 @@ utils::globalVariables(c(
   # <count_days>
   # <sorted_bars>
   ":=",
+  # <combine>
+  "combined",
   # <rate_of_return>
   "copy",
   # <forager_data>
