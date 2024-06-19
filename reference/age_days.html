@@ -41,7 +41,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Calculate Number of Days Between Two Dates</h1>
-      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/fuimus/blob/HEAD/R/date_calculations.R" class="external-link"><code>R/date_calculations.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/fuimus/blob/HEAD/R/dates.R" class="external-link"><code>R/dates.R</code></a></small>
       <div class="d-none name"><code>age_days.Rd</code></div>
     </div>
 
@@ -124,9 +124,9 @@ containing the calculated number of days.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   x          y          days_since_x</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2021-01-01 2022-01-01         <span style="text-decoration: underline;">1</span>264</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2021-02-01 2022-02-01         <span style="text-decoration: underline;">1</span>233</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2021-03-01 2022-03-01         <span style="text-decoration: underline;">1</span>205</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2021-01-01 2022-01-01         <span style="text-decoration: underline;">1</span>266</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2021-02-01 2022-02-01         <span style="text-decoration: underline;">1</span>235</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2021-03-01 2022-03-01         <span style="text-decoration: underline;">1</span>207</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">date_ex</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span><span class="fu">age_days</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="st">"days_between_x_y"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
@@ -135,9 +135,9 @@ containing the calculated number of days.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   x          y          days_between_x_y days_since_x days_since_y</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2021-01-01 2022-01-01              366         <span style="text-decoration: underline;">1</span>264          899</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2021-02-01 2022-02-01              366         <span style="text-decoration: underline;">1</span>233          868</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2021-03-01 2022-03-01              366         <span style="text-decoration: underline;">1</span>205          840</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2021-01-01 2022-01-01              366         <span style="text-decoration: underline;">1</span>266          901</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2021-02-01 2022-02-01              366         <span style="text-decoration: underline;">1</span>235          870</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2021-03-01 2022-03-01              366         <span style="text-decoration: underline;">1</span>207          842</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
