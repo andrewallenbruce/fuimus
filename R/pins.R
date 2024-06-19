@@ -9,7 +9,9 @@
 #'
 #' @autoglobal
 #'
-#' @noRd
+#' @keywords internal
+#'
+#' @export
 gh_raw <- function(x) {
   paste0("https://raw.githubusercontent.com/", x)
 }
@@ -24,7 +26,9 @@ gh_raw <- function(x) {
 #'
 #' @autoglobal
 #'
-#' @noRd
+#' @keywords internal
+#'
+#' @export
 mount_board <- function(source = c("local", "remote"), package = "fuimus") {
 
   source <- match.arg(source)
@@ -49,7 +53,9 @@ mount_board <- function(source = c("local", "remote"), package = "fuimus") {
 #'
 #' @autoglobal
 #'
-#' @noRd
+#' @keywords internal
+#'
+#' @export
 get_pin <- function(pin, ...) {
 
   board <- mount_board(...)
@@ -68,7 +74,9 @@ get_pin <- function(pin, ...) {
 #'
 #' @autoglobal
 #'
-#' @noRd
+#' @keywords internal
+#'
+#' @export
 list_pins <- function(...) {
 
   board <- mount_board(...)
