@@ -85,7 +85,13 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/geomean.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/get_pin.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/gg_theme.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/gh_raw.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/grapes-nin-grapes.html</loc>
@@ -112,6 +118,9 @@
     <loc>https://andrewallenbruce.github.io/fuimus/reference/is_readable.html</loc>
   </url>
   <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/list_pins.html</loc>
+  </url>
+  <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/make_interval.html</loc>
   </url>
   <url>
@@ -122,6 +131,9 @@
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/months_regex.html</loc>
+  </url>
+  <url>
+    <loc>https://andrewallenbruce.github.io/fuimus/reference/mount_board.html</loc>
   </url>
   <url>
     <loc>https://andrewallenbruce.github.io/fuimus/reference/na_if_common.html</loc>
