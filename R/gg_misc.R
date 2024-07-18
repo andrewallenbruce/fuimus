@@ -37,7 +37,7 @@ sorted_bars <- function(df, var) {
 #'
 #' @param var var
 #'
-#' @param binwidth `numeric` binwidth
+#' @param binwidth `<numeric>` binwidth
 #'
 #' @returns ggplot2 histogram
 #'

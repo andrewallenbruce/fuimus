@@ -7,7 +7,7 @@
 sum_na(x)
 }
 \arguments{
-\item{x}{numeric vector}
+\item{x}{\verb{<numeric>} vector}
 }
 \description{
 \code{sum()} with \code{NA} removal

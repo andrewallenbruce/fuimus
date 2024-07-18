@@ -7,7 +7,7 @@
 sd_na(x)
 }
 \arguments{
-\item{x}{numeric vector}
+\item{x}{\verb{<numeric>} vector}
 }
 \description{
 \code{sd()} with \code{NA} removal

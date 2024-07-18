@@ -35,7 +35,8 @@ named_group_split <- function(df, ...) {
 
   grouped <- dplyr::group_by(df, ...)
 
-  names <- rlang::inject(paste(
+  names <- rlang::inject(
+    paste(
       !!!dplyr::group_keys(grouped),
       sep = "_")
   )

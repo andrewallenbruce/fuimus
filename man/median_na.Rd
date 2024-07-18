@@ -7,12 +7,12 @@
 median_na(x)
 }
 \arguments{
-\item{x}{numeric vector}
+\item{x}{\verb{<numeric>} vector}
 }
 \description{
 \code{median()} with \code{NA} removal
 }
 \examples{
-sd_na(c(1, 2, NA))
+median_na(c(1, 2, NA))
 
 }

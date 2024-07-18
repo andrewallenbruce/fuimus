@@ -11,7 +11,7 @@ histogram(df, var, binwidth)
 
 \item{var}{var}
 
-\item{binwidth}{\code{numeric} binwidth}
+\item{binwidth}{\verb{<numeric>} binwidth}
 }
 \value{
 ggplot2 histogram
