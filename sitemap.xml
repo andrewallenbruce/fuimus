@@ -1,213 +1,78 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/404.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/index.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/add_ifelse.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/age_days.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/change.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/change_lagged.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/chg_abs.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/chg_pct.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/clean_number.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/collapser.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/combine.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/count_days.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/count_missing.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/count_prop.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/count_prop_multi.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/count_wide.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/delister.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/density.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/df_2_chr.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/display_long.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/duration_vec.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/fancy_ts.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/geomean.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/get_pin.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/gg_theme.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/gh_raw.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/grapes-nin-grapes.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/grapes-nn-grapes.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/gt_marks.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/histogram.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/invert_named.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/is_directory.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/is_readable.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/list_pins.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/make_interval.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/mean_na.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/median_na.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/months_regex.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/mount_board.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/na_if_common.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/named_group_split.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/new_value.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/null_if_empty.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/pad_number.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_calculator.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_change.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_difference.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/rate_of_return.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/remove_quiet.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/rename_seq.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/roundup.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/sd_na.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/search_in.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/search_in_if.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/search_in_if_args.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/show_missing.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/single_line_string.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/sorted_bars.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/splitter.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/srchcol.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/sum_na.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/years_df.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/years_floor.html</loc>
-  </url>
-  <url>
-    <loc>https://andrewallenbruce.github.io/fuimus/reference/years_vec.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://andrewallenbruce.github.io/fuimus/404.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/LICENSE-text.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/LICENSE.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/authors.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/index.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/news/index.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/add_ifelse.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/age_days.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/change.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/change_lagged.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/chg_abs.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/chg_pct.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/clean_number.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/collapser.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/color_text.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/combine.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/count_days.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/count_missing.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/count_prop.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/count_prop_multi.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/count_wide.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/delister.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/density.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/df_2_chr.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/display_long.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/duration_vec.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/fancy_ts.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/geomean.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/get_pin.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/gg_theme.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/gh_raw.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/grapes-nin-grapes.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/grapes-nn-grapes.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/gt_marks.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/histogram.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/index.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/invert_named.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/iqr_na.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/is_directory.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/is_readable.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/list_pins.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/mad_na.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/make_interval.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/mean_na.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/median_na.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/months_regex.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/mount_board.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/na_if_common.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/named_group_split.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/new_value.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/null_if_empty.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/pad_number.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_calculator.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_change.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_difference.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/range_na.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/rate_of_return.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/remove_quiet.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/rename_seq.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/roundup.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/sd_na.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/search_in.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/search_in_if.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/search_in_if_args.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/show_missing.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/single_line_string.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/sorted_bars.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/splitter.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/srchcol.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/sum_na.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/var_na.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/years_df.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/years_floor.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/years_vec.html</loc></url>
 </urlset>
+
