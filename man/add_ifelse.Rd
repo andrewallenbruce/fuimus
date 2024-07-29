@@ -22,9 +22,7 @@ A \verb{<data.frame>} or \verb{<tibble>}
 Search in data frame column if search term is not \code{NULL}
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-
-df <- northstar::get_mue_edits()
+\dontshow{if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 add_ifelse(x = "Practitioner",
            df = df,

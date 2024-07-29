@@ -133,6 +133,54 @@ pad_number <- function(x, digits = NULL){
   )
 }
 
+#' Generate code from a vector of values
+#'
+#' @param x `<vec>` vector
+#'
+#' @param collapse `<chr>` Separator between sequences, default `", "`
+#'
+#' @param enclose `<chr>` *(optional)* Vector of `length(x) == 2` with which to enclose output
+#'
+#' @param style `<lgl>` Apply [styler::style_text()] to output, default `TRUE`
+#'
+#' @param ... Additional arguments passed to [styler::tidyverse_style()]
+#'
+#' @returns `<chr>` vector of valid R code
+#'
+#' @examples
+#' hcpcs <- c(
+#'    "63091", "81536", "99305", "63012",
+#'    "78835", "E0185", "44408", "87485",
+#'    "36015", "0581F", "33478", "21184",
+#'    "42999", "15155", "76705", "23412",
+#'    "99406", "0585T", "0272T", "92507")
+#'
+#' create_vec(x = hcpcs)
+#'
+#' @autoglobal
+#'
+#' @export
+create_vec <- function(x,
+                       collapse = ", ",
+                       enclose = c("x = c(", ")"),
+                       style = TRUE,
+                       ...) {
+
+  uniq_nona <- \(x) collapse::funique(collapse::na_rm(x))
+
+  x <- gsub(" ", "", uniq_nona(x))
+
+  parentheses <- "'"
+
+  x <- stringr::str_c(parentheses, x, parentheses, collapse = collapse)
+
+  x <- stringr::str_c(enclose[1], x, enclose[2])
+
+  if (style) x <- styler::style_text(text = x, ...)
+
+  return(x)
+}
+
 #' Generate a sequence of numbers with a new prefix
 #'
 #' @param n `<int>` Numeric sequence to generate

@@ -142,9 +142,7 @@ search_in_if_args <- function(df,
 #'
 #' @returns A `<data.frame>` or `<tibble>`
 #'
-#' @examplesIf interactive()
-#'
-#' df <- northstar::get_mue_edits()
+#' @examplesIf FALSE
 #'
 #' add_ifelse(x = "Practitioner",
 #'            df = df,

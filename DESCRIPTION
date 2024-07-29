@@ -29,6 +29,8 @@ Imports:
     rlang,
     scales,
     stats,
+    strex,
+    stringi,
     stringr,
     styler,
     tidyr,
@@ -38,13 +40,10 @@ Suggests:
     fontawesome,
     ggplot2,
     gt,
-    northstar,
     prettycode,
     roxyglobals,
     testthat (>= 3.0.0),
     wakefield
-Remotes: 
-    github::andrewallenbruce/northstar
 Config/roxyglobals/filename: generated-globals.R
 Config/roxyglobals/unique: TRUE
 Config/testthat/edition: 3
