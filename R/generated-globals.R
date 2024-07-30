@@ -19,6 +19,8 @@ utils::globalVariables(c(
   "date_of_service",
   # <forager_data>
   "date_of_submission",
+  # <forager_data>
+  "dates",
   # <id_runs>
   "group",
   # <id_runs>
@@ -32,8 +34,14 @@ utils::globalVariables(c(
   # <count_prop>
   # <count_prop_multi>
   # <count_wide>
+  # <describe>
   "n",
+  # <describe>
+  "type",
+  # <describe>
   # <id_runs>
   "value",
+  # <describe>
+  "variable",
   NULL
 ))

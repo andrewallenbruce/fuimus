@@ -18,6 +18,8 @@ Depends:
 Imports:
     clock,
     collapse,
+    cheapr,
+    pillar,
     dplyr,
     forcats,
     fs,

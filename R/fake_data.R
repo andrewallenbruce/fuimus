@@ -33,6 +33,8 @@ provider_data <- function(year_seq) {
 #'
 #' @param rows number of rows to generate; default is 10
 #'
+#' @param unnest a logical indicating whether to unnest the dates column; default is `FALSE`
+#'
 #' @returns A [tibble][tibble::tibble-package]
 #'
 #' @examplesIf interactive()
@@ -41,17 +43,17 @@ provider_data <- function(year_seq) {
 #' @autoglobal
 #'
 #' @noRd
-forager_data <- function(rows = 10){
+forager_data <- function(rows = 10, unnest = FALSE){
 
-  dplyr::tibble(
-    claim_id        = wakefield::id(n = rows),
+  x <- dplyr::tibble(
+    claim_id        = as.character(wakefield::id(n = rows)),
     date_of_service = wakefield::date_stamp(n = rows,
       start         = lubridate::today() - lubridate::dyears(2),
       random        = TRUE),
     payer           = fixtuRes::set_vector(rows,
       set           = c("Medicare", "Medicaid", "Cigna", "Humana", "UnitedHealth", "Anthem", "BCBS", "Centene")),
     ins_class       = fixtuRes::set_vector(rows, set = c("Primary", "Secondary")),
-    balance         = wakefield::income(n = rows, digits = 2) / 300) |>
+    balance         = as.double(wakefield::income(n = rows, digits = 2) / 300)) |>
     dplyr::mutate(
       date_of_service      = lubridate::as_date(date_of_service),
       date_of_release      = date_of_service + round(abs(stats::rnorm(length(date_of_service), 11, 4))),
@@ -60,4 +62,7 @@ forager_data <- function(rows = 10){
       date_of_adjudication = date_of_acceptance + round(abs(stats::rnorm(length(date_of_acceptance), 30, 3)))) |>
     tidyr::nest(dates = tidyr::contains("date"))
 
+  if(unnest) x <- tidyr::unnest_wider(x, dates)
+
+  return(x)
 }
