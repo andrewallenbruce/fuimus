@@ -99,6 +99,45 @@ remove_quotes <- function(x) {
   stringfish::sf_gsub(x, '["\']', "")
 }
 
+#' Apply as.character() to glue()
+#'
+#' @param ... dots to pass to glue function
+#'
+#' @returns `<chr>` vector
+#'
+#' @autoglobal
+#'
+#' @export
+glue_chr <- function(...) {
+  as.character(
+    glue::glue(
+      ...,
+      .envir = parent.frame(1)
+      )
+    )
+}
+
+#' Apply as.character() to glue_data()
+#'
+#' @param ... dots to pass to glue function
+#'
+#' @param .x `<vec>` vector to pass to glue_data()
+#'
+#' @returns `<chr>` vector
+#'
+#' @autoglobal
+#'
+#' @export
+glue_data_chr <- function(.x, ...) {
+  as.character(
+    glue::glue_data(
+      .x = .x,
+      ...,
+      .envir = parent.frame(1)
+      )
+    )
+}
+
 #' Pad numbers with zeroes
 #'
 #' @param x `<dbl>` vector of numbers
