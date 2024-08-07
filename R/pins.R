@@ -84,3 +84,36 @@ list_pins <- function(...) {
   pins::pin_list(board)
 
 }
+
+#' Install/upgrade personal packages
+#'
+#' @autoglobal
+#'
+#' @keywords internal
+#'
+#' @export
+upgrade_personal_pkgs <- function() {
+
+  pkgs <- c(
+    "careroll",
+    "codexchain",
+    "costoffice",
+    "defogger",
+    "forager",
+    "fuimus",
+    "himni",
+    "northstar",
+    "pathologie",
+    "procedural",
+    "provider",
+    "rvu",
+    "nppez"
+  )
+
+  pak::pkg_install(
+    glue::glue(
+      "andrewallenbruce/{pkgs}"
+    ),
+    upgrade = TRUE,
+    ask = FALSE)
+}
