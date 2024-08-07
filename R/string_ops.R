@@ -83,6 +83,22 @@ na_if_common <- function(x) {
 
 }
 
+#' Remove single or double quotes from a character string
+#'
+#' @param x `<chr>` vector to convert
+#'
+#' @returns `<chr>` vector with removed quotes
+#'
+#' @examples
+#' remove_quotes(x = c("'", '"'))
+#'
+#' @autoglobal
+#'
+#' @export
+remove_quotes <- function(x) {
+  stringfish::sf_gsub(x, '["\']', "")
+}
+
 #' Pad numbers with zeroes
 #'
 #' @param x `<dbl>` vector of numbers
