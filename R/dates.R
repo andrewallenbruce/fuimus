@@ -118,6 +118,34 @@ count_days <- function(df,
     )
 }
 
+#' Expand date range to include all dates
+#'
+#' @param x `<date>` vector of dates
+#'
+#' @param name `<chr>` new column name for vector of dates
+#'
+#' @returns `<tbl>` with expanded date range
+#'
+#' @examples
+#' expand_date_range(
+#'    seq.Date(
+#'    from = as.Date("2020-01-01"),
+#'    to = as.Date("2020-01-01") + 2057,
+#'    by = 1),
+#'    "date"
+#')
+#' @autoglobal
+#'
+#' @export
+expand_date_range <- function(x, name) {
+
+  collapse::funique(collapse::na_rm(x)) |>
+    timeplyr::time_completev(time_by = "days") |>
+    timeplyr::calendar(name = name) |>
+    collapse::get_vars("^[^iso|epi]", regex = TRUE)
+
+}
+
 #' Calculate the number of years between two dates rounded down to the nearest
 #' whole number
 #'

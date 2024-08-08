@@ -38,6 +38,7 @@ Imports:
     stringr,
     styler,
     tidyr,
+    timeplyr,
     vctrs
 Suggests: 
     fixtuRes,
