@@ -11,20 +11,32 @@
 #' @returns A `<data.frame>` or `<tibble>` with combined columns
 #'
 #' @examples
-#' fuimus:::forager_data()[-5] |>
-#'   combine(name = id_payer,
-#'   columns = c('claim_id', 'payer'))
+#' x <- fuimus:::forager_data()[-5]
+#'
+#' x[1, 2] <- ""
+#'
+#' x
+#'
+#' x |>
+#'   combine(
+#'     name = id_payer,
+#'     columns = c('claim_id', 'payer'))
 #'
 #' @autoglobal
 #'
 #' @export
 combine <- function(df, name = combined, columns, sep = "-") {
 
-  tidyr::unite(
+  x <- tidyr::unite(
     df,
     col = {{ name }},
     dplyr::any_of(columns),
     remove = TRUE,
     na.rm = TRUE,
     sep = sep)
+
+  x |>
+    dplyr::mutate(
+      {{ name }} := dplyr::na_if({{ name }}, "")
+    )
 }

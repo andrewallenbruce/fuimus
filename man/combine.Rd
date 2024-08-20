@@ -22,8 +22,15 @@ A \verb{<data.frame>} or \verb{<tibble>} with combined columns
 Combine multiple columns into one
 }
 \examples{
-fuimus:::forager_data()[-5] |>
-  combine(name = id_payer,
-  columns = c('claim_id', 'payer'))
+x <- fuimus:::forager_data()[-5]
+
+x[1, 2] <- ""
+
+x
+
+x |>
+  combine(
+    name = id_payer,
+    columns = c('claim_id', 'payer'))
 
 }
