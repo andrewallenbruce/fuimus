@@ -45,6 +45,7 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/grapes-nin-grapes.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/grapes-nn-grapes.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/gt_marks.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/histo.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/histogram.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/index.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/invert_named.html</loc></url>
@@ -55,8 +56,10 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/list_pins.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/mad_na.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/make_interval.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/max_na.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/mean_na.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/median_na.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/min_na.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/months_regex.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/mount_board.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/na_if_common.html</loc></url>
