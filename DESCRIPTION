@@ -16,7 +16,6 @@ BugReports: https://github.com/andrewallenbruce/fuimus/issues
 Depends: 
     R (>= 4.1.0)
 Imports:
-    cheapr,
     cli,
     clock,
     collapse,
@@ -40,6 +39,7 @@ Suggests:
     forcats,
     fs,
     ggplot2,
+    graphics,
     gt,
     pak,
     pillar,

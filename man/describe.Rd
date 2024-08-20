@@ -20,9 +20,6 @@ Describe a dataset
 \examples{
 describe(fuimus:::provider_data(2000:2020))
 
-describe(
-   fuimus:::forager_data(200),
-   !dplyr::starts_with("date")
-)
+describe(fuimus:::forager_data(200), !dplyr::starts_with("date"))
 
 }

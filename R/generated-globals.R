@@ -28,15 +28,27 @@ utils::globalVariables(c(
   "group_size",
   # <make_interval>
   "interval",
+  # <describe>
+  "iqr",
   # <id_runs>
   "key",
   # <rate_of_return>
   "lg",
+  # <describe>
+  "mad",
+  # <describe>
+  "med",
   # <count_prop>
   # <count_prop_multi>
   # <count_wide>
   # <describe>
   "n",
+  # <describe>
+  "n_uniq",
+  # <describe>
+  "sd",
+  # <describe>
+  "top_5",
   # <describe>
   "type",
   # <describe>

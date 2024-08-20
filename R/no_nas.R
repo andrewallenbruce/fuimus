@@ -117,3 +117,31 @@ iqr_na <- function(x, ...) {
 range_na <- function(...) {
   base::range(..., na.rm = TRUE)
 }
+
+#' `min()` with `NA` removal
+#'
+#' @param ... `<numeric>` vector
+#'
+#' @examples
+#' min_na(c(1, 2, NA))
+#'
+#' @autoglobal
+#'
+#' @export
+min_na <- function(...) {
+  base::min(..., na.rm = TRUE)
+}
+
+#' `max()` with `NA` removal
+#'
+#' @param ... `<numeric>` vector
+#'
+#' @examples
+#' max_na(c(1, 2, NA))
+#'
+#' @autoglobal
+#'
+#' @export
+max_na <- function(...) {
+  base::max(..., na.rm = TRUE)
+}
