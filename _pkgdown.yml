@@ -1,4 +1,5 @@
 url: https://andrewallenbruce.github.io/fuimus/
+
 template:
   bootstrap: 5
   theme: tango
@@ -9,3 +10,14 @@ template:
     code_font: "Hack, mono"
   includes:
     in_header: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
+
+home:
+  title: fuimus • Functions That Have Been
+  description: >
+    A collection of functions that have been useful to the author
+    in his work. The package is intended to be a personal package, but is
+    made available to the public in the hope that it may be useful to
+    others. The package is named after the motto of the Scottish Bruce
+    clan.
+  sidebar:
+    structure: [links, license, community, citation, authors, dev]

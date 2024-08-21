@@ -44,11 +44,11 @@ utils::globalVariables(c(
   # <describe>
   "n",
   # <describe>
-  "n_uniq",
+  "nuniq",
   # <describe>
   "sd",
   # <describe>
-  "top_5",
+  "top_n",
   # <describe>
   "type",
   # <describe>

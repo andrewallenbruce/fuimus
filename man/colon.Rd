@@ -2,7 +2,7 @@
 % Please edit documentation in R/colon.R
 \name{colon}
 \alias{colon}
-\title{Number Sequence Starting at 1}
+\title{Create Integer Sequence Beginning at 1}
 \usage{
 colon(n)
 }
@@ -13,7 +13,7 @@ colon(n)
 \verb{<integer>} vector of numbers from 1 to \code{n}
 }
 \description{
-Number Sequence Starting at 1
+Create Integer Sequence Beginning at 1
 }
 \examples{
 colon(50)
@@ -21,5 +21,9 @@ colon(50)
 colon(-20)
 
 colon(0 + 150 - 145)
+
+colon(20.9)
+
+colon(20.1)
 
 }

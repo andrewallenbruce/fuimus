@@ -3,12 +3,12 @@
 #' @param x `<numeric>` vector
 #'
 #' @examples
-#' mean_na(c(1, 2, NA))
+#' na_mean(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-mean_na <- function(x) {
+na_mean <- function(x) {
   base::mean(x, na.rm = TRUE)
 }
 
@@ -17,12 +17,12 @@ mean_na <- function(x) {
 #' @param x `<numeric>` vector
 #'
 #' @examples
-#' sum_na(c(1, 2, NA))
+#' na_sum(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-sum_na <- function(x) {
+na_sum <- function(x) {
   base::sum(x, na.rm = TRUE)
 }
 
@@ -31,12 +31,12 @@ sum_na <- function(x) {
 #' @param x `<numeric>` vector
 #'
 #' @examples
-#' sd_na(c(1, 2, NA))
+#' na_sd(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-sd_na <- function(x) {
+na_sd <- function(x) {
   stats::sd(x, na.rm = TRUE)
 }
 
@@ -45,12 +45,12 @@ sd_na <- function(x) {
 #' @param x `<numeric>` vector
 #'
 #' @examples
-#' median_na(c(1, 2, NA))
+#' na_med(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-median_na <- function(x) {
+na_med <- function(x) {
   stats::median(x, na.rm = TRUE)
 }
 
@@ -59,12 +59,12 @@ median_na <- function(x) {
 #' @param x `<numeric>` vector
 #'
 #' @examples
-#' var_na(c(1, 2, NA))
+#' na_var(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-var_na <- function(x) {
+na_var <- function(x) {
   stats::var(x, na.rm = TRUE)
 }
 
@@ -79,12 +79,12 @@ var_na <- function(x) {
 #' @param ... additional arguments to pass to `stats::mad()`
 #'
 #' @examples
-#' mad_na(c(1, 2, NA))
+#' na_mad(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-mad_na <- function(x, ...) {
+na_mad <- function(x, ...) {
   stats::mad(x, na.rm = TRUE, ...)
 }
 
@@ -95,12 +95,12 @@ mad_na <- function(x, ...) {
 #' @param ... additional arguments to pass to `stats::IQR()`
 #'
 #' @examples
-#' iqr_na(c(1, 2, NA))
+#' na_iqr(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-iqr_na <- function(x, ...) {
+na_iqr <- function(x, ...) {
   stats::IQR(x, na.rm = TRUE, ...)
 }
 
@@ -109,12 +109,12 @@ iqr_na <- function(x, ...) {
 #' @param ... `<numeric>` vector
 #'
 #' @examples
-#' range_na(c(1, 2, NA))
+#' na_range(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-range_na <- function(...) {
+na_range <- function(...) {
   base::range(..., na.rm = TRUE)
 }
 
@@ -123,12 +123,12 @@ range_na <- function(...) {
 #' @param ... `<numeric>` vector
 #'
 #' @examples
-#' min_na(c(1, 2, NA))
+#' na_min(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-min_na <- function(...) {
+na_min <- function(...) {
   base::min(..., na.rm = TRUE)
 }
 
@@ -137,11 +137,11 @@ min_na <- function(...) {
 #' @param ... `<numeric>` vector
 #'
 #' @examples
-#' max_na(c(1, 2, NA))
+#' na_max(c(1, 2, NA))
 #'
 #' @autoglobal
 #'
 #' @export
-max_na <- function(...) {
+na_max <- function(...) {
   base::max(..., na.rm = TRUE)
 }

@@ -28,14 +28,14 @@ describe <- function(df, ...) {
       ) |>
     dplyr::mutate(n = 1 - is.na(value)) |>
     dplyr::reframe(
-      n = as.integer(sum_na(n)),
-      mean = mean_na(value),
-      sd = sd_na(value),
-      iqr = iqr_na(value),
-      med = median_na(value),
-      mad = mad_na(value),
+      n = as.integer(na_sum(n)),
+      mean = na_mean(value),
+      sd = na_sd(value),
+      iqr = na_iqr(value),
+      med = na_med(value),
+      mad = na_mad(value),
       range = glue_chr(
-        "[{roundup(min_na(value))} - {roundup(max_na(value))}]"
+        "[{roundup(na_min(value))} - {roundup(na_max(value))}]"
         ),
       histogram = histo(value),
       .by = variable
@@ -54,8 +54,8 @@ describe <- function(df, ...) {
   get_unique <- \(x, limit = 5) {
     dplyr::tibble(
       variable = names(x),
-      n_uniq = collapse::fnunique(collapse::na_rm(x)),
-      top_5 = collapse::fcount(collapse::na_rm(x), name = "n") |>
+      nuniq = collapse::fnunique(collapse::na_rm(x)),
+      top_n = collapse::fcount(collapse::na_rm(x), name = "n") |>
         dplyr::arrange(dplyr::desc(n)) |>
         dplyr::slice(1:limit) |>
         dplyr::pull(x) |>
@@ -80,8 +80,8 @@ describe <- function(df, ...) {
                   med,
                   mad,
                   n,
-                  n_uniq,
-                  top_5)
+                  nuniq,
+                  top_n)
 }
 
 #' Inline histogram
@@ -113,7 +113,7 @@ histo <- function(x, width = 10) {
   bins <- graphics::hist(x, breaks = width, plot = FALSE)
 
   factor <- cut(
-    bins$counts / max(bins$counts),
+    bins$counts / na_max(bins$counts),
     breaks = seq(0, 1, length = length(sparks) + 1),
     labels = sparks,
     include.lowest = TRUE
