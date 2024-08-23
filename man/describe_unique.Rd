@@ -30,10 +30,9 @@ a data frame with unique values
 Describe unique values in a data frame
 }
 \examples{
-x <- fuimus:::forager_data(200)
 
-x
+describe_unique(fuimus:::forager_data(), claim_id, payer)
 
-describe_unique(x, claim_id, payer)
+# describe_unique(fuimus:::forager_data(200), names(df)[2:3])
 
 }

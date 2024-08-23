@@ -13,11 +13,10 @@
 #' @returns a data frame with unique values
 #'
 #' @examples
-#' x <- fuimus:::forager_data(200)
 #'
-#' x
+#' describe_unique(fuimus:::forager_data(), claim_id, payer)
 #'
-#' describe_unique(x, claim_id, payer)
+#' # describe_unique(fuimus:::forager_data(200), names(df)[2:3])
 #'
 #' @autoglobal
 #'
@@ -28,14 +27,15 @@ describe_unique <- function(df,
                             .set_names = NULL,
                             .names_to = "variable") {
 
-  df <- fuimus::df_2_chr(df)
-  df <- dplyr::select(df, ...) |>
+  rlang::check_dots_unnamed()
+
+  df <- dplyr::select(df, ...)
+
+  .set_names <- if (is.null(.set_names)) names(df) else .set_names
+
+  df <- fuimus::df_2_chr(df) |>
     names() |>
-    purrr::map(~ dplyr::count(
-      df,
-      .data[[.x]],
-      sort = TRUE)
-      ) |>
+    purrr::map(~ dplyr::count(df, .data[[.x]], sort = TRUE)) |>
     purrr::set_names(nm = .set_names)
 
   first_column_rename <- \(x, first = .rename_first) {
