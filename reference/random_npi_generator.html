@@ -57,15 +57,14 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">random_npi_generator</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "1223922887" "1923928022" "1500887279" "1878858426" "2793588970"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "1359145194" "1316180235" "1915049264" "1059502040" "2508770398"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "1211763875" "1333182750" "1017506075" "1348924081" "2704990832"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "2270660207" "2849105161" "1479636846" "1736653545" "2031973170"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">random_npi_generator</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span><span class="op">[</span><span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://sebkrantz.github.io/collapse/reference/efficient-programming.html" class="external-link">whichv</a></span><span class="op">(</span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">is_valid_npi</span><span class="op">)</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "2170368841" "1874265170" "2696584988" "2003973429" "2268628684"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "1155645140" "1572336828" "2107066294" "1594015368" "1920720384"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "2572500041" "2968081853" "1147592673"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "1778788897" "1210558510" "1135120602" "2160772713" "1141874317"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "1337019487" "1517376491" "2767083753" "1306015185" "1226192619"</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

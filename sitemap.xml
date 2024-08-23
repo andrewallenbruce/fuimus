@@ -21,6 +21,7 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/colon.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/color_text.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/combine.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/common_regex.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/construct_regex.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/count_days.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/count_missing.html</loc></url>
@@ -31,6 +32,7 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/delister.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/density.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/describe.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/describe_unique.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/df_2_chr.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/display_long.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/duration_vec.html</loc></url>
@@ -54,7 +56,6 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/is_valid_npi.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/list_pins.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/make_interval.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/fuimus/reference/months_regex.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/mount_board.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/na_if_common.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/na_iqr.html</loc></url>
