@@ -17,7 +17,9 @@ Format multiple line character vector to single line
 }
 \examples{
 single_line_string(
-"(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|
-Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|")
+   "(Jan(?:uary)?|
+    Feb(?:ruary)?|
+    Mar(?:ch)?|"
+ )
 
 }

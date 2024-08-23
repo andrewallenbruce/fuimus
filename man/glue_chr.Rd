@@ -2,7 +2,7 @@
 % Please edit documentation in R/string_ops.R
 \name{glue_chr}
 \alias{glue_chr}
-\title{Apply as.character() to glue()}
+\title{Wrapper for \code{as.character(glue(x))}}
 \usage{
 glue_chr(...)
 }
@@ -13,5 +13,5 @@ glue_chr(...)
 \verb{<chr>} vector
 }
 \description{
-Apply as.character() to glue()
+Wrapper for \code{as.character(glue(x))}
 }

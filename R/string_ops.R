@@ -45,21 +45,46 @@ invert_named <- function(x) {
   rlang::set_names(names(x), unname(x))
 }
 
-#' Regular expression for matching month names
+#' Common Regular expressions
 #'
-#' @returns `<chr>` string  of a regex for matching month names
+#' @param x `<chr>` regex name
+#'
+#' @returns `<chr>` string of a regex
 #'
 #' @examples
-#' months_regex()
+#' common_regex("url")
+#'
+#' common_regex("month")
+#'
+#' common_regex("month_date")
 #'
 #' @autoglobal
 #'
 #' @export
-months_regex <- function() {
-  single_line_string(
-    "(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|
-     Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|
-     Dec(?:ember)?)\\s+(\\d{1,2})\\,\\s+(\\d{4})")
+common_regex <- function(x = c("month_date", "month", "url")) {
+
+  x <- match.arg(x)
+
+  reg <- list(
+    month_date = single_line_string(
+      "(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|
+      Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|
+      Dec(?:ember)?)\\s+(\\d{1,2})\\,\\s+(\\d{4})"
+      ),
+    month = single_line_string(
+      "(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|
+      Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|
+      Dec(?:ember)?)"
+     ),
+    url = single_line_string(
+      "^(?:(?:http(?:s)?|ftp)://)(?:\\S+(?::(?:\\S)*)?@)?(?:(?:[a-z0-9
+      \u00a1-\uffff](?:-)*)*(?:[a-z0-9\u00a1-\uffff])+)(?:\\.(?:[a-z0-9
+      \u00a1-\uffff](?:-)*)*(?:[a-z0-9\u00a1-\uffff])+)*(?:\\.(?:[a-z0-9
+      \u00a1-\uffff]){2,})(?::(?:\\d){2,5})?(?:/(?:\\S)*)?$"
+    )
+  )
+
+  reg[[x]]
 }
 
 #' Convert various character strings to `NA`
@@ -99,7 +124,7 @@ remove_quotes <- function(x) {
   stringfish::sf_gsub(x, '["\']', "")
 }
 
-#' Apply as.character() to glue()
+#' Wrapper for `as.character(glue(x))`
 #'
 #' @param ... dots to pass to glue function
 #'
@@ -112,12 +137,10 @@ glue_chr <- function(...) {
   as.character(
     glue::glue(
       ...,
-      .envir = parent.frame(1)
-      )
-    )
+      .envir = parent.frame(1)) )
 }
 
-#' Apply as.character() to glue_data()
+#' Wrapper for `as.character(glue_data(x))`
 #'
 #' @param ... dots to pass to glue function
 #'
@@ -133,9 +156,7 @@ glue_data_chr <- function(.x, ...) {
     glue::glue_data(
       .x = .x,
       ...,
-      .envir = parent.frame(1)
-      )
-    )
+      .envir = parent.frame(1)))
 }
 
 #' Pad numbers with zeroes
@@ -158,11 +179,7 @@ glue_data_chr <- function(.x, ...) {
 pad_number <- function(x, digits = NULL){
 
   if (rlang::is_null(digits)) {
-
-    digits <- max(
-      nchar(x),
-      na.rm = TRUE
-    )
+    digits <- max(nchar(x), na.rm = TRUE)
   }
 
   stopifnot(
@@ -170,22 +187,14 @@ pad_number <- function(x, digits = NULL){
     digits > 1
   )
 
-  x <- as.character(x)
+  x   <- as.character(x)
   rpt <- digits - nchar(x)
-
-  rpt <- dplyr::if_else(
-    rpt < 0L,
-    0L,
-    rpt
-  )
+  rpt <- dplyr::if_else(rpt < 0L, 0L, rpt)
 
   paste0(
-    sapply(
-      rpt,
+    sapply(rpt,
       FUN = function(x)
-        paste0(
-          rep("0", times = x), collapse = "")), x
-  )
+        paste0(rep("0", times = x), collapse = "")), x)
 }
 
 #' Generate code from a vector of values
@@ -305,8 +314,10 @@ rename_seq <- function(n,
 #'
 #' @examples
 #' single_line_string(
-#' "(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|
-#' Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|")
+#'    "(Jan(?:uary)?|
+#'     Feb(?:ruary)?|
+#'     Mar(?:ch)?|"
+#'  )
 #'
 #' @autoglobal
 #'
