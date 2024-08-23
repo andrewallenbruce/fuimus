@@ -1,7 +1,5 @@
 #' @examplesIf interactive()
-#' dplyr::tibble(x = 1:10,
-#'               y = 1:10) |>
-#'               df_types()
+#' dplyr::tibble(x = 1:10, y = 1:10) |> df_types()
 #'
 #' @autoglobal
 #'
