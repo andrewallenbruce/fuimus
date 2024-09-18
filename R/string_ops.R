@@ -395,11 +395,57 @@ delister <- function(x) {
 #' @export
 splitter <- function(x) {
 
-  res <- strsplit(delister(x), "")
+  res <- strsplit(
+    unlist(
+      x,
+      use.names = FALSE
+      ), "")
 
   if (length(res) == 1) {
     return(res[[1]])
   } else {
     return(res)
   }
+}
+
+
+#' Wrapper for [paste0()] that adds brackets
+#'
+#' @param x `<chr>` string
+#'
+#' @autoglobal
+#'
+#' @keywords internal
+#'
+#' @export
+bracks <- function(x) {
+  paste0(r"--{[}--", x, r"--{]}--")
+}
+
+
+#' Wrapper for [paste0()] that adds parentheses
+#'
+#' @param x `<chr>` string
+#'
+#' @autoglobal
+#'
+#' @keywords internal
+#'
+#' @export
+parens <- function(x) {
+  paste0(r"--{(}--", x, r"--{)}--")
+}
+
+#' Wrapper for [paste0()] that adds angle brackets
+#'
+#'
+#' @param x `<chr>` string
+#'
+#' @autoglobal
+#'
+#' @keywords internal
+#'
+#' @export
+arrows <- function(x) {
+  paste0(r"--{<}--", x, r"--{>}--")
 }

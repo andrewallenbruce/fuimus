@@ -10,7 +10,7 @@
 #'
 #' @autoglobal
 #'
-#' @export
+#' @noRd
 is_directory <- function(x) {
   fs::is_dir(x)
 }
@@ -26,7 +26,7 @@ is_directory <- function(x) {
 #'
 #' @autoglobal
 #'
-#' @export
+#' @noRd
 is_readable <- function(x) {
   fs::file_exists(x)
 }

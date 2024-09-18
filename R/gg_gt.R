@@ -1,3 +1,70 @@
+#' gt Marks
+#'
+#' @param gt_tbl A `<gt_tbl>` object
+#'
+#' @param cols columns to target
+#'
+#' @returns A `<gt_tbl>` object with marks
+#'
+#' @examples
+#' dplyr::tibble(pass = c(TRUE, FALSE, TRUE, FALSE)) |>
+#'   gt::gt() |>
+#'   gt_marks(cols = pass)
+#'
+#' @export
+#'
+#' @autoglobal
+gt_marks <- function(gt_tbl, cols) {
+
+  gt_tbl |>
+    gt::text_case_when(
+      x == TRUE ~ gt::html(
+        fontawesome::fa(
+          "check",
+          prefer_type = "solid",
+          fill = "red"
+        )
+      ),
+      x == FALSE ~ gt::html(
+        fontawesome::fa(
+          "xmark",
+          prefer_type = "solid",
+          fill = "grey40"
+        )
+      ),
+      .default = NA,
+      .locations = gt::cells_body(
+        columns = {{ cols }}))
+}
+
+#' Color text using HTML color styling
+#'
+#' Useful in conjuction with ggtext and glue
+#'
+#' @param text `<character>` string of text to
+#'
+#' @param hex_code `<character>` string, color hex code
+#'
+#' @returns `<character>` string
+#'
+#' @examples
+#' color_text("Hello there!", "#BD43BF")
+#'
+#' @autoglobal
+#'
+#' @export
+color_text <- function(text, hex_code) {
+
+  paste0(
+    "<span style='color:",
+    hex_code,
+    "'>",
+    text,
+    "</span>"
+  )
+
+}
+
 #' Sorted Bar Chart
 #'
 #' @param df data frame
@@ -21,13 +88,13 @@ sorted_bars <- function(df, var) {
       {{ var }} := forcats::fct_rev(
         forcats::fct_infreq(
           {{ var }})
-        )
-      )  |>
+      )
+    )  |>
     ggplot2::ggplot(
       ggplot2::aes(
         y = {{ var }}
-        )
-      ) +
+      )
+    ) +
     ggplot2::geom_bar()
 }
 
@@ -57,8 +124,8 @@ histogram <- function(df,
     ggplot2::ggplot(
       ggplot2::aes(
         {{ var }}
-        )
-      ) +
+      )
+    ) +
     ggplot2::geom_histogram(binwidth = binwidth) +
     ggplot2::labs(title = label)
 }
@@ -98,16 +165,16 @@ density <- function(df,
         {{ var }},
         ggplot2::after_stat(density),
         color = {{ color }}
-        )
-      ) +
+      )
+    ) +
     ggplot2::geom_freqpoly(
       binwidth = binwidth
-      ) +
+    ) +
     ggplot2::facet_wrap(
       ggplot2::vars(
         {{ facets }}
-        )
       )
+    )
 }
 
 #' Plots a fancy time series
@@ -122,18 +189,17 @@ density <- function(df,
 #'
 #' @examples
 #' df <- dplyr::tibble(
-#' dist1 = sort(rnorm(50, 5, 2)),
-#' dist2 = sort(rnorm(50, 8, 3)),
-#' dist4 = sort(rnorm(50, 15, 1)),
-#' date = seq.Date(
-#' as.Date("2022-01-01"),
-#' as.Date("2022-04-10"),
-#' by = "2 days")
-#' ) |>
+#'    dist1 = sort(rnorm(50, 5, 2)),
+#'    dist2 = sort(rnorm(50, 8, 3)),
+#'    dist4 = sort(rnorm(50, 15, 1)),
+#'    date = seq.Date(
+#'       as.Date("2022-01-01"),
+#'       as.Date("2022-04-10"),
+#'       by = "2 days")) |>
 #' tidyr::pivot_longer(
-#' cols = -date,
-#' names_to = "dist_name",
-#' values_to = "value")
+#'    cols = -date,
+#'    names_to = "dist_name",
+#'    values_to = "value")
 #'
 #' df
 #'
@@ -162,7 +228,6 @@ fancy_ts <- function(df, val, group) {
       guide = ggplot2::guide_axis(position = "right"))
 }
 
-
 #' ggplot2 theme
 #'
 #' @returns ggplot theme
@@ -179,19 +244,19 @@ gg_theme <- function() {
 
   ggplot2::theme_minimal(
     # base_family = "Roboto Condensed"
-    ) +
+  ) +
     ggplot2::theme(
       plot.title = ggplot2::element_text(
         size = ggplot2::rel(1.5),
         face = "bold"
-        ),
+      ),
       plot.subtitle = ggplot2::element_text(
         size = ggplot2::rel(1.1)
-        ),
+      ),
       plot.caption = ggplot2::element_text(
         color = "#777777",
         vjust = 0
-        ),
+      ),
       axis.title = ggplot2::element_text(
         size = ggplot2::rel(.9),
         hjust = 0.95,
@@ -200,11 +265,11 @@ gg_theme <- function() {
       panel.grid.major = ggplot2::element_line(
         size = ggplot2::rel(.1),
         color = "#000000"
-        ),
+      ),
       panel.grid.minor = ggplot2::element_line(
         size = ggplot2::rel(.05),
         color = "#000000"
-        ),
+      ),
       legend.position = "none"
     )
 }
