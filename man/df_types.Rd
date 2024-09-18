@@ -13,6 +13,10 @@ df_types(df)
 Get the types of each column in a data frame
 }
 \examples{
-dplyr::tibble(x = 1:10, y = 1:10) |> df_types()
+dplyr::tibble(
+   int = 1:10,
+   chr = letters[1:10],
+   date = rep(Sys.Date()), nrow(int)) |>
+df_types()
 
 }

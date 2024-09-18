@@ -37,12 +37,12 @@ Generate a sequence of numbers with a new prefix
 }
 \examples{
 rename_seq(
-n        = 10,
-new      = "id_issuer_",
-between  = " = ",
-old      = "Other.ID.Issuer.",
-enclose  = c("x = c(", ")"),
-collapse = ",\n ",
-style    = TRUE)
+   n        = 10,
+   new      = "id_issuer_",
+   between  = " = ",
+   old      = "Other.ID.Issuer.",
+   enclose  = c("x = c(", ")"),
+   collapse = ",\n ",
+   style    = TRUE)
 
 }

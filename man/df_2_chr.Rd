@@ -16,6 +16,10 @@ A \verb{<data.frame>} or \verb{<tibble>} with numeric columns coerced to charact
 Coerce numeric columns to character
 }
 \examples{
-df_2_chr(dplyr::tibble(x = 20:35))
+dplyr::tibble(
+   int = 1:10,
+   chr = letters[1:10],
+   date = rep(Sys.Date()), nrow(int)) |>
+df_2_chr()
 
 }

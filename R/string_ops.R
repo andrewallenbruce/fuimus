@@ -45,48 +45,6 @@ invert_named <- function(x) {
   rlang::set_names(names(x), unname(x))
 }
 
-#' Common Regular expressions
-#'
-#' @param x `<chr>` regex name
-#'
-#' @returns `<chr>` string of a regex
-#'
-#' @examples
-#' common_regex("url")
-#'
-#' common_regex("month")
-#'
-#' common_regex("month_date")
-#'
-#' @autoglobal
-#'
-#' @export
-common_regex <- function(x = c("month_date", "month", "url")) {
-
-  x <- match.arg(x)
-
-  reg <- list(
-    month_date = single_line_string(
-      "(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|
-      Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|
-      Dec(?:ember)?)\\s+(\\d{1,2})\\,\\s+(\\d{4})"
-      ),
-    month = single_line_string(
-      "(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|
-      Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|
-      Dec(?:ember)?)"
-     ),
-    url = single_line_string(
-      "^(?:(?:http(?:s)?|ftp)://)(?:\\S+(?::(?:\\S)*)?@)?(?:(?:[a-z0-9
-      \u00a1-\uffff](?:-)*)*(?:[a-z0-9\u00a1-\uffff])+)(?:\\.(?:[a-z0-9
-      \u00a1-\uffff](?:-)*)*(?:[a-z0-9\u00a1-\uffff])+)*(?:\\.(?:[a-z0-9
-      \u00a1-\uffff]){2,})(?::(?:\\d){2,5})?(?:/(?:\\S)*)?$"
-    )
-  )
-
-  reg[[x]]
-}
-
 #' Convert various character strings to `NA`
 #'
 #' @param x `<chr>` vector to convert
@@ -122,41 +80,6 @@ na_if_common <- function(x) {
 #' @export
 remove_quotes <- function(x) {
   stringfish::sf_gsub(x, '["\']', "")
-}
-
-#' Wrapper for `as.character(glue(x))`
-#'
-#' @param ... dots to pass to glue function
-#'
-#' @returns `<chr>` vector
-#'
-#' @autoglobal
-#'
-#' @export
-glue_chr <- function(...) {
-  as.character(
-    glue::glue(
-      ...,
-      .envir = parent.frame(1)) )
-}
-
-#' Wrapper for `as.character(glue_data(x))`
-#'
-#' @param ... dots to pass to glue function
-#'
-#' @param .x `<vec>` vector to pass to glue_data()
-#'
-#' @returns `<chr>` vector
-#'
-#' @autoglobal
-#'
-#' @export
-glue_data_chr <- function(.x, ...) {
-  as.character(
-    glue::glue_data(
-      .x = .x,
-      ...,
-      .envir = parent.frame(1)))
 }
 
 #' Pad numbers with zeroes
@@ -265,13 +188,13 @@ create_vec <- function(x,
 #'
 #' @examples
 #' rename_seq(
-#' n        = 10,
-#' new      = "id_issuer_",
-#' between  = " = ",
-#' old      = "Other.ID.Issuer.",
-#' enclose  = c("x = c(", ")"),
-#' collapse = ",\n ",
-#' style    = TRUE)
+#'    n        = 10,
+#'    new      = "id_issuer_",
+#'    between  = " = ",
+#'    old      = "Other.ID.Issuer.",
+#'    enclose  = c("x = c(", ")"),
+#'    collapse = ",\n ",
+#'    style    = TRUE)
 #'
 #' @autoglobal
 #'
@@ -323,12 +246,7 @@ rename_seq <- function(n,
 #'
 #' @export
 single_line_string <- function(x) {
-
-  stringr::str_remove_all(
-    x,
-    r"(\n\s*)"
-  )
-
+  stringr::str_remove_all(x, r"(\n\s*)")
 }
 
 #' Wrapper for [paste0()] that collapses result
@@ -360,9 +278,7 @@ collapser <- function(x) {
 #'
 #' @export
 delister <- function(x) {
-  unlist(
-    x,
-    use.names = FALSE)
+  unlist(x, use.names = FALSE)
 }
 
 #' Wrapper for [strsplit()] that unlists and unnames results
@@ -395,11 +311,7 @@ delister <- function(x) {
 #' @export
 splitter <- function(x) {
 
-  res <- strsplit(
-    unlist(
-      x,
-      use.names = FALSE
-      ), "")
+  res <- strsplit(unlist(x, use.names = FALSE), "")
 
   if (length(res) == 1) {
     return(res[[1]])
@@ -438,7 +350,6 @@ parens <- function(x) {
 
 #' Wrapper for [paste0()] that adds angle brackets
 #'
-#'
 #' @param x `<chr>` string
 #'
 #' @autoglobal
@@ -448,4 +359,33 @@ parens <- function(x) {
 #' @export
 arrows <- function(x) {
   paste0(r"--{<}--", x, r"--{>}--")
+}
+
+#' Print a named list
+#'
+#' @param ls `<list>` to print
+#'
+#' @param prefix `<chr>` to prepend to each line
+#'
+#' @returns `<list>` invisibly
+#'
+#' @examples
+#' print_ls(list(a = 1, b = 2, c = 3))
+#'
+#' @autoglobal
+#'
+#' @export
+print_ls <- function(ls, prefix = "") {
+
+  if (length(ls) == 0) cat("<empty>\n")
+
+  ns <- names(ls)
+
+  if (length(ns) != length(ls)) stop("all elements must be named")
+
+  ls <- lapply(ls, as.character)
+
+  cat(sprintf("%s%s : %s", prefix, format(ns), ls), sep = "\n")
+
+  invisible(ls)
 }

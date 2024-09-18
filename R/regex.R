@@ -209,3 +209,45 @@ pos_nchar <- function(x) {
   )
 
 }
+
+#' Common Regular expressions
+#'
+#' @param x `<chr>` regex name
+#'
+#' @returns `<chr>` string of a regex
+#'
+#' @examples
+#' common_regex("url")
+#'
+#' common_regex("month")
+#'
+#' common_regex("month_date")
+#'
+#' @autoglobal
+#'
+#' @export
+common_regex <- function(x = c("month_date", "month", "url")) {
+
+  x <- match.arg(x)
+
+  reg <- list(
+    month_date = single_line_string(
+      "(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|
+      Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|
+      Dec(?:ember)?)\\s+(\\d{1,2})\\,\\s+(\\d{4})"
+    ),
+    month = single_line_string(
+      "(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|
+      Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|
+      Dec(?:ember)?)"
+    ),
+    url = single_line_string(
+      "^(?:(?:http(?:s)?|ftp)://)(?:\\S+(?::(?:\\S)*)?@)?(?:(?:[a-z0-9
+      \u00a1-\uffff](?:-)*)*(?:[a-z0-9\u00a1-\uffff])+)(?:\\.(?:[a-z0-9
+      \u00a1-\uffff](?:-)*)*(?:[a-z0-9\u00a1-\uffff])+)*(?:\\.(?:[a-z0-9
+      \u00a1-\uffff]){2,})(?::(?:\\d){2,5})?(?:/(?:\\S)*)?$"
+    )
+  )
+
+  reg[[x]]
+}
