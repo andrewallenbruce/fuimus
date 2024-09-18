@@ -8,6 +8,8 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/news/index.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/add_ifelse.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/age_days.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/arrows.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/bracks.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/change.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/change_lagged.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/check_chars_numeric.html</loc></url>
@@ -34,6 +36,7 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/describe.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/describe_unique.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/df_2_chr.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/df_types.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/display_long.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/duration_vec.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/expand_date_range.html</loc></url>
@@ -51,8 +54,6 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/histogram.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/index.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/invert_named.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/fuimus/reference/is_directory.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/fuimus/reference/is_readable.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/is_valid_npi.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/list_pins.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/make_interval.html</loc></url>
@@ -73,9 +74,11 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/null_if_empty.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/numeric_to_char.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/pad_number.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/parens.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_calculator.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_change.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_difference.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/print_ls.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/random_npi_generator.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/rate_of_return.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/remove_quiet.html</loc></url>
