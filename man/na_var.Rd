@@ -16,3 +16,4 @@ na_var(x)
 na_var(c(1, 2, NA))
 
 }
+\keyword{internal}

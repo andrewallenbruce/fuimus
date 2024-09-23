@@ -16,3 +16,4 @@ na_med(x)
 na_med(c(1, 2, NA))
 
 }
+\keyword{internal}

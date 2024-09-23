@@ -26,9 +26,7 @@
 #' @export
 construct_regex <- function(x) {
 
-  uniq_nona <- \(x) collapse::funique(collapse::na_rm(x))
-
-  x <- gsub(" ", "", uniq_nona(x))
+  x <- gsub(" ", "", uniq_rmna(x))
 
   vecs <- stringr::str_split_fixed(
     x, "",
@@ -40,7 +38,7 @@ construct_regex <- function(x) {
     purrr::map(na_if_common)
 
   to_brackets <- vecs |>
-    purrr::map(uniq_nona) |>
+    purrr::map(uniq_rmna) |>
     purrr::map(pos_re)
 
   qmark <- names(which(purrr::map_lgl(vecs, anyNA)))
@@ -71,7 +69,7 @@ construct_regex <- function(x) {
 
     to_vec[dupe_idx] <- rp
 
-    to_vec <- collapse::funique(to_vec)
+    to_vec <- uniq_rmna(to_vec)
 
   }
 
@@ -189,7 +187,7 @@ id_runs <- function(x) {
   paste0("[", res, "]")
 }
 
-#' Internal function for `construct_regex2()`
+#' Internal function for `construct_regex()`
 #'
 #' @param x `<chr>` vector
 #'

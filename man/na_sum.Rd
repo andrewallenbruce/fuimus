@@ -16,3 +16,4 @@ na_sum(x)
 na_sum(c(1, 2, NA))
 
 }
+\keyword{internal}

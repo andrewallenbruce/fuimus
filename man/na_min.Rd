@@ -16,3 +16,4 @@ na_min(...)
 na_min(c(1, 2, NA))
 
 }
+\keyword{internal}

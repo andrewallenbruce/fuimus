@@ -18,3 +18,4 @@ na_iqr(x, ...)
 na_iqr(c(1, 2, NA))
 
 }
+\keyword{internal}

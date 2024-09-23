@@ -17,3 +17,4 @@ glue_data_chr(.x, ...)
 \description{
 Wrapper for \code{as.character(glue::glue_data(x))}
 }
+\keyword{internal}

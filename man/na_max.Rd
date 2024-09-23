@@ -16,3 +16,4 @@ na_max(...)
 na_max(c(1, 2, NA))
 
 }
+\keyword{internal}

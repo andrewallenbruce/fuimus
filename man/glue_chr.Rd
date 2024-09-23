@@ -15,3 +15,4 @@ glue_chr(...)
 \description{
 Wrapper for \code{as.character(glue::glue(x))}
 }
+\keyword{internal}

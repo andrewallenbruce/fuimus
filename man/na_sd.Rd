@@ -16,3 +16,4 @@ na_sd(x)
 na_sd(c(1, 2, NA))
 
 }
+\keyword{internal}

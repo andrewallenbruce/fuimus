@@ -55,6 +55,8 @@ roundup <- function(x, digits = 2) {
 #'
 #' @autoglobal
 #'
+#' @keywords internal
+#'
 #' @export
 na_mean <- function(x) {
   base::mean(x, na.rm = TRUE)
@@ -68,6 +70,8 @@ na_mean <- function(x) {
 #' na_sum(c(1, 2, NA))
 #'
 #' @autoglobal
+#'
+#' @keywords internal
 #'
 #' @export
 na_sum <- function(x) {
@@ -83,6 +87,8 @@ na_sum <- function(x) {
 #'
 #' @autoglobal
 #'
+#' @keywords internal
+#'
 #' @export
 na_sd <- function(x) {
   stats::sd(x, na.rm = TRUE)
@@ -97,6 +103,8 @@ na_sd <- function(x) {
 #'
 #' @autoglobal
 #'
+#' @keywords internal
+#'
 #' @export
 na_med <- function(x) {
   stats::median(x, na.rm = TRUE)
@@ -110,6 +118,8 @@ na_med <- function(x) {
 #' na_var(c(1, 2, NA))
 #'
 #' @autoglobal
+#'
+#' @keywords internal
 #'
 #' @export
 na_var <- function(x) {
@@ -131,6 +141,8 @@ na_var <- function(x) {
 #'
 #' @autoglobal
 #'
+#' @keywords internal
+#'
 #' @export
 na_mad <- function(x, ...) {
   stats::mad(x, na.rm = TRUE, ...)
@@ -147,6 +159,8 @@ na_mad <- function(x, ...) {
 #'
 #' @autoglobal
 #'
+#' @keywords internal
+#'
 #' @export
 na_iqr <- function(x, ...) {
   stats::IQR(x, na.rm = TRUE, ...)
@@ -160,6 +174,8 @@ na_iqr <- function(x, ...) {
 #' na_range(c(1, 2, NA))
 #'
 #' @autoglobal
+#'
+#' @keywords internal
 #'
 #' @export
 na_range <- function(...) {
@@ -175,6 +191,8 @@ na_range <- function(...) {
 #'
 #' @autoglobal
 #'
+#' @keywords internal
+#'
 #' @export
 na_min <- function(...) {
   base::min(..., na.rm = TRUE)
@@ -189,6 +207,8 @@ na_min <- function(...) {
 #'
 #' @autoglobal
 #'
+#' @keywords internal
+#'
 #' @export
 na_max <- function(...) {
   base::max(..., na.rm = TRUE)
@@ -202,6 +222,8 @@ na_max <- function(...) {
 #' @returns `<chr>` vector
 #'
 #' @autoglobal
+#'
+#' @keywords internal
 #'
 #' @export
 glue_chr <- function(...) {
@@ -220,6 +242,8 @@ glue_chr <- function(...) {
 #' @returns `<chr>` vector
 #'
 #' @autoglobal
+#'
+#' @keywords internal
 #'
 #' @export
 glue_data_chr <- function(.x, ...) {
@@ -254,8 +278,26 @@ colon <- function(n) {
 
   if (!rlang::is_integerish(n, n = length(n))) {
     rlang::warn(
-      message = "`n` has been coerced to an integer.",
+      message = "`n` has been coerced to `<integer>`.",
       class = "non_int")
   }
   1:n
+}
+
+#' Remove duplicates and `NA` values
+#'
+#' @param x vector
+#'
+#' @returns vector with duplicates and `NA` values removed
+#'
+#' @examples
+#' c("4", "100", "100", NA)
+#'
+#' uniq_rmna(c("4", "100", "100", NA))
+#'
+#' @autoglobal
+#'
+#' @export
+uniq_rmna <- function(x) {
+  collapse::funique(collapse::na_rm(x))
 }

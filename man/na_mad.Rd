@@ -20,3 +20,4 @@ asymptotically normal consistency.
 na_mad(c(1, 2, NA))
 
 }
+\keyword{internal}

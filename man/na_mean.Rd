@@ -16,3 +16,4 @@ na_mean(x)
 na_mean(c(1, 2, NA))
 
 }
+\keyword{internal}

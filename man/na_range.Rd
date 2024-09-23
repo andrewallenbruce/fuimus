@@ -16,3 +16,4 @@ na_range(...)
 na_range(c(1, 2, NA))
 
 }
+\keyword{internal}
