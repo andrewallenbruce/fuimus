@@ -26,6 +26,7 @@ Imports:
     pins,
     purrr,
     rlang,
+    stats,
     strex,
     stringfish,
     stringi,
@@ -46,7 +47,6 @@ Suggests:
     prettycode,
     roxyglobals,
     scales,
-    stats,
     testthat (>= 3.0.0),
     timeplyr,
     wakefield

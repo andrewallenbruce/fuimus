@@ -176,3 +176,52 @@ srchcol <- function(df,
     )
   )
 }
+
+#' Linearly interpolate the values between two points
+#'
+#' [SO Link](https://stackoverflow.com/questions/27920690/linear-interpolation-using-dplyr/31845035#31845035)
+#'
+#' @param x,y `<numeric>` vectors giving the coordinates of the points to be
+#'   interpolated
+#'
+#' @param method `<character>` interpolation method, default is `"approx"`
+#'
+#' @returns `<numeric>` vector of interpolated values
+#'
+#' @examples
+#' interpolate(1:5, c(10, NA, NA, NA, 100), "spline")
+#'
+#' df <- dplyr::tibble(
+#'   seq = 1:5,
+#'   v1 = c(1, NA, 3, NA, 5),
+#'   v2 = c(40, NA, 60, NA, 70),
+#'   v3 = c(10, NA, NA, NA, 100))
+#'
+#' df
+#'
+#' df |>
+#'    dplyr::mutate(
+#'    dplyr::across(
+#'    .cols = dplyr::starts_with("v"),
+#'    .fns = ~ interpolate(seq, .x),
+#'    .names = "{.col}_est"))
+#'
+#' df |>
+#' dplyr::mutate(
+#' dplyr::across(
+#' dplyr::starts_with("v"),
+#' ~ interpolate(seq, .x)))
+#'
+#' @autoglobal
+#'
+#' @export
+interpolate <- function(x, y, method = c("approx", "spline")) {
+
+  method <- match.arg(method)
+
+  switch (
+    method,
+    approx = stats::approx(x, y, n = length(x))$y,
+    spline = stats::spline(x, y, n = length(x))$y
+  )
+}

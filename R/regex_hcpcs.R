@@ -176,6 +176,7 @@ group_split_length <- function(x) {
 }
 
 #' @noRd
+#' @autoglobal
 group_hcpcs_1 <- function(x) {
 
   if (!rlang::has_name(x, "x1")) return(NULL)
@@ -185,6 +186,7 @@ group_hcpcs_1 <- function(x) {
 }
 
 #' @noRd
+#' @autoglobal
 group_hcpcs_2 <- function(x) {
 
   if (!rlang::has_name(x, "x2")) return(NULL)
@@ -227,7 +229,9 @@ group_hcpcs_2 <- function(x) {
   )
   grouped[collapse::radixorderv(collapse::vlengths(grouped), sort = TRUE)]
 }
+
 #' @noRd
+#' @autoglobal
 group_hcpcs_3 <- function(x) {
 
   if (!rlang::has_name(x, "x3")) return(NULL)
@@ -273,6 +277,7 @@ group_hcpcs_3 <- function(x) {
   grouped[collapse::radixorderv(collapse::vlengths(grouped), sort = TRUE)]
 }
 #' @noRd
+#' @autoglobal
 group_hcpcs_4 <- function(x) {
 
   if (!rlang::has_name(x, "x4")) return(NULL)
@@ -320,6 +325,7 @@ group_hcpcs_4 <- function(x) {
   grouped[collapse::radixorderv(collapse::vlengths(grouped), sort = TRUE)]
 }
 #' @noRd
+#' @autoglobal
 group_hcpcs_5 <- function(x) {
 
   if (!rlang::has_name(x, "x5")) return(NULL)
@@ -372,6 +378,7 @@ group_hcpcs_5 <- function(x) {
 }
 
 #' @noRd
+#' @autoglobal
 process_groups <- function(x) {
   list(
     g1 = group_hcpcs_1(groups),
@@ -473,6 +480,7 @@ process_hcpcs_2 <- function(x) {
   fuimus::collapser(to_vec)
 }
 #' @noRd
+#' @autoglobal
 process_families <- function(x) {
 
   x <- list(

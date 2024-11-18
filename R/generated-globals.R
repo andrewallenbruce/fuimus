@@ -8,6 +8,30 @@ utils::globalVariables(c(
   # <change_lagged>
   # <rate_of_return>
   ":=",
+  # <group_hcpcs_2>
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "a1",
+  # <group_hcpcs_2>
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "a2",
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "a3",
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "a4",
+  # <group_hcpcs_5>
+  "a5",
+  # <group_hcpcs_2>
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "code",
   # <combine>
   "combined",
   # <rate_of_return>
@@ -22,10 +46,43 @@ utils::globalVariables(c(
   "date_of_submission",
   # <forager_data>
   "dates",
+  # <process_families>
+  "families",
+  # <group_hcpcs_2>
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "g",
   # <id_runs>
   "group",
+  # <group_hcpcs_2>
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "group_id",
   # <id_runs>
   "group_size",
+  # <process_groups>
+  "groups",
+  # <group_hcpcs_2>
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "i1",
+  # <group_hcpcs_2>
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "i2",
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "i3",
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "i4",
+  # <group_hcpcs_5>
+  "i5",
   # <make_interval>
   "interval",
   # <describe>
@@ -42,7 +99,16 @@ utils::globalVariables(c(
   # <count_prop>
   # <count_prop_multi>
   # <count_wide>
+  # <group_hcpcs_2>
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
   "n",
+  # <group_hcpcs_2>
+  # <group_hcpcs_3>
+  # <group_hcpcs_4>
+  # <group_hcpcs_5>
+  "n1",
   # <describe>
   "nuniq",
   # <describe>
