@@ -13,6 +13,8 @@
 #'
 #' @autoglobal
 #'
+#' @importFrom stats median IQR
+#'
 #' @export
 describe <- function(df, ...) {
 
@@ -28,14 +30,14 @@ describe <- function(df, ...) {
       ) |>
     dplyr::mutate(n = 1 - is.na(value)) |>
     dplyr::reframe(
-      n = as.integer(na_sum(n)),
-      mean = na_mean(value),
-      sd = na_sd(value),
-      iqr = na_iqr(value),
-      med = na_med(value),
-      mad = na_mad(value),
+      n = as.integer(sum(n, na.rm = TRUE)),
+      mean = mean(value, na.rm = TRUE),
+      sd = sd(value, na.rm = TRUE),
+      iqr = IQR(value, na.rm = TRUE),
+      med = median(value, na.rm = TRUE),
+      mad = mad(value, na.rm = TRUE),
       range = glue_chr(
-        "[{roundup(na_min(value))} - {roundup(na_max(value))}]"
+        "[{roundup(min(value, na.rm = TRUE))} - {roundup(max(value, na.rm = TRUE))}]"
         ),
       histogram = histo(value),
       .by = variable
@@ -113,7 +115,7 @@ histo <- function(x, width = 10) {
   bins <- graphics::hist(x, breaks = width, plot = FALSE)
 
   factor <- cut(
-    bins$counts / na_max(bins$counts),
+    bins$counts / max(bins$counts, na.rm = TRUE),
     breaks = seq(0, 1, length = length(sparks) + 1),
     labels = sparks,
     include.lowest = TRUE
