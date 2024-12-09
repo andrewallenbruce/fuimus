@@ -28,7 +28,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Generate random NPIs</h1>
-      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/fuimus/blob/master/R/mock_data.R" class="external-link"><code>R/mock_data.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/fuimus/blob/master/R/experiments.R" class="external-link"><code>R/experiments.R</code></a></small>
       <div class="d-none name"><code>random_npi_generator.Rd</code></div>
     </div>
 
@@ -53,19 +53,24 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p><code>&lt;character&gt;</code> vector of <code>n</code> NPIs</p>
     </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other mock:
+<code><a href="forager_data.html">forager_data</a>()</code>,
+<code><a href="provider_data.html">provider_data</a>()</code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">random_npi_generator</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "2170368841" "1874265170" "1552509768" "2003544250" "1527085509"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "2216454832" "2024138973" "2853275471" "1309359607" "2041481803"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "1280828733" "1609496447" "2862480287" "1101869342" "2071740308"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "1462809559" "1417990765" "1400683871" "1379290238" "1627305265"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">random_npi_generator</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x</span><span class="op">[</span><span class="fu">collapse</span><span class="fu">::</span><span class="fu"><a href="https://sebkrantz.github.io/collapse/reference/efficient-programming.html" class="external-link">whichv</a></span><span class="op">(</span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">is_valid_npi</span><span class="op">)</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "2696584988" "2003973429" "2268628684" "1155645140" "1572336828"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "2107066294" "1594015368" "1920720384" "2572500041" "2968081853"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "1147592673" "2276512557"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1501140465" "2642578613" "2405891906" "1086714288" "1333182750"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6] "1778788897" "1210558510" "1135120602"</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -74,7 +79,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Andrew Bruce.</p>
+  <p>Developed by Andrew Allen Bruce.</p>
 </div>
 
 <div class="pkgdown-footer-right">
