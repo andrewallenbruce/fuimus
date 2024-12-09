@@ -1,0 +1,337 @@
+#' Unlist with no names
+#'
+#' @param x Named or unnamed `<list>`
+#'
+#' @returns Unnamed `<character>` vector
+#'
+#' @examples
+#' delist(list(x = "XYZ"))
+#'
+#' delist(list("XYZ"))
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family base
+#'
+#' @export
+delist <- \(x) unlist(x, use.names = FALSE)
+
+#' Delist, Unname and Split a String
+#'
+#' @param x `<character>` string or named `<list>`
+#'
+#' @returns Unnamed `<list>` of split `<character>` vectors
+#'
+#' @examples
+#' # unnamed vector
+#' desplit("XYZ")
+#'
+#' # named vector
+#' desplit(c(x = "XYZ"))
+#'
+#' # unnamed list with one element
+#' desplit(list("XYZ"))
+#'
+#' # unnamed list with multiple elements
+#' desplit(list("YYY", "ZZZ"))
+#'
+#' # named list with one element
+#' desplit(list(x = "XYZ"))
+#'
+#' # named list with multiple elements
+#' desplit(list(x = "YYY", xx = "ZZZ"))
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family base
+#'
+#' @export
+desplit <- \(x) {
+
+  res <- sf_strsplit(delist(x), "")
+
+  if (length(res) == 1) return(res[[1]])
+
+  res
+}
+
+#' Is `x` `NULL`?
+#'
+#' @param x input
+#'
+#' @returns `<lgl>` `TRUE` if `x` is `NULL`, else `FALSE`
+#'
+#' @examples
+#' null(NULL)
+#'
+#' null("NULL")
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family base
+#'
+#' @export
+null <- \(x) is.null(x)
+
+#' Is `x` not `NULL`?
+#'
+#' @param x input
+#'
+#' @returns `<lgl>` `TRUE` if `x` is not `NULL`, else `FALSE`
+#'
+#' @examples
+#' not_null(NULL)
+#'
+#' not_null("NULL")
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family base
+#'
+#' @export
+not_null <- \(x) !null(x)
+
+#' Coerce vector to `<character>`
+#'
+#' @param x vector
+#'
+#' @examples
+#' as_character(NULL)
+#'
+#' as_character(123)
+#'
+#' @returns `<character>` vector
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family base
+#'
+#' @export
+as_character <- \(x) if (!is.character(x)) as.character(x) else x
+
+#' Invert a named vector
+#'
+#' @param x A named vector
+#'
+#' @returns A named vector with names and values inverted
+#'
+#' @examples
+#' invert_named(x = c(name = "element"))
+#'
+#' invert_named(x = c(element = "name"))
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family base
+#'
+#' @export
+invert_named <- function(x) {
+
+  stopifnot(
+    "Input must be a named vector" = not_null(
+      names(x)
+      )
+    )
+
+  stats::setNames(names(x), unname(x))
+}
+
+#' Create Integer Sequence Beginning at 1
+#'
+#' @param n `<integer>` Ending number of sequence
+#'
+#' @returns `<integer>` vector of numbers from 1 to `n`
+#'
+#' @examples
+#' colon(50)
+#'
+#' colon(-20)
+#'
+#' colon(0 + 150 - 145)
+#'
+#' colon(20.9)
+#'
+#' colon(20.1)
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family base
+#'
+#' @export
+colon <- function(n) {
+
+  if (!rlang::is_integerish(n, n = length(n))) {
+    rlang::warn(
+      message = "`n` has been coerced to `<integer>`.",
+      class = "non_int")
+  }
+  1:n
+}
+
+#' Linearly interpolate values between two points
+#'
+#' [SO Link](https://stackoverflow.com/questions/27920690/linear-interpolation-using-dplyr/31845035#31845035)
+#'
+#' @param x,y `<numeric>` vectors giving the coordinates of the points to be
+#'   interpolated
+#'
+#' @param method `<character>` interpolation method, default is `"approx"`
+#'
+#' @returns `<numeric>` vector of interpolated values
+#'
+#' @examples
+#' interpolate(1:5, c(10, NA, NA, NA, 100), "spline")
+#'
+#' df <- dplyr::tibble(
+#'   seq = 1:5,
+#'   v1 = c(1, NA, 3, NA, 5),
+#'   v2 = c(40, NA, 60, NA, 70),
+#'   v3 = c(10, NA, NA, NA, 100))
+#'
+#' df
+#'
+#' df |>
+#'    dplyr::mutate(
+#'    dplyr::across(
+#'    .cols = dplyr::starts_with("v"),
+#'    .fns = ~ interpolate(seq, .x),
+#'    .names = "{.col}_est"))
+#'
+#' df |>
+#'   dplyr::mutate(
+#'    dplyr::across(
+#'     dplyr::starts_with("v"),
+#'      ~ interpolate(seq, .x)))
+#'
+#' @autoglobal
+#'
+#' @keywords maths
+#'
+#' @family base
+#'
+#' @export
+interpolate <- function(x, y, method = c("approx", "spline")) {
+
+  method <- match.arg(method)
+
+  switch (
+    method,
+    approx = stats::approx(x, y, n = length(x))$y,
+    spline = stats::spline(x, y, n = length(x))$y
+  )
+}
+
+#' Wrapper for [paste0()] that collapses result
+#'
+#' @param x A split `<chr>` vector
+#'
+#' @returns A collapsed `<chr>` string
+#'
+#' @examples
+#' collapser(c("X", "Y", "Z"))
+#'
+#' @autoglobal
+#'
+#' @export
+collapser <- function(x) {
+  paste0(x, collapse = "")
+}
+
+#' Wrapper for [unlist()], with `use.names` set to `FALSE`
+#'
+#' @param x A named `<list>`
+#'
+#' @returns An unnamed `<chr>` vector
+#'
+#' @examples
+#' delister(list(x = "XYZ"))
+#'
+#' @autoglobal
+#'
+#' @export
+delister <- function(x) {
+  unlist(x, use.names = FALSE)
+}
+
+#' Wrapper for [strsplit()] that unlists and unnames results
+#'
+#' @param x `<chr>` string or named `<list>` of `<chr>` strings
+#'
+#' @returns An unnamed `<list>` of split `<chr>` vectors
+#'
+#' @examples
+#' # unnamed vector
+#' splitter("XYZ")
+#'
+#' # named vector
+#' splitter(c(x = "XYZ"))
+#'
+#' # unnamed list with one element
+#' splitter(list("XYZ"))
+#'
+#' # unnamed list with multiple elements
+#' splitter(list("YYY", "ZZZ"))
+#'
+#' # named list with one element
+#' splitter(list(x = "XYZ"))
+#'
+#' # named list with multiple elements
+#' splitter(list(x = "YYY", xx = "ZZZ"))
+#'
+#' @autoglobal
+#'
+#' @export
+splitter <- function(x) {
+
+  res <- strsplit(unlist(x, use.names = FALSE), "")
+
+  if (length(res) == 1) {
+    return(res[[1]])
+  } else {
+    return(res)
+  }
+}
+
+#' Infix `if (!is.null(x)) y else x`
+#'
+#' @param x,y vectors
+#'
+#' @examples
+#' NULL %nn% 123456L
+#'
+#' "abc" %nn% 123456L
+#'
+#' @returns `y` if `x` is not `NULL`, else `x`
+#'
+#' @autoglobal
+#'
+#' @export
+`%nn%` <- \(x, y) if (not_null(x)) y else x
+
+#' Infix `!x %in% y`
+#'
+#' @param x,y vectors
+#'
+#' @examples
+#' "a" %nin% c("a", "b", "c")
+#'
+#' @returns `TRUE` if `x` is not in `y`, else `FALSE`
+#'
+#' @autoglobal
+#'
+#' @export
+`%nin%` <- \(x, y) match(x, table = y, nomatch = 0L) == 0L

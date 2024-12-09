@@ -120,7 +120,6 @@ histo <- function(x, width = 10) {
     labels = sparks,
     include.lowest = TRUE
   )
-
   paste0(factor, collapse = "")
 }
 
@@ -160,7 +159,7 @@ describe_unique <- function(df,
 
   .set_names <- if (is.null(.set_names)) names(df) else .set_names
 
-  df <- fuimus::df_2_chr(df) |>
+  df <- columns_to_character(df) |>
     names() |>
     purrr::map(~ dplyr::count(df, .data[[.x]], sort = TRUE)) |>
     purrr::set_names(nm = .set_names)

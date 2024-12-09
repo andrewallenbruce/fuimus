@@ -26,19 +26,16 @@
 #' @export
 construct_regex <- function(x) {
 
-  x <- gsub(" ", "", uniq_rmna(x))
+  x <- gsub(" ", "", uniq_narm(x))
 
   vecs <- stringr::str_split_fixed(
     x, "",
-    n = max(
-      collapse::vlengths(x)
-    )
-  ) |>
+    n = max(collapse::vlengths(x))) |>
     as.data.frame() |>
     purrr::map(na_if_common)
 
   to_brackets <- vecs |>
-    purrr::map(uniq_rmna) |>
+    purrr::map(uniq_narm) |>
     purrr::map(pos_re)
 
   qmark <- names(which(purrr::map_lgl(vecs, anyNA)))
@@ -69,7 +66,7 @@ construct_regex <- function(x) {
 
     to_vec[dupe_idx] <- rp
 
-    to_vec <- uniq_rmna(to_vec)
+    to_vec <- uniq_narm(to_vec)
 
   }
 
@@ -112,9 +109,9 @@ id_runs <- function(x) {
 
   vec <- c(LETTERS, 0:9)
 
-  vec <- rlang::set_names(rep(0, length(vec)), vec)
+  vec <- stats::setNames(rep(0, length(vec)), vec)
 
-  test <- fuimus::splitter(x)
+  test <- splitter(x)
 
   vecna <- vec[test]
 
@@ -141,7 +138,7 @@ id_runs <- function(x) {
       group
     )
 
-  if (vctrs::vec_is_empty(vec_group)) return(x)
+  if (empty(vec_group)) return(x)
 
   xgroups <- unname(
     split(
@@ -198,7 +195,7 @@ id_runs <- function(x) {
 #' @noRd
 pos_nchar <- function(x) {
 
-  ch <- range(collapse::vlengths(x))
+  ch <- range(vlen(x))
 
   ifelse(
     ch[1] == ch[2],

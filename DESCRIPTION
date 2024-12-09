@@ -2,7 +2,7 @@ Package: fuimus
 Title: Functions That Have Been
 Version: 0.0.2
 Authors@R: 
-    person("Andrew", "Bruce", , "andrewallenbruce@gmail.com", role = c("aut", "cre", "cph"))
+    person(c("Andrew", "Allen"), "Bruce", , "andrewallenbruce@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Andrew Bruce <andrewallenbruce@gmail.com>
 Description: A collection of functions that have been useful to the author
     in his work. The package is intended to be a personal package, but is
@@ -16,28 +16,31 @@ BugReports: https://github.com/andrewallenbruce/fuimus/issues
 Depends: 
     R (>= 4.1.0)
 Imports:
-    cli,
-    clock,
     collapse,
     dplyr,
     glue,
     janitor,
-    lubridate,
-    pins,
     purrr,
     rlang,
-    stats,
     strex,
     stringfish,
-    stringi,
     stringr,
-    styler,
-    tidyr,
-    vctrs
+    vctrs,
+    cheapr,
+    kit
 Suggests: 
     fixtuRes,
     fontawesome,
+    usethis,
+    stats,
+    cli,
+    clock,
+    stringi,
+    lubridate,
+    pins,
     forcats,
+    tidyr,
+    styler,
     fs,
     ggplot2,
     graphics,

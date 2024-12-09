@@ -10,7 +10,7 @@ list_pins(...)
 \item{...}{arguments to pass to \code{\link[=mount_board]{mount_board()}}}
 }
 \value{
-\verb{<list>} of \link[pins:pins-package]{pins}
+\verb{<chr>} vector of \link[pins:pins-package]{pins}
 }
 \description{
 List pins from a \link[pins:pins-package]{pins} board

@@ -37,8 +37,11 @@ mount_board <- function(source = c("local", "remote"), package = "fuimus") {
     source,
     local = pins::board_folder(
     fs::path_package("extdata/pins", package = package)),
-    remote = pins::board_url(gh_raw(glue::glue(
-      "andrewallenbruce/{package}/master/inst/extdata/pins/"))
+    remote = pins::board_url(
+      gh_raw(
+        glue::glue(
+      "andrewallenbruce/{package}/master/inst/extdata/pins/")
+      )
     )
   )
 }
@@ -70,7 +73,7 @@ get_pin <- function(pin, ...) {
 #'
 #' @param ... arguments to pass to [mount_board()]
 #'
-#' @returns `<list>` of [pins][pins::pins-package]
+#' @returns `<chr>` vector of [pins][pins::pins-package]
 #'
 #' @autoglobal
 #'
@@ -85,14 +88,14 @@ list_pins <- function(...) {
 
 }
 
-#' Install/upgrade personal packages
+#' Install/update personal packages
 #'
 #' @autoglobal
 #'
 #' @keywords internal
 #'
 #' @export
-upgrade_personal_pkgs <- function() {
+update_personal_packages <- function() {
 
   pkgs <- c(
     "careroll",
@@ -101,13 +104,15 @@ upgrade_personal_pkgs <- function() {
     "defogger",
     "forager",
     "fuimus",
-    "himni",
     "northstar",
     "pathologie",
     "procedural",
     "provider",
-    "rvu",
-    "nppez"
+    "nppez",
+    "arkrvu",
+    "arktax",
+    "arknpi",
+    "codex"
   )
 
   pak::pkg_install(
@@ -116,4 +121,38 @@ upgrade_personal_pkgs <- function() {
     ),
     upgrade = TRUE,
     ask = FALSE)
+}
+
+#' Initialize a new R package
+#'
+#' @param pkgname `<chr>` name of package
+#'
+#' @returns nothing
+#'
+#' @examplesIf FALSE
+#' initialize_package("package")
+#'
+#' @autoglobal
+#'
+#' @keywords internal
+#'
+#' @export
+initialize_package <- \(pkgname) {
+
+  local  <- "C:/Users/Andrew/Desktop/Repositories/"
+  github <- "https://github.com/andrewallenbruce/"
+
+  usethis::create_package(
+    path = glue::glue("{local}{pkgname}"),
+    fields = list(
+      Package = glue::glue("{pkgname}"),
+      "Authors@R" = utils::person(
+        given = c("Andrew", "Allen"),
+        family = "Bruce",
+        email = "andrewallenbruce@gmail.com",
+        role = c("aut", "cre", "cph")),
+      Maintainer = "Andrew Allen Bruce <andrewallenbruce@gmail.com>",
+      URL = glue::glue("{github}{pkgname}"),
+      BugReports = glue::glue("{github}{pkgname}/issues"))
+  )
 }
