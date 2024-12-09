@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# **fuimus** <a href="https://andrewallenbruce.github.io/fuimus/"><img src="man/figures/logo.png" alt="fuimus website" align="right" height="200"/></a>
+# fuimus <a href="https://andrewallenbruce.github.io/fuimus/"><img src="man/figures/logo.png" alt="fuimus website" align="right" height="200"/></a>
 
 > /ˈfu.i.mus/, \[ˈfuɪmʊs̠\]
 >
@@ -12,8 +12,12 @@
 > The family motto of the Lowlands Scottish Clan
 > [Bruce](https://en.wikipedia.org/wiki/Clan_Bruce)).
 
+<br>
+
 <!-- badges: start -->
 
+![GitHub R package
+version](https://img.shields.io/github/r-package/v/andrewallenbruce/fuimus?style=flat-square&logo=R&label=Package&color=%23192a38)
 [![Codecov test
 coverage](https://codecov.io/gh/andrewallenbruce/fuimus/branch/master/graph/badge.svg)](https://app.codecov.io/gh/andrewallenbruce/fuimus?branch=master)
 [![Last
@@ -25,7 +29,7 @@ size](https://img.shields.io/github/languages/code-size/andrewallenbruce/fuimus.
 
 ## :package: Installation
 
-You can install **fuimus** from [GitHub](https://github.com/) with:
+You can install **`fuimus`** from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
@@ -43,6 +47,5 @@ By contributing to this project, you agree to abide by its terms.
 
 ## :classical_building: Governance
 
-This project is primarily maintained by [Andrew
-Bruce](https://github.com/andrewallenbruce). Other authors may
-occasionally assist with some of these duties.
+This project is maintained by [Andrew
+Bruce](https://github.com/andrewallenbruce).
