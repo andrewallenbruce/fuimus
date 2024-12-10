@@ -24,12 +24,8 @@ as_character(123)
 \seealso{
 Other base: 
 \code{\link{colon}()},
-\code{\link{delist}()},
-\code{\link{desplit}()},
 \code{\link{interpolate}()},
-\code{\link{invert_named}()},
-\code{\link{not_null}()},
-\code{\link{null}()}
+\code{\link{invert_named}()}
 }
 \concept{base}
 \keyword{helpers}

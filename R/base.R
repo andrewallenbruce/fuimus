@@ -1,104 +1,3 @@
-#' Unlist with no names
-#'
-#' @param x Named or unnamed `<list>`
-#'
-#' @returns Unnamed `<character>` vector
-#'
-#' @examples
-#' delist(list(x = "XYZ"))
-#'
-#' delist(list("XYZ"))
-#'
-#' @autoglobal
-#'
-#' @keywords helpers
-#'
-#' @family base
-#'
-#' @export
-delist <- \(x) unlist(x, use.names = FALSE)
-
-#' Delist, Unname and Split a String
-#'
-#' @param x `<character>` string or named `<list>`
-#'
-#' @returns Unnamed `<list>` of split `<character>` vectors
-#'
-#' @examples
-#' # unnamed vector
-#' desplit("XYZ")
-#'
-#' # named vector
-#' desplit(c(x = "XYZ"))
-#'
-#' # unnamed list with one element
-#' desplit(list("XYZ"))
-#'
-#' # unnamed list with multiple elements
-#' desplit(list("YYY", "ZZZ"))
-#'
-#' # named list with one element
-#' desplit(list(x = "XYZ"))
-#'
-#' # named list with multiple elements
-#' desplit(list(x = "YYY", xx = "ZZZ"))
-#'
-#' @autoglobal
-#'
-#' @keywords helpers
-#'
-#' @family base
-#'
-#' @export
-desplit <- \(x) {
-
-  res <- sf_strsplit(delist(x), "")
-
-  if (length(res) == 1) return(res[[1]])
-
-  res
-}
-
-#' Is `x` `NULL`?
-#'
-#' @param x input
-#'
-#' @returns `<lgl>` `TRUE` if `x` is `NULL`, else `FALSE`
-#'
-#' @examples
-#' null(NULL)
-#'
-#' null("NULL")
-#'
-#' @autoglobal
-#'
-#' @keywords helpers
-#'
-#' @family base
-#'
-#' @export
-null <- \(x) is.null(x)
-
-#' Is `x` not `NULL`?
-#'
-#' @param x input
-#'
-#' @returns `<lgl>` `TRUE` if `x` is not `NULL`, else `FALSE`
-#'
-#' @examples
-#' not_null(NULL)
-#'
-#' not_null("NULL")
-#'
-#' @autoglobal
-#'
-#' @keywords helpers
-#'
-#' @family base
-#'
-#' @export
-not_null <- \(x) !null(x)
-
 #' Coerce vector to `<character>`
 #'
 #' @param x vector
@@ -335,3 +234,17 @@ splitter <- function(x) {
 #'
 #' @export
 `%nin%` <- \(x, y) match(x, table = y, nomatch = 0L) == 0L
+
+#' Infix `!x %in% y`
+#'
+#' @param x,y vectors
+#'
+#' @examples
+#' NULL %or% 2474701
+#'
+#' @returns `y` if `x` is length 0, else `x`
+#'
+#' @autoglobal
+#'
+#' @export
+`%or%` <- \(x, y) if (length(x) == 0L) y else x

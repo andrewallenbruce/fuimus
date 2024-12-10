@@ -35,30 +35,7 @@ clean_number <- function(x) {
 #' @autoglobal
 #'
 #' @export
-na_if_common <- function(x) {
-
-  dplyr::case_match(
-    x,
-    c("", " ", "*", "--", "N/A") ~ NA_character_,
-    .default = x)
-
-}
-
-#' Remove single or double quotes from a character string
-#'
-#' @param x `<chr>` vector to convert
-#'
-#' @returns `<chr>` vector with removed quotes
-#'
-#' @examples
-#' remove_quotes(x = c("'", '"'))
-#'
-#' @autoglobal
-#'
-#' @export
-remove_quotes <- function(x) {
-  stringfish::sf_gsub(x, '["\']', "")
-}
+na_if_common <- \(x) dplyr::case_match(x, c("", " ", "*", "--", "N/A") ~ NA_character_, .default = x)
 
 #' Pad numbers with zeroes
 #'
@@ -79,9 +56,7 @@ remove_quotes <- function(x) {
 #' @export
 pad_number <- function(x, digits = NULL){
 
-  if (rlang::is_null(digits)) {
-    digits <- max(nchar(x), na.rm = TRUE)
-  }
+  if (null(digits)) digits <- max(nchar(x), na.rm = TRUE)
 
   stopifnot(
     rlang::is_scalar_integer(digits),
@@ -131,15 +106,11 @@ create_vec <- function(x,
                        style = TRUE,
                        ...) {
 
-  uniq_nona <- \(x) collapse::funique(collapse::na_rm(x))
+  paras <- "'"
 
-  x <- gsub(" ", "", uniq_nona(x))
+  x <- paste0(paras, gsub(" ", "", uniq_narm(x)), paras, collapse = collapse)
 
-  parentheses <- "'"
-
-  x <- stringr::str_c(parentheses, x, parentheses, collapse = collapse)
-
-  x <- stringr::str_c(enclose[1], x, enclose[2])
+  x <- paste0(enclose[1], x, enclose[2], collapse = "")
 
   if (style) x <- styler::style_text(text = x, ...)
 
@@ -184,26 +155,15 @@ rename_seq <- function(n,
                        collapse = ", ",
                        enclose = NULL,
                        style = TRUE) {
+  n <- seq.int(n)
 
-  x <- stringr::str_c(
-    new,
-    seq(n),
-    between,
-    old,
-    seq(n),
-    collapse = collapse)
+  x <- paste0(new, n, between, old, n, collapse = collapse)
 
-  if (!is.null(enclose)) {
-    x <- stringr::str_c(
-      enclose[1],
-      x,
-      enclose[2]
-    )
-  }
+  if (not_null(enclose)) x <- paste0(enclose[1], x, enclose[2])
 
-  if (style) {
-    x <- styler::style_text(x)
-  }
+  if (style)
+    return(styler::style_text(x))
+
   return(x)
 }
 

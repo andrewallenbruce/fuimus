@@ -25,11 +25,4 @@ Chop Vector by Group
 gchop(v, g)
 
 }
-\seealso{
-Other vctrs: 
-\code{\link{empty}()},
-\code{\link{null_if_empty}()},
-\code{\link{search_in}()},
-\code{\link{search_in_impl}()}
-}
 \concept{vctrs}

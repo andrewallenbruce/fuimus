@@ -25,11 +25,7 @@ invert_named(x = c(element = "name"))
 Other base: 
 \code{\link{as_character}()},
 \code{\link{colon}()},
-\code{\link{delist}()},
-\code{\link{desplit}()},
-\code{\link{interpolate}()},
-\code{\link{not_null}()},
-\code{\link{null}()}
+\code{\link{interpolate}()}
 }
 \concept{base}
 \keyword{helpers}

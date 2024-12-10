@@ -47,11 +47,7 @@ df |>
 Other base: 
 \code{\link{as_character}()},
 \code{\link{colon}()},
-\code{\link{delist}()},
-\code{\link{desplit}()},
-\code{\link{invert_named}()},
-\code{\link{not_null}()},
-\code{\link{null}()}
+\code{\link{invert_named}()}
 }
 \concept{base}
 \keyword{maths}
