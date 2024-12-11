@@ -1,0 +1,10 @@
+file: zipcodes.qs
+file_size: 3177603
+pin_hash: 45cd18a22eb1a98a
+type: qs
+title: Zip Code Database from zipcodeR package
+description: https://github.com/MacHu-GWU/uszipcode-project/files/5183256/simple_db.log
+tags: ~
+urls: ~
+created: 20241211T045538Z
+api_version: 1
