@@ -3,6 +3,7 @@
 export("%nin%")
 export("%nn%")
 export("%or%")
+export(add_counties)
 export(age_days)
 export(arrows)
 export(as_character)
