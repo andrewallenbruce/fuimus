@@ -1,0 +1,10 @@
+file: zip_subset.qs
+file_size: 267968
+pin_hash: 1753a42e51fa14d2
+type: qs
+title: Subset of Zip Code Database
+description: Subset of Zip Code Database
+tags: ~
+urls: ~
+created: 20241212T004422Z
+api_version: 1

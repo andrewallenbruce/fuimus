@@ -1,0 +1,10 @@
+file: fips_geo.qs
+file_size: 4575318
+pin_hash: dfc62fbf052a51f7
+type: qs
+title: FIPS Code to Spatial Geometry
+description: Subset of Zip Code Database
+tags: ~
+urls: ~
+created: 20241212T004314Z
+api_version: 1

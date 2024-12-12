@@ -1,2 +1,8 @@
+coords_sf:
+- coords_sf/20241212T004417Z-38c14/
+fips_geo:
+- fips_geo/20241212T004314Z-dfc62/
 zipcodes:
 - zipcodes/20241211T045538Z-45cd1/
+zip_subset:
+- zip_subset/20241212T004422Z-1753a/

@@ -45,9 +45,7 @@ df |>
 }
 \seealso{
 Other base: 
-\code{\link{as_character}()},
-\code{\link{colon}()},
-\code{\link{invert_named}()}
+\code{\link{colon}()}
 }
 \concept{base}
 \keyword{maths}

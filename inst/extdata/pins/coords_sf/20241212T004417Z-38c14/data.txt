@@ -1,0 +1,10 @@
+file: coords_sf.qs
+file_size: 365294
+pin_hash: 38c14be5e4653734
+type: qs
+title: Lat-Long to SF Object
+description: Lat-Long to SF Object
+tags: ~
+urls: ~
+created: 20241212T004417Z
+api_version: 1

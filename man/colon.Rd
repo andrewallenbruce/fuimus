@@ -29,9 +29,7 @@ colon(20.1)
 }
 \seealso{
 Other base: 
-\code{\link{as_character}()},
-\code{\link{interpolate}()},
-\code{\link{invert_named}()}
+\code{\link{interpolate}()}
 }
 \concept{base}
 \keyword{helpers}
