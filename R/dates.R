@@ -1,3 +1,27 @@
+#' Timestamp
+#'
+#' @param time Sys.time() or a date-time object
+#'
+#' @returns A list()
+#'
+#' @examples
+#' timestamp()
+#'
+#' date()
+#'
+#' ttimestamp()
+#'
+#' @autoglobal
+#'
+#' @export
+ttimestamp <- function(time = Sys.time()) {
+  attr(time, "tzone") <- "EST"
+
+  list(
+    strftime(time, "%Y-%m-%d %H:%M:%S"),
+    strftime(time, "%a %b %e %H:%M:%S %Y"))
+}
+
 #' Calculate Number of Days Between Two Dates
 #'
 #' @note This calculation includes the end date in the sum (see example)

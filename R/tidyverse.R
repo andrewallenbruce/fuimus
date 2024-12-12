@@ -172,7 +172,7 @@ display_long <- function(data) {
 #'
 #' @param sep separator between combined row data, default is `"-"`
 #'
-#' @returns A `<data.frame>` or `<tibble>` with combined columns
+#' @returns A `<tibble>` with combined columns
 #'
 #' @examples
 #' x <- fuimus:::forager_data()[-5]
@@ -308,4 +308,58 @@ count_wide <- function(df, rows, cols) {
       names_sort  = TRUE,
       values_fill = 0
     )
+}
+
+#' Summary statistics
+#'
+#' @param df data frame
+#'
+#' @param condition filter condition, i.e. `patient == "new"`
+#'
+#' @param group_vars variables to group by, i.e. `c(specialty, state, hcpcs, cost)`
+#'
+#' @param summary_vars variables to summarise, i.e. `c(min, max, mode, range)`
+#'
+#' @param arr column to arrange data by, i.e. `cost`
+#'
+#' @param digits Number of digits to round to, default is 3
+#'
+#' @returns A `<tibble>` with the summarized data
+#'
+#' @examples
+#' x <- dplyr::tibble(
+#'    provider = sample(c("A", "B", "C"), size = 200, replace = TRUE),
+#'    city = sample(c("ATL", "NYC"), size = 200, replace = TRUE),
+#'    charges = sample(1000:2000, size = 200),
+#'    payment = sample(1000:2000, size = 200))
+#'
+#' summary_stats(
+#'    x,
+#'    condition    = city == "ATL",
+#'    group_vars   = provider,
+#'    summary_vars = c(charges, payment),
+#'    arr          = provider)
+#' @autoglobal
+#'
+#' @export
+summary_stats <- function(df,
+                          condition = NULL,
+                          group_vars = NULL,
+                          summary_vars = NULL,
+                          arr = NULL,
+                          digits = 3) {
+
+  df |>
+    dplyr::filter({{ condition }}) |>
+    dplyr::summarise(
+      dplyr::across({{ summary_vars }},
+                    list(median = \(x) stats::median(x, na.rm = TRUE),
+                         mean = \(x) mean(x, na.rm = TRUE),
+                         sd = \(x) stats::sd(x, na.rm = TRUE)),
+                    .names = "{.col}_{.fn}"),
+      n = dplyr::n(),
+      .by = ({{ group_vars }})) |>
+    dplyr::arrange(dplyr::desc({{ arr }})) |>
+    dplyr::mutate(dplyr::across(
+      dplyr::where(is.double), ~roundup(., digits = digits)))
 }

@@ -16,7 +16,7 @@ combine(data, name = combined, columns, sep = "-")
 \item{sep}{separator between combined row data, default is \code{"-"}}
 }
 \value{
-A \verb{<data.frame>} or \verb{<tibble>} with combined columns
+A \verb{<tibble>} with combined columns
 }
 \description{
 Combine multiple columns into one
