@@ -3,7 +3,7 @@
 # file: standalone-helpers.R
 # last-updated: 2024-12-12
 # license: https://unlicense.org
-# imports: [cheapr (>= 0.9.92), collapse (>= 2.0.18), kit (>= 0.0.19), stringfish (0.16.0), stringi (>= 1.8.4), vctrs (>= 0.6.5)]
+# imports: [cheapr (>= 0.9.92), collapse (>= 2.0.18), kit (>= 0.0.19), stringfish (>= 0.16.0), stringi (>= 1.8.4), vctrs (>= 0.6.5)]
 # ---
 #
 # ## Changelog
