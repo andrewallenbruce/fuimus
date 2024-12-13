@@ -1,16 +1,18 @@
 # ---
 # repo: andrewallenbruce/fuimus
 # file: standalone-helpers.R
-# last-updated: 2024-12-10
+# last-updated: 2024-12-12
 # license: https://unlicense.org
-# imports: [kit, cheapr, collapse, stringfish, vctrs, stringi]
+# imports: [cheapr (>= 0.9.92), collapse (>= 2.0.18), kit (>= 0.0.19), stringfish (0.16.0), stringi (>= 1.8.4), vctrs (>= 0.6.5)]
 # ---
 #
 # ## Changelog
 #
-# 2024-12-10:
+# 2024-12-12:
 #
-# * Initial version.
+# * Fixed bug in search_in()
+# * Shortened as_() names
+# * Added roundup()
 #
 # 2024-12-11:
 #
@@ -25,11 +27,9 @@
 #    * as_numeric()
 #    * as_date()
 #
-# 2024-12-12:
+# 2024-12-10:
 #
-# * Fixed bug in search_in()
-# * Shortened as_() names
-# * Added roundup()
+# * Initial version.
 #
 # nocov start
 
