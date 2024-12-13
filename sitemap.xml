@@ -41,7 +41,6 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/expand_date_range.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/fancy_ts.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/find_common_order.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/fuimus/reference/forager_data.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/gchop.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/geomean.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/get_pin.html</loc></url>
@@ -63,6 +62,8 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/is_valid_npi2.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/list_pins.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/make_interval.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/mock_forager.html</loc></url>
+<url><loc>https://andrewallenbruce.github.io/fuimus/reference/mock_provider.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/mount_board.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/na_if_common.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/named_group_split.html</loc></url>
@@ -73,7 +74,6 @@
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_change.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/percentage_difference.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/print_ls.html</loc></url>
-<url><loc>https://andrewallenbruce.github.io/fuimus/reference/provider_data.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/random_npi_generator.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/rate_of_return.html</loc></url>
 <url><loc>https://andrewallenbruce.github.io/fuimus/reference/remove_quiet.html</loc></url>
