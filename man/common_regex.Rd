@@ -4,7 +4,7 @@
 \alias{common_regex}
 \title{Common Regular expressions}
 \usage{
-common_regex(x = c("month_date", "month", "url"))
+common_regex(x = c("month_date", "month", "url", "date"))
 }
 \arguments{
 \item{x}{\verb{<chr>} regex name}

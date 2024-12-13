@@ -7,9 +7,9 @@
 #' @returns `<tibble>` of summary statistics
 #'
 #' @examples
-#' describe(fuimus:::provider_data(2000:2020))
+#' describe(mock_provider(2000:2020))
 #'
-#' describe(fuimus:::forager_data(200), !dplyr::starts_with("date"))
+#' describe(mock_forager(200), !dplyr::starts_with("date"))
 #'
 #' @autoglobal
 #'
@@ -140,9 +140,9 @@ histo <- function(x, width = 10) {
 #'
 #' @examples
 #'
-#' describe_unique(fuimus:::forager_data(), claim_id, payer)
+#' describe_unique(mock_forager(), ins_class, payer)
 #'
-#' # describe_unique(fuimus:::forager_data(200), names(df)[2:3])
+#' # describe_unique(mock_forager(200), names(df)[2:3])
 #'
 #' @autoglobal
 #'

@@ -31,8 +31,8 @@ Describe unique values in a data frame
 }
 \examples{
 
-describe_unique(fuimus:::forager_data(), claim_id, payer)
+describe_unique(mock_forager(), ins_class, payer)
 
-# describe_unique(fuimus:::forager_data(200), names(df)[2:3])
+# describe_unique(mock_forager(200), names(df)[2:3])
 
 }

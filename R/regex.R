@@ -221,7 +221,7 @@ pos_nchar <- function(x) {
 #' @autoglobal
 #'
 #' @export
-common_regex <- function(x = c("month_date", "month", "url")) {
+common_regex <- function(x = c("month_date", "month", "url", "date")) {
 
   x <- match.arg(x)
 
@@ -241,8 +241,12 @@ common_regex <- function(x = c("month_date", "month", "url")) {
       \u00a1-\uffff](?:-)*)*(?:[a-z0-9\u00a1-\uffff])+)(?:\\.(?:[a-z0-9
       \u00a1-\uffff](?:-)*)*(?:[a-z0-9\u00a1-\uffff])+)*(?:\\.(?:[a-z0-9
       \u00a1-\uffff]){2,})(?::(?:\\d){2,5})?(?:/(?:\\S)*)?$"
+    ),
+    date = single_line_string(
+      "\\b\\d{4}[-/]\\d{2}[-/]\\d{2}\\b|\\b\\d{2}[-/]\\d{2}[-/]\\d{4}\\b|
+      \\d{6}|\\b\\d{1,2}[-/.]\\d{1,2}[-/.]\\d{2,4}\\b"
+      )
     )
-  )
 
   reg[[x]]
 }

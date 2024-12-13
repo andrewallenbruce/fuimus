@@ -25,7 +25,7 @@ x[collapse::whichv(purrr::map_lgl(x, is_valid_npi), TRUE)]
 }
 \seealso{
 Other mock: 
-\code{\link{forager_data}()},
-\code{\link{provider_data}()}
+\code{\link{mock_forager}()},
+\code{\link{mock_provider}()}
 }
 \concept{mock}
