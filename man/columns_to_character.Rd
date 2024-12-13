@@ -23,6 +23,9 @@ columns_to_character(x)
 }
 \seealso{
 Other tidyverse: 
+\code{\link{gchop}()},
+\code{\link{glue_chr}()},
+\code{\link{glue_data_chr}()},
 \code{\link{named_group_split}()},
 \code{\link{search_for}()}
 }

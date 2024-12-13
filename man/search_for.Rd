@@ -32,6 +32,9 @@ search_for(data = x, column = "z", search = "[a|j]")
 \seealso{
 Other tidyverse: 
 \code{\link{columns_to_character}()},
+\code{\link{gchop}()},
+\code{\link{glue_chr}()},
+\code{\link{glue_data_chr}()},
 \code{\link{named_group_split}()}
 }
 \concept{tidyverse}

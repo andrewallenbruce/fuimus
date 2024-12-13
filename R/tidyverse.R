@@ -1,4 +1,79 @@
-#' Split a `tibble` by Groups with Named List Output
+#' Chop Vector by Group
+#'
+#' @param v `<character>` vector
+#'
+#' @param g `<integer>` group
+#'
+#' @returns `<list>`
+#'
+#' @examples
+#' (v <- c("222", "280", "3020", "8690", "G0294", "G8126"))
+#'
+#' (g <- sample(1:2, size = length(v), replace = TRUE))
+#'
+#' gchop(v, g)
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family tidyverse
+#'
+#' @export
+gchop <- \(v, g) { vctrs::vec_chop(x = v, sizes = vctrs::vec_run_sizes(g)) }
+
+#' Remove empty rows and columns
+#'
+#' @param df data frame
+#'
+#' @param ... additional arguments to pass to `janitor::remove_empty()`
+#'
+#' @examples
+#' dplyr::tibble(
+#'   x = c(1, 2, NA),
+#'   y = c(NA, NA, NA)) |>
+#'   remove_quiet()
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @export
+remove_quiet <- \(df, ...) { janitor::remove_empty(df, which = c("rows", "cols"), ...) }
+
+#' Coerce glue() output to character
+#'
+#' @param ... dots to pass to glue function
+#'
+#' @returns `<chr>` vector
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family tidyverse
+#'
+#' @export
+glue_chr <- \(...) { as.character(glue::glue(..., .envir = parent.frame(1))) }
+
+#' Coerce glue_data() output to character
+#'
+#' @param ... dots to pass to glue function
+#'
+#' @param .x `<vec>` vector to pass to glue_data()
+#'
+#' @returns `<chr>` vector
+#'
+#' @autoglobal
+#'
+#' @keywords helpers
+#'
+#' @family tidyverse
+#'
+#' @export
+glue_data_chr <- \(.x, ...) { as.character(glue::glue_data(.x = .x, ..., .envir = parent.frame(1))) }
+
+#' Split a `<tibble>` by Groups with Named List Output
 #'
 #' This function takes a `<tibble>`, groups it by one or more variables, and
 #' splits the grouped data into a list. The resulting list has names derived
@@ -33,7 +108,7 @@
 #' @family tidyverse
 #'
 #' @export
-named_group_split <- function(df, ...) {
+named_group_split <- \(df, ...) {
 
   grouped <- dplyr::group_by(df, ...)
 
@@ -175,7 +250,7 @@ display_long <- function(data) {
 #' @returns A `<tibble>` with combined columns
 #'
 #' @examples
-#' x <- fuimus:::forager_data()[-5]
+#' x <- forager_data()[-5]
 #'
 #' x[1, 2] <- ""
 #'
@@ -218,24 +293,16 @@ combine <- function(data, name = combined, columns, sep = "-") {
 #'   the count, default is `FALSE`
 #'
 #' @examples
-#' fuimus:::forager_data() |>
+#' forager_data() |>
 #'   count_prop(payer, sort = TRUE)
 #'
 #' @autoglobal
 #'
 #' @export
-count_prop <- function(df,
-                       var,
-                       sort = FALSE,
-                       na.rm = FALSE) {
-  df |>
-    dplyr::count(
-      {{ var }},
-      sort = sort
-    ) |>
-    dplyr::mutate(
-      prop = n / sum(n, na.rm = na.rm)
-    )
+count_prop <- function(df, var, sort = FALSE, na.rm = FALSE) {
+
+  dplyr::count(df, {{ var }}, sort = sort) |>
+    dplyr::mutate(prop = n / sum(n, na.rm = na.rm))
 }
 
 #' Count and calculate proportion of each group
@@ -253,7 +320,7 @@ count_prop <- function(df,
 #'   the count, default is `FALSE`
 #'
 #' @examples
-#' fuimus:::forager_data(10) |>
+#' forager_data(10) |>
 #'   count_prop_multi(
 #'   c(ins_class),
 #'   payer,
@@ -262,20 +329,9 @@ count_prop <- function(df,
 #' @autoglobal
 #'
 #' @export
-count_prop_multi <- function(df,
-                             rows,
-                             cols,
-                             sort = FALSE,
-                             na.rm = FALSE) {
-  df |>
-    dplyr::count(
-      dplyr::pick(
-        c(
-          {{ rows }},
-          {{ cols }}
-        )),
-      sort = sort
-    ) |>
+count_prop_multi <- function(df, rows, cols, sort = FALSE, na.rm = FALSE) {
+
+  dplyr::count(df, dplyr::pick(c({{ rows }}, {{ cols }})), sort = sort) |>
     dplyr::mutate(prop = n / sum(n, na.rm = na.rm))
 }
 
@@ -361,5 +417,5 @@ summary_stats <- function(df,
       .by = ({{ group_vars }})) |>
     dplyr::arrange(dplyr::desc({{ arr }})) |>
     dplyr::mutate(dplyr::across(
-      dplyr::where(is.double), ~roundup(., digits = digits)))
+      dplyr::where(is.double), ~roundup(., d = digits)))
 }

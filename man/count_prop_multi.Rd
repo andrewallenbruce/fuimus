@@ -23,7 +23,7 @@ the count, default is \code{FALSE}}
 Count and calculate proportion of each group
 }
 \examples{
-fuimus:::forager_data(10) |>
+forager_data(10) |>
   count_prop_multi(
   c(ins_class),
   payer,

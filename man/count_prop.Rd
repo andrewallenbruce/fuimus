@@ -21,7 +21,7 @@ the count, default is \code{FALSE}}
 Count and calculate proportion of each group
 }
 \examples{
-fuimus:::forager_data() |>
+forager_data() |>
   count_prop(payer, sort = TRUE)
 
 }
