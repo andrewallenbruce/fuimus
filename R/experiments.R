@@ -257,7 +257,7 @@ check_first_char <- function(x) {
 #' @export
 is_valid_npi <- function(npi) {
 
-  npi <- as_character(npi)
+  npi <- as_chr(npi)
   check_length(npi)
   check_chars_numeric(npi)
   check_nchars_10(npi)
