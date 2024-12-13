@@ -1,12 +1,16 @@
 # ---
 # repo: andrewallenbruce/fuimus
 # file: standalone-helpers.R
-# last-updated: 2024-12-12
+# last-updated: 2024-12-13
 # license: https://unlicense.org
 # imports: [cheapr (>= 0.9.92), collapse (>= 2.0.18), kit (>= 0.0.19), stringfish (>= 0.16.0), stringi (>= 1.8.4), vctrs (>= 0.6.5)]
 # ---
 #
 # ## Changelog
+#
+# 2024-12-13:
+#
+# * Added sf_replace()
 #
 # 2024-12-12:
 #
@@ -235,14 +239,29 @@ sf_extract <- \(s, p) { s[sf_detect(s, p)] }
 #' @noRd
 sf_nextract <- \(s, p) { s[sf_ndetect(s, p)] }
 
+#' Replace by Regex
+#'
+#' @param s `<chr>` vector
+#'
+#' @param p `<chr>` regex pattern
+#'
+#' @param r `<chr>` replacement
+#'
+#' @param fix `<lgl>` fixed or regex; default is `FALSE`
+#'
+#' @noRd
+sf_replace <- \(s, p, r, fix = FALSE) { stringfish::sf_gsub(subject = s, pattern = p, replacement = r, fixed = fix, nthreads = 4L) }
+
 #' Remove by Regex
 #'
 #' @param s `<chr>` vector
 #'
 #' @param p `<chr>` regex pattern
 #'
+#' @param fix `<lgl>` fixed or regex; default is `FALSE`
+#'
 #' @noRd
-sf_remove <- \(s, p) { stringfish::sf_gsub(s, p, "", nthreads = 4L) }
+sf_remove <- \(s, p, fix = FALSE) { stringfish::sf_gsub(subject = s, pattern = p, replacement = "", fixed = fix, nthreads = 4L) }
 
 #' Remove single or double quotes from a character string
 #'
@@ -273,10 +292,10 @@ sf_smush <- \(x, sep = "") { stringfish::sf_collapse(x, collapse = sep) }
 #'
 #' @param s `<chr>` delimiter to split by
 #'
-#' @param fixed `<lgl>` fixed or regex; default is `TRUE`
+#' @param fix `<lgl>` fixed or regex; default is `TRUE`
 #'
 #' @noRd
-sf_strsplit <- \(x, s, fixed = TRUE) { stringfish::sf_split(subject = x, split = s, fixed = fixed, nthreads = 4L) }
+sf_strsplit <- \(x, s, fix = TRUE) { stringfish::sf_split(subject = x, split = s, fixed = fix, nthreads = 4L) }
 
 # stringi -----------------------------------------------------------------
 #
