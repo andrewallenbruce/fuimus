@@ -17,8 +17,8 @@ change(df, cols, csm = NULL)
 Calculate Lagged Metrics
 }
 \examples{
-fuimus:::provider_data(2020:2025) |>
+mock_provider(2020:2025) |>
   dplyr::group_by(group) |>
-  change(net_payment, csm = c("payment", "_chg"))
+  change(payment, csm = c("payment", "_chg"))
 
 }

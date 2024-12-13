@@ -17,8 +17,7 @@ chg_abs(x, n = 1L, fill_na = 0L)
 Lagged absolute change
 }
 \examples{
-fuimus:::provider_data(2020:2025) |>
-  dplyr::mutate(change = chg_abs(net_payment),
-  .by = group)
+mock_provider(2020:2025) |>
+  dplyr::mutate(change = chg_abs(payment), .by = group)
 
 }

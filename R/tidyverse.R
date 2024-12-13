@@ -250,7 +250,7 @@ display_long <- function(data) {
 #' @returns A `<tibble>` with combined columns
 #'
 #' @examples
-#' x <- forager_data()[-5]
+#' x <- mock_forager()[-5]
 #'
 #' x[1, 2] <- ""
 #'
@@ -293,7 +293,7 @@ combine <- function(data, name = combined, columns, sep = "-") {
 #'   the count, default is `FALSE`
 #'
 #' @examples
-#' forager_data() |>
+#' mock_forager() |>
 #'   count_prop(payer, sort = TRUE)
 #'
 #' @autoglobal
@@ -320,7 +320,7 @@ count_prop <- function(df, var, sort = FALSE, na.rm = FALSE) {
 #'   the count, default is `FALSE`
 #'
 #' @examples
-#' forager_data(10) |>
+#' mock_forager(10) |>
 #'   count_prop_multi(
 #'   c(ins_class),
 #'   payer,
@@ -344,7 +344,7 @@ count_prop_multi <- function(df, rows, cols, sort = FALSE, na.rm = FALSE) {
 #' @param cols A `<character>` or `<symbol>` specifying the columns to count
 #'
 #' @examples
-#' fuimus:::forager_data(10) |>
+#' mock_forager(10) |>
 #'   count_wide(c(ins_class), payer)
 #'
 #' @autoglobal

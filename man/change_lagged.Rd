@@ -17,8 +17,8 @@ change_lagged(df, col, by = NULL)
 Calculate lagged values by column
 }
 \examples{
-fuimus:::provider_data(2020:2025) |>
+mock_provider(2020:2025) |>
   dplyr::group_by(group) |>
-  change_lagged(net_payment, year)
+  change_lagged(payment, year)
 
 }

@@ -22,7 +22,7 @@ A \verb{<tibble>} with combined columns
 Combine multiple columns into one
 }
 \examples{
-x <- forager_data()[-5]
+x <- mock_forager()[-5]
 
 x[1, 2] <- ""
 

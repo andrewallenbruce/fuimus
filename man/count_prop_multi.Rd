@@ -23,7 +23,7 @@ the count, default is \code{FALSE}}
 Count and calculate proportion of each group
 }
 \examples{
-forager_data(10) |>
+mock_forager(10) |>
   count_prop_multi(
   c(ins_class),
   payer,

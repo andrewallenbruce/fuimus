@@ -17,7 +17,7 @@ count_wide(df, rows, cols)
 Count rows and columns and pivot to wide format
 }
 \examples{
-fuimus:::forager_data(10) |>
+mock_forager(10) |>
   count_wide(c(ins_class), payer)
 
 }

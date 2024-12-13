@@ -13,16 +13,15 @@ geomean(x)
 Average \code{\link[=rate_of_return]{rate_of_return()}}
 }
 \examples{
-x <- fuimus:::provider_data(2020:2025)
+x <- mock_provider(2020:2025)
 
 x |>
-dplyr::group_by(group) |>
-rate_of_return(net_payment)
+  dplyr::group_by(group) |>
+  rate_of_return(payment)
 
 x |>
-dplyr::group_by(group) |>
-rate_of_return(net_payment) |>
-dplyr::summarise(gmean = geomean(net_payment_ror),
-.by = group)
+  dplyr::group_by(group) |>
+  rate_of_return(payment) |>
+  dplyr::summarise(gmean = geomean(payment_ror), .by = group)
 
 }

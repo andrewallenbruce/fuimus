@@ -15,16 +15,14 @@ utils::globalVariables(c(
   "copy",
   # <add_counties>
   "county_fips",
-  # <forager_data>
+  # <mock_forager>
   "date_of_acceptance",
-  # <forager_data>
+  # <mock_forager>
   "date_of_release",
-  # <forager_data>
+  # <mock_forager>
   "date_of_service",
-  # <forager_data>
+  # <mock_forager>
   "date_of_submission",
-  # <forager_data>
-  "dates",
   # <id_runs>
   "group",
   # <id_runs>

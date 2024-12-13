@@ -7,9 +7,9 @@
 #' @param by column to calculate lag by
 #'
 #' @examples
-#' fuimus:::provider_data(2020:2025) |>
+#' mock_provider(2020:2025) |>
 #'   dplyr::group_by(group) |>
-#'   change_lagged(net_payment, year)
+#'   change_lagged(payment, year)
 #'
 #' @autoglobal
 #'
@@ -35,17 +35,16 @@ change_lagged <- function(df, col, by = NULL) {
 #' @param x numeric vector
 #'
 #' @examples
-#' x <- fuimus:::provider_data(2020:2025)
+#' x <- mock_provider(2020:2025)
 #'
 #' x |>
-#' dplyr::group_by(group) |>
-#' rate_of_return(net_payment)
+#'   dplyr::group_by(group) |>
+#'   rate_of_return(payment)
 #'
 #' x |>
-#' dplyr::group_by(group) |>
-#' rate_of_return(net_payment) |>
-#' dplyr::summarise(gmean = geomean(net_payment_ror),
-#' .by = group)
+#'   dplyr::group_by(group) |>
+#'   rate_of_return(payment) |>
+#'   dplyr::summarise(gmean = geomean(payment_ror), .by = group)
 #'
 #' @autoglobal
 #'
@@ -70,9 +69,9 @@ geomean <- function(x) {
 #' @param fill_na `<int>` fill value for any NAs; default is 1
 #'
 #' @examples
-#' fuimus:::provider_data(2020:2025) |>
+#' mock_provider(2020:2025) |>
 #'   dplyr::group_by(group) |>
-#'   rate_of_return(net_payment)
+#'   rate_of_return(payment)
 #'
 #' @autoglobal
 #'
@@ -111,9 +110,8 @@ rate_of_return <- function(df, col, n = 1, fill_na = 1L) {
 #' @param fill_na fill value for any NAs; default is 0
 #'
 #' @examples
-#' fuimus:::provider_data(2020:2025) |>
-#'   dplyr::mutate(change = chg_abs(net_payment),
-#'   .by = group)
+#' mock_provider(2020:2025) |>
+#'   dplyr::mutate(change = chg_abs(payment), .by = group)
 #'
 #' @autoglobal
 #'
@@ -142,9 +140,8 @@ chg_abs <- function(x, n = 1L, fill_na = 0L) {
 #' @param fill_na fill value for any NAs; default is 0
 #'
 #' @examples
-#' fuimus:::provider_data(2020:2025) |>
-#'   dplyr::mutate(change = chg_pct(net_payment),
-#'   .by = group)
+#' mock_provider(2020:2025) |>
+#'   dplyr::mutate(change = chg_pct(payment), .by = group)
 #'
 #' @autoglobal
 #'
@@ -171,9 +168,9 @@ chg_pct <- function(x, n = 1L, fill_na = 0L) {
 #' @param csm numeric cols to calculate cumulative sum for
 #'
 #' @examples
-#' fuimus:::provider_data(2020:2025) |>
+#' mock_provider(2020:2025) |>
 #'   dplyr::group_by(group) |>
-#'   change(net_payment, csm = c("payment", "_chg"))
+#'   change(payment, csm = c("payment", "_chg"))
 #'
 #' @autoglobal
 #'
