@@ -1,16 +1,21 @@
 # ---
 # repo: andrewallenbruce/fuimus
 # file: standalone-helpers.R
-# last-updated: 2024-12-14
+# last-updated: 2024-12-15
 # license: https://unlicense.org
 # imports: [cheapr (>= 0.9.92), collapse (>= 2.0.18), kit (>= 0.0.19), stringfish (>= 0.16.0), stringi (>= 1.8.4), vctrs (>= 0.6.5)]
 # ---
 #
 # ## Changelog
 #
+# 2024-12-15:
+#
+# * Added gelm()
+#
 # 2024-12-14:
 #
 # * Added remove_all_na() and na_if()
+# * Fixed errors in roxygen documentation
 #
 # 2024-12-13:
 #
@@ -91,7 +96,8 @@ search_in <- \(x, column, what) {
 #' @param y values to convert to `NA`. Type must match that of `x`.
 #'
 #' @returns `x` with values in `y` converted to `NA`
-#' noRd
+#'
+#' @noRd
 na_if <- \(x, y) {
 
   vctrs::vec_slice(
@@ -142,8 +148,9 @@ not_na <- \(x) { !na(x) }
 
 #' Remove columns and rows with all NAs
 #'
-#' @param x `<data.frame>`
+#' @param x vector or `<data.frame>`
 #'
+#' @noRd
 remove_all_na <- \(x) { cheapr::na_rm(x[, !cheapr::col_all_na(x)]) }
 
 # collapse -----------------------------------------------------------------
@@ -156,6 +163,27 @@ remove_all_na <- \(x) { cheapr::na_rm(x[, !cheapr::col_all_na(x)]) }
 #'
 #' @noRd
 getelem <- \(l, e) { collapse::get_elem(l = l, elem = e, regex = TRUE) }
+
+#' `getelem` with more flexibility
+#'
+#' @param l named `<list>`
+#'
+#' @param e `<chr>` element name; can be a regex pattern if `m` is `"re"`
+#'
+#' @param m `<chr>` mode; default is `"re"` (regex) or `"df"` (data frame)
+#'
+#' @param ... additional arguments to pass to `collapse::get_elem()`
+#'
+#' @noRd
+gelm <- \(l, e, m = "re", ...) {
+
+  collapse::get_elem(
+    l = l,
+    elem = e,
+    regex = ifelse(m == "re", TRUE, FALSE),
+    DF.as.list = ifelse(m == "df", TRUE, FALSE), ...)
+
+}
 
 #' Lengths of Vector
 #'
