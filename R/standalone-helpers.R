@@ -1,12 +1,16 @@
 # ---
 # repo: andrewallenbruce/fuimus
 # file: standalone-helpers.R
-# last-updated: 2024-12-13
+# last-updated: 2024-12-14
 # license: https://unlicense.org
 # imports: [cheapr (>= 0.9.92), collapse (>= 2.0.18), kit (>= 0.0.19), stringfish (>= 0.16.0), stringi (>= 1.8.4), vctrs (>= 0.6.5)]
 # ---
 #
 # ## Changelog
+#
+# 2024-12-14:
+#
+# * Added remove_all_na() and na_if()
 #
 # 2024-12-13:
 #
@@ -62,13 +66,7 @@ if_empty_null <- \(x) { if (empty(x)) NULL else x }
 #' @param what to search for in `column`
 #'
 #' @noRd
-search_in_impl <- \(x, column, what) {
-  vctrs::vec_slice(
-    x,
-    vctrs::vec_in(
-      x[[column]],
-      uniq(what)))
-}
+search_in_impl <- \(x, column, what) vctrs::vec_slice(x, vctrs::vec_in(x[[column]], uniq(what)))
 
 #' Search in data frame column if search term is not `NULL`
 #'
@@ -84,6 +82,27 @@ search_in <- \(x, column, what) {
   if (null(what)) return(x)
 
   search_in_impl(x, column, what)
+}
+
+#' Convert values to `NA`
+#'
+#' @param x vector to modify
+#'
+#' @param y values to convert to `NA`. Type must match that of `x`.
+#'
+#' @returns `x` with values in `y` converted to `NA`
+#' noRd
+na_if <- \(x, y) {
+
+  vctrs::vec_slice(
+    x,
+    vctrs::vec_in(
+      x,
+      y,
+      needles_arg = "x",
+      haystack_arg = "y")
+    ) <- NA
+  x
 }
 
 # kit ---------------------------------------------------------------------
@@ -120,6 +139,12 @@ na <- \(x) { cheapr::is_na(x) }
 #'
 #' @noRd
 not_na <- \(x) { !na(x) }
+
+#' Remove columns and rows with all NAs
+#'
+#' @param x `<data.frame>`
+#'
+remove_all_na <- \(x) { cheapr::na_rm(x[, !cheapr::col_all_na(x)]) }
 
 # collapse -----------------------------------------------------------------
 #
@@ -429,7 +454,9 @@ as_date <- \(x, ..., fmt = "%Y-%m-%d") { as.Date(x, ..., format = fmt) }
 #'
 #' @noRd
 invert_named <- \(x) {
+
   stopifnot("Input must be a named vector" = not_null(names(x)))
+
   stats::setNames(names(x), unname(x))
 }
 
