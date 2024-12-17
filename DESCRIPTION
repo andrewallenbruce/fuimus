@@ -1,6 +1,6 @@
 Package: fuimus
 Title: Functions That Have Been
-Version: 0.0.5.9003
+Version: 0.0.5.9004
 Authors@R: 
     person(c("Andrew", "Allen"), "Bruce", , "andrewallenbruce@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Andrew Bruce <andrewallenbruce@gmail.com>
@@ -30,10 +30,12 @@ Suggests:
     fontawesome,
     forcats,
     fs (>= 1.6.5),
+    gert,
     ggplot2,
     glue,
     graphics,
     gt,
+    here,
     janitor,
     lubridate,
     pak,

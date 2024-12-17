@@ -57,6 +57,8 @@ utils::globalVariables(c(
   # <describe2>
   # <describe>
   "sd",
+  # <git_commit>
+  "staged",
   # <describe2>
   "top",
   # <describe>
