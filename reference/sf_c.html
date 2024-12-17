@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fuimus</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.5.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Concatenate Vectors</h1>
-      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/fuimus/blob/master/R/stringfish.R" class="external-link"><code>R/stringfish.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/andrewallenbruce/fuimus/blob/master/R/standalone-helpers.R" class="external-link"><code>R/standalone-helpers.R</code></a></small>
       <div class="d-none name"><code>sf_c.Rd</code></div>
     </div>
 
@@ -46,22 +46,14 @@
 
 
 <dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Any number of vectors, coerced to <code>&lt;character&gt;</code> vector, if necessary</p></dd>
+<dd><p>Any number of vectors, coerced to <code>&lt;chr&gt;</code> vector, if necessary</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>concatenated <code>&lt;character&gt;</code> vector</p>
+    <p><code>&lt;chr&gt;</code> concatenated vector</p>
     </div>
 
-    <div class="section level2">
-    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">sf_c</span><span class="op">(</span><span class="va">LETTERS</span>, <span class="st">"A"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "T" "U" "V" "W" "X" "Y" "Z" "A"</span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
-    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

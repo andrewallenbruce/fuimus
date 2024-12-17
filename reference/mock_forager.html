@@ -38,7 +38,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mock_forager</span><span class="op">(</span>rows <span class="op">=</span> <span class="fl">10</span>, nest <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mock_forager</span><span class="op">(</span>rows <span class="op">=</span> <span class="fl">10</span>, nest <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -50,7 +50,7 @@
 
 
 <dt id="arg-nest">nest<a class="anchor" aria-label="anchor" href="#arg-nest"></a></dt>
-<dd><p><code>&lt;lgl&gt;</code> whether to nest the dates column; default is <code>TRUE</code></p></dd>
+<dd><p><code>&lt;lgl&gt;</code> whether to nest the dates column; default is <code>FALSE</code></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -67,14 +67,15 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">mock_forager</span><span class="op">(</span>rows <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   claim_id payer    ins_class balance dates           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1        Medicare Secondary   204.  <span style="color: #949494;">&lt;tibble [1 × 5]&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2        Medicaid Primary     171.  <span style="color: #949494;">&lt;tibble [1 × 5]&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 3        Cigna    Secondary   176.  <span style="color: #949494;">&lt;tibble [1 × 5]&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 4        Anthem   Secondary   144.  <span style="color: #949494;">&lt;tibble [1 × 5]&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 5        BCBS     Secondary    80.9 <span style="color: #949494;">&lt;tibble [1 × 5]&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id    payer   class balance date_of_service date_of_release date_of_submission</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 0001  Cigna   Seco…   145.  2024-03-17      2024-03-28      2024-03-29        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 0002  Medica… Seco…   330.  2024-04-17      2024-05-02      2024-05-05        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 0003  UHC     Seco…    21.4 2024-10-17      2024-10-28      2024-10-29        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 0004  BCBS    Prim…    33.4 2024-11-17      2024-11-23      2024-11-24        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 0005  MAO     Seco…    55.0 2024-02-17      2024-02-25      2024-02-27        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: date_of_acceptance &lt;date&gt;, date_of_adjudication &lt;date&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
