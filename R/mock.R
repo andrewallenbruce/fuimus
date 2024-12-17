@@ -29,7 +29,7 @@ mock_provider <- \(years) {
 #'
 #' @param rows `<int>` number of rows to generate; default is 10
 #'
-#' @param nest `<lgl>` whether to nest the dates column; default is `TRUE`
+#' @param nest `<lgl>` whether to nest the dates column; default is `FALSE`
 #'
 #' @returns A [tibble][tibble::tibble-package]
 #'
@@ -41,23 +41,47 @@ mock_provider <- \(years) {
 #' @family mock
 #'
 #' @export
-mock_forager <- function(rows = 10, nest = TRUE){
+mock_forager <- function(rows = 10, nest = FALSE){
 
-  payer_names <- c("Medicare", "Medicaid", "Cigna", "Humana", "UHC", "Anthem", "BCBS", "Centene")
+  payers <- sample(
+    x = factor(
+      x = c("Medicare",
+            "Medicaid",
+            "Cigna",
+            "Humana",
+            "UHC",
+            "Anthem",
+            "BCBS",
+            "Centene",
+            "MAO")),
+    size = rows,
+    replace = TRUE)
+
+  classes <- sample(
+    x = ordered(
+      c("Primary",
+        "Secondary")),
+    size = rows,
+    replace = TRUE)
 
   x <- dplyr::tibble(
-    claim_id             = as.character(wakefield::id(n = rows)),
-    date_of_service      = wakefield::dob(n = rows, start = Sys.Date() - 730, random = TRUE, k = 12, by = "-1 months"),
-    payer                = fixtuRes::set_vector(rows, set = payer_names),
-    ins_class            = fixtuRes::set_vector(rows, set = c("Primary", "Secondary")),
-    balance              = as.double(wakefield::income(n = rows, digits = 2) / 300),
-    date_of_release      = date_of_service + round(abs(stats::rnorm(length(date_of_service), 11, 4))),
-    date_of_submission   = date_of_release + round(abs(stats::rnorm(length(date_of_release), 2, 2))),
-    date_of_acceptance   = date_of_submission + round(abs(stats::rnorm(length(date_of_submission), 3, 2))),
-    date_of_adjudication = date_of_acceptance + round(abs(stats::rnorm(length(date_of_acceptance), 30, 3))))
+    id                   = sprintf(paste0("%0", nchar(rows) + 3, "d"), seq_len(rows)),
+    payer                = payers,
+    class                = classes,
+    balance              = roundup(stats::rgamma(n = rows, 2) * 20000) / 300,
+    date_of_service      = sample(x = seq.Date(from = Sys.Date(), by = "-1 months", length.out = 12), size = rows, replace = TRUE),
+    date_of_release      = date_of_service + roundup(abs(stats::rnorm(rows, 11, 4))),
+    date_of_submission   = date_of_release + roundup(abs(stats::rnorm(rows, 2, 2))),
+    date_of_acceptance   = date_of_submission + roundup(abs(stats::rnorm(rows, 3, 2))),
+    date_of_adjudication = date_of_acceptance + roundup(abs(stats::rnorm(rows, 30, 3)))
+    )
 
   if (nest)
-    return(tidyr::nest(x, dates = tidyr::contains("date")))
-
+    return(
+      tidyr::nest(
+        x,
+        dates = tidyr::contains("date")
+        )
+      )
   x
 }

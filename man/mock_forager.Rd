@@ -4,12 +4,12 @@
 \alias{mock_forager}
 \title{Generate mock coding/billing data frame}
 \usage{
-mock_forager(rows = 10, nest = TRUE)
+mock_forager(rows = 10, nest = FALSE)
 }
 \arguments{
 \item{rows}{\verb{<int>} number of rows to generate; default is 10}
 
-\item{nest}{\verb{<lgl>} whether to nest the dates column; default is \code{TRUE}}
+\item{nest}{\verb{<lgl>} whether to nest the dates column; default is \code{FALSE}}
 }
 \value{
 A \link[tibble:tibble-package]{tibble}

@@ -250,16 +250,11 @@ display_long <- function(data) {
 #' @returns A `<tibble>` with combined columns
 #'
 #' @examples
-#' x <- mock_forager()[-5]
+#' x <- mock_forager()
 #'
-#' x[1, 2] <- ""
+#' x[1, 1] <- ""
 #'
-#' x
-#'
-#' combine(
-#'   data = x,
-#'   name = payer,
-#'   columns = c('claim_id', 'payer'))
+#' combine(x, payer, c("payer", "id"))
 #'
 #' @autoglobal
 #'
@@ -322,7 +317,7 @@ count_prop <- function(df, var, sort = FALSE, na.rm = FALSE) {
 #' @examples
 #' mock_forager(10) |>
 #'   count_prop_multi(
-#'   c(ins_class),
+#'   c(class),
 #'   payer,
 #'   sort = TRUE)
 #'
@@ -345,7 +340,7 @@ count_prop_multi <- function(df, rows, cols, sort = FALSE, na.rm = FALSE) {
 #'
 #' @examples
 #' mock_forager(10) |>
-#'   count_wide(c(ins_class), payer)
+#'   count_wide(c(class), payer)
 #'
 #' @autoglobal
 #'

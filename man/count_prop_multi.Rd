@@ -25,7 +25,7 @@ Count and calculate proportion of each group
 \examples{
 mock_forager(10) |>
   count_prop_multi(
-  c(ins_class),
+  c(class),
   payer,
   sort = TRUE)
 

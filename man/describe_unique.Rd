@@ -31,8 +31,12 @@ Describe unique values in a data frame
 }
 \examples{
 
-describe_unique(mock_forager(), ins_class, payer)
+describe_unique(mock_forager(), class, payer)
 
-# describe_unique(mock_forager(200), names(df)[2:3])
+describe_unique(
+  mock_forager(50),
+  names(mock_forager())[c(2:3, 6:9)]) |>
+  dplyr::filter(n > 2) |>
+  print(n = 30)
 
 }

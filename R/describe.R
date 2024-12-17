@@ -1,3 +1,75 @@
+#' Describe 2
+#'
+#' @param df `<data.frame>` desc
+#'
+#' @param ... `<dots>` tidyselect columns
+#'
+#' @returns `<tibble>` of summary statistics
+#'
+#' @examples
+#' describe2(mock_provider(2000:2020))
+#'
+#' describe2(mock_forager(200))
+#'
+#' @autoglobal
+#'
+#' @export
+describe2 <- function(df, ...) {
+
+  get_type <- \(x) {
+    cheapr::enframe_(
+      purrr::map_vec(x, function(x)
+          glue_chr("<{pillar::type_sum(x)}>")),
+      name = "column",
+      value = "type")
+  }
+
+  fiqr <- \(x) diff(collapse::.quantile(as.numeric(x), c(0.25, 0.75)))
+
+  if (nargs() > 1) df <- dplyr::select(df, ...)
+
+  dates <- dplyr::select(df, dplyr::where(\(x) inherits(x, "Date")))
+  df    <- dplyr::select(df, dplyr::where(\(x) !inherits(x, "Date")))
+
+  sums <- df |>
+    dplyr::mutate(
+      dplyr::across(dplyr::where(is.character), stringr::str_length),
+      dplyr::across(dplyr::where(\(x) is.factor(x) | is.logical(x)), as.numeric)) |>
+    tidyr::pivot_longer(dplyr::everything(), names_to = "column") |>
+    dplyr::mutate(n = 1 - cheapr::is_na(value)) |>
+    dplyr::reframe(
+      n = collapse::fsum(value, nthreads = 4L),
+      min = collapse::fmin(value),
+      mean = collapse::fmean(value, nthreads = 4L),
+      iqr = fiqr(value),
+      max = collapse::fmax(value),
+      med = collapse::fmedian(value),
+      sd = collapse::fsd(value),
+      mad = mad(value, na.rm = TRUE),
+      distribution = histo(value),
+      .by = column) |>
+    dplyr::left_join(get_type(df), by = dplyr::join_by(column))
+
+  topn <- \(x, limit = 10) {
+    dplyr::tibble(
+      column = names(x),
+      uniq = collapse::fnunique(collapse::na_rm(x)),
+      top = collapse::fcount(collapse::na_rm(x), name = "n") |>
+        dplyr::arrange(dplyr::desc(n)) |>
+        dplyr::slice(seq(1, limit)) |>
+        dplyr::pull(x) |>
+        stringr::str_flatten_comma())
+  }
+
+  tops <- purrr::map(df, topn) |>
+    purrr::list_rbind(names_to = "column") |>
+    dplyr::filter(uniq != nrow(df))
+
+  dplyr::left_join(sums, tops, by = dplyr::join_by(column)) |>
+    dplyr::arrange(dplyr::desc(type)) |>
+    dplyr::select(column, type, n, min, mean, med, max, iqr, sd, mad, distribution, uniq, top)
+}
+
 #' Describe a dataset
 #'
 #' @param df `<data.frame>` desc
@@ -140,9 +212,13 @@ histo <- function(x, width = 10) {
 #'
 #' @examples
 #'
-#' describe_unique(mock_forager(), ins_class, payer)
+#' describe_unique(mock_forager(), class, payer)
 #'
-#' # describe_unique(mock_forager(200), names(df)[2:3])
+#' describe_unique(
+#'   mock_forager(50),
+#'   names(mock_forager())[c(2:3, 6:9)]) |>
+#'   dplyr::filter(n > 2) |>
+#'   print(n = 30)
 #'
 #' @autoglobal
 #'
@@ -157,7 +233,9 @@ describe_unique <- function(df,
 
   df <- dplyr::select(df, ...)
 
-  .set_names <- if (is.null(.set_names)) names(df) else .set_names
+  .set_names <- if (null(.set_names)) names(df) else .set_names
+
+  df <- dplyr::mutate(df, dplyr::across(!dplyr::where(is.character), as.character))
 
   df <- columns_to_character(df) |>
     names() |>

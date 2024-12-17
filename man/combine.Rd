@@ -22,15 +22,10 @@ A \verb{<tibble>} with combined columns
 Combine multiple columns into one
 }
 \examples{
-x <- mock_forager()[-5]
+x <- mock_forager()
 
-x[1, 2] <- ""
+x[1, 1] <- ""
 
-x
-
-combine(
-  data = x,
-  name = payer,
-  columns = c('claim_id', 'payer'))
+combine(x, payer, c("payer", "id"))
 
 }

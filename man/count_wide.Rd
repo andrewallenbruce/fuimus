@@ -18,6 +18,6 @@ Count rows and columns and pivot to wide format
 }
 \examples{
 mock_forager(10) |>
-  count_wide(c(ins_class), payer)
+  count_wide(c(class), payer)
 
 }
