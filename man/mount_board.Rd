@@ -4,12 +4,10 @@
 \alias{mount_board}
 \title{Mount \link[pins:pins-package]{pins} board}
 \usage{
-mount_board(source = c("local", "remote"), package = "fuimus")
+mount_board(source = c("local", "remote"))
 }
 \arguments{
 \item{source}{\verb{<chr>} \code{"local"} or \code{"remote"}}
-
-\item{package}{\verb{<chr>} package name}
 }
 \value{
 \verb{<pins_board_folder>} or \verb{<pins_board_url>}

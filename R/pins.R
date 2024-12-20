@@ -20,8 +20,6 @@ gh_raw <- function(x) {
 #'
 #' @param source `<chr>` `"local"` or `"remote"`
 #'
-#' @param package `<chr>` package name
-#'
 #' @returns `<pins_board_folder>` or `<pins_board_url>`
 #'
 #' @autoglobal
@@ -29,7 +27,7 @@ gh_raw <- function(x) {
 #' @keywords internal
 #'
 #' @export
-mount_board <- function(source = c("local", "remote"), package = "fuimus") {
+mount_board <- function(source = c("local", "remote")) {
 
   source <- match.arg(source)
 
@@ -37,11 +35,11 @@ mount_board <- function(source = c("local", "remote"), package = "fuimus") {
     source,
     local = pins::board_folder(
     # system.file("data", "zcta_crosswalk.rda", package = package)
-    fs::path_package("extdata/pins", package = package)),
+    fs::path_package("extdata/pins", package = utils::packageName())),
     remote = pins::board_url(
       gh_raw(
         glue::glue(
-      "andrewallenbruce/{package}/master/inst/extdata/pins/")
+      "andrewallenbruce/{utils::packageName()}/master/inst/extdata/pins/")
       )
     )
   )
