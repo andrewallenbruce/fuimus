@@ -34,7 +34,6 @@ mount_board <- function(source = c("local", "remote")) {
   switch(
     source,
     local = pins::board_folder(
-    # system.file("data", "zcta_crosswalk.rda", package = package)
     fs::path_package("extdata/pins", package = utils::packageName())),
     remote = pins::board_url(
       gh_raw(
