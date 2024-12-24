@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# fuimus 0.0.5.9007
+
+* added check_class
+
+
 # fuimus 0.0.5.9006
 
 * bump dev version
