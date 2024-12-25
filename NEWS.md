@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# fuimus 0.0.5.9008
+
+* updated standalone-helpers
+* removed pins functions
+
+
 # fuimus 0.0.5.9007
 
 * added check_class
