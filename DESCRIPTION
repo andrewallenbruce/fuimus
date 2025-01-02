@@ -27,6 +27,7 @@ Suggests:
     clock,
     dplyr,
     fipio,
+    fledge,
     fontawesome,
     forcats,
     fs (>= 1.6.5),

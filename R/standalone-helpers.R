@@ -1,12 +1,15 @@
 # ---
 # repo: andrewallenbruce/fuimus
 # file: standalone-helpers.R
-# last-updated: 2024-12-25
+# last-updated: 2025-01-02
 # license: https://unlicense.org
 # imports: [cheapr (>= 0.9.92), collapse (>= 2.0.18), kit (>= 0.0.19), pins (>= 1.4.0), stringfish (>= 0.16.0), stringi (>= 1.8.4), vctrs (>= 0.6.5)]
 # ---
 #
 # ## Changelog
+#
+# 2025-01-02:
+# * Added replace_fixed()
 #
 # 2024-12-25:
 #
@@ -51,7 +54,7 @@
 #
 # 2024-12-10:
 #
-# * Initial version.
+# * Initial version
 #
 # nocov start
 
@@ -629,6 +632,32 @@ sf_strsplit <- \(x, s, fix = TRUE) { stringfish::sf_split(subject = x, split = s
 #'
 #' @export
 random_string <- \(n, ln, p = "[A-Z0-9]") { stringi::stri_rand_strings(n = n, length = ln, pattern = p) }
+
+#' Replace All Fixed Strings
+#'
+#' @param x `<chr>` vector or string to search in
+#'
+#' @param p `<chr>` vector of search patterns
+#'
+#' @param r `<chr>` vector of replacements for matched patterns
+#'
+#' @param v `<lgl>` default is FALSE; should each occurrence of a pattern in
+#'   every string be replaced by a corresponding replacement string?
+#'
+#' @returns `<chr>` vector with all occurrences of each pattern replaced
+#'
+#' @examplesIf FALSE
+#' replace_fixed(
+#'   x,
+#'   c(":", "%", "@", "$"),
+#'   c("_", "", "", ""))
+#'
+#' @keywords internal
+#'
+#' @autoglobal
+#'
+#' @export
+replace_fixed <- \(x, p, r, v = FALSE) { stringi::stri_replace_all_fixed(str = x, pattern = p, replacement = r, vectorize_all = v) }
 
 # base --------------------------------------------------------------------
 #

@@ -8,9 +8,14 @@
 update_personal_packages <- function() {
 
   pkgs <- c(
+    "arknpi",
+    "arkrvu",
+    "arktax",
     "careroll",
+    "codex",
     "codexchain",
     "costoffice",
+    "crule",
     "defogger",
     "forager",
     "fuimus",
@@ -18,11 +23,8 @@ update_personal_packages <- function() {
     "pathologie",
     "procedural",
     "provider",
-    "nppez",
-    "arkrvu",
-    "arktax",
-    "arknpi",
-    "codex"
+    "providertwo",
+    "nppez"
   )
 
   pak::pkg_install(
@@ -53,16 +55,16 @@ initialize_package <- \(pkgname) {
   github <- "https://github.com/andrewallenbruce/"
 
   usethis::create_package(
-    path = glue::glue("{local}{pkgname}"),
+    path   = glue::glue("{local}{pkgname}"),
     fields = list(
-      Package = glue::glue("{pkgname}"),
+      Package     = glue::glue("{pkgname}"),
       "Authors@R" = utils::person(
-        given = c("Andrew", "Allen"),
-        family = "Bruce",
-        email = "andrewallenbruce@gmail.com",
-        role = c("aut", "cre", "cph")),
+        given     = c("Andrew", "Allen"),
+        family    = "Bruce",
+        email     = "andrewallenbruce@gmail.com",
+        role      = c("aut", "cre", "cph")),
       Maintainer = "Andrew Allen Bruce <andrewallenbruce@gmail.com>",
-      URL = glue::glue("{github}{pkgname}"),
+      URL        = glue::glue("{github}{pkgname}"),
       BugReports = glue::glue("{github}{pkgname}/issues"))
   )
 }
@@ -95,6 +97,7 @@ git_commit <- \(msg) {
 
   gert::git_add(files_to_stage)
   gert::git_commit_all(message = msg)
-  gert::git_push()
+  fledge::bump_version()
+  # gert::git_push()
 
 }
