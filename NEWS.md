@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# fuimus 0.0.5.9009
+
+* added replace_fixed() to standalone-helpers
+* updated personal package names
+* added call to fledge in git_commit()
+
+
 # fuimus 0.0.5.9008
 
 * updated standalone-helpers
