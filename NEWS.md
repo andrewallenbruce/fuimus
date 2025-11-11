@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# fuimus 0.0.6
+
+* bumped dependencies, including R (4.3.0)
+* added `ccn` to `update_personal_packages()`
+
+
 # fuimus 0.0.5.9009
 
 * added replace_fixed() to standalone-helpers
