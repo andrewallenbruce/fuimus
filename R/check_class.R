@@ -65,31 +65,29 @@ check_class <- function(...,
 
 }
 
-#' @noRd
-print_tree <- function(x) {
+# print_tree <- function(x) {
+#
+#   nm <- rlang::englue("{{ x }}")
+#
+#   writeLines(sprintf("█─ %s <%s>", nm, pillar::type_sum(x)))
+#
+#   print_tree_impl(x, 0)
+# }
 
-  nm <- rlang::englue("{{ x }}")
-
-  writeLines(sprintf("█─ %s <%s>", nm, pillar::type_sum(x)))
-
-  print_tree_impl(x, 0)
-}
-
-#' @noRd
-print_tree_impl <- function(x, n_indent) {
-
-  indent <- strrep(" ", n_indent)
-
-  for (nm in names(x)) {
-
-    if (is.list(x[[nm]])) { # || is.data.frame(x[[nm]])
-
-      writeLines(sprintf("%s├─█─ %s <%s>", indent, nm, pillar::type_sum(x[[nm]])))
-
-      print_tree_impl(x[[nm]], n_indent = n_indent + 2)
-
-      next
-    }
-    writeLines(sprintf("%s├─── %s <%s>", indent, nm, pillar::type_sum(x[[nm]])))
-  }
-}
+# print_tree_impl <- function(x, n_indent) {
+#
+#   indent <- strrep(" ", n_indent)
+#
+#   for (nm in names(x)) {
+#
+#     if (is.list(x[[nm]])) { # || is.data.frame(x[[nm]])
+#
+#       writeLines(sprintf("%s├─█─ %s <%s>", indent, nm, pillar::type_sum(x[[nm]])))
+#
+#       print_tree_impl(x[[nm]], n_indent = n_indent + 2)
+#
+#       next
+#     }
+#     writeLines(sprintf("%s├─── %s <%s>", indent, nm, pillar::type_sum(x[[nm]])))
+#   }
+# }

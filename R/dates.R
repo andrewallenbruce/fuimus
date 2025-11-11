@@ -164,7 +164,7 @@ count_days <- function(df,
 expand_date_range <- function(x, name) {
 
   collapse::funique(collapse::na_rm(x)) |>
-    timeplyr::time_completev(time_by = "days") |>
+    timeplyr::time_complete(time_by = "days") |>
     timeplyr::calendar(name = name) |>
     collapse::get_vars("^[^iso|epi]", regex = TRUE)
 

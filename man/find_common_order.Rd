@@ -21,7 +21,7 @@ call \code{unique()} to remove any duplicates.}
 Determine a common ordering from a set of vectors
 }
 \examples{
-\dontshow{if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (FALSE) withAutoprint(\{ # examplesIf}
 
 find_common_order(
   c(1, 3, 4, 7, 8),

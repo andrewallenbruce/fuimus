@@ -12,6 +12,7 @@ update_personal_packages <- function() {
     "arkrvu",
     "arktax",
     "careroll",
+    "ccn",
     "codex",
     "codexchain",
     "costoffice",

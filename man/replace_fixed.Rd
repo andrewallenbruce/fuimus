@@ -23,7 +23,7 @@ every string be replaced by a corresponding replacement string?}
 Replace All Fixed Strings
 }
 \examples{
-\dontshow{if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (FALSE) withAutoprint(\{ # examplesIf}
 replace_fixed(
   x,
   c(":", "\%", "@", "$"),

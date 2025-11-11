@@ -16,7 +16,7 @@ nothing
 Commit and push changes with gert
 }
 \examples{
-\dontshow{if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (FALSE) withAutoprint(\{ # examplesIf}
 git_commit("* bump dev version")
 \dontshow{\}) # examplesIf}
 }
